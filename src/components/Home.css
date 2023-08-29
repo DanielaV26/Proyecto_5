@@ -1,0 +1,43 @@
+.container{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
+  margin-top: 30px;
+    height: 100%;
+    width: 100%;
+}
+
+
+.dibujoVela{
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinea horizontalmente al centro */
+    justify-content: center; /* Alinea verticalmente al centro */
+    background-color: #060606;
+}
+.velaDibujo{
+    width:130px;
+    
+}
+.Home {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinea horizontalmente al centro */
+    justify-content: center; /* Alinea verticalmente al centro */
+    height: 20vh; /* Ocupa el 100% del viewport height */
+    background-color: #080808; /* Cambia el color de fondo si es necesario */
+  }
+  
+  .titulo {
+    font-size: 2.5rem;
+    color: white;
+  }
+  
+  .parrafo {
+    font-size: 1.5rem;
+    margin-top: 10px; /* Agrega un poco de espacio entre el título y el párrafo */
+    color:white;
+    font-style: oblique;
+  }
+

@@ -1,0 +1,31 @@
+.divFooter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-top: 20px;
+
+}
+
+.containerFooter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.containerFooter h2 {
+    color: rgb(234, 228, 233);
+    font-style: oblique;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+.imgFooter {
+    width: 500px;
+    height: auto;
+
+}
