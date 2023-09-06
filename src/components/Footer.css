@@ -29,3 +29,28 @@
     height: auto;
 
 }
+
+.footer-table-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .footer-table {
+    width: 50%;
+    border-collapse: collapse;
+  }
+  
+  .footer-table th,
+  .footer-table td {
+    padding: 4px; /* Reduce el espacio de relleno aún más */
+    text-align: center;
+  }
+
+  th{
+    color: rgb(230, 166, 243);
+  }
+
+  td{
+    color: aliceblue;
+  }
+  

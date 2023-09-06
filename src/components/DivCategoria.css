@@ -23,13 +23,15 @@ position:relative;
 }
 
 .productos h4{
-    color: rgb(8, 3, 0);
+    color:rgb(8, 8, 8);
+    font-weight: 700;
+    font-style: oblique;
     z-index: 50;
     position: absolute;
     top: 50%;
     left: 50%;
     translate: -50% -50%;
     font-size: 50px;
-    background-color: rgba(249, 246, 246, 0.644);
+    background-color: rgba(249, 246, 246, 0.654);
 
 }

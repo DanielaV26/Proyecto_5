@@ -37,7 +37,19 @@
   .parrafo {
     font-size: 1.5rem;
     margin-top: 10px; /* Agrega un poco de espacio entre el título y el párrafo */
-    color:white;
+    color:#c19ee9;
     font-style: oblique;
   }
+
+  .itemFooter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+th{
+  gap: px;
+}
+
+
 

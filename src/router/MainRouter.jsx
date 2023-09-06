@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom"
 
 import { ProtectedRoutes } from "./ProtectedRoutes"
 import { useState } from "react"
+import { Home } from "../components/Home"
 
 
 
@@ -12,7 +13,8 @@ export const MainRouter = () => {
         <>
             <Routes>
                 {/* EJEMPLO DE COMO VAN ESCRITAS LAS RUTAS */}
-                {/* <Route path="/nosotros" element={<Home/>}/> */}
+                <Route path="/" element={<Home/>}/>
+
 
                 {/* ruta protegida */}
                 <Route element={<ProtectedRoutes isAllowed={user} />}>
