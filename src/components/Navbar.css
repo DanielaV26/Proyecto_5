@@ -1,0 +1,25 @@
+.containerNav{
+width: 100%;
+
+}
+.contenedorLogo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.logoImg{
+   width: 800px;
+
+}
+
+.iconoImg{
+    width: 40px;
+}
+
+.iconos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
