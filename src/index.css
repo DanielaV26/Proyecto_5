@@ -1,21 +1,3 @@
-*{
-    font-family: 'Amatic SC', cursive;
-font-family: 'Edu NSW ACT Foundation', cursive;
-font-family: 'Fasthand', cursive;
-font-family: 'Heebo', sans-serif;
-font-family: 'Oswald', sans-serif;
-font-family: 'Raleway', sans-serif !important; 
-}
-html{
-    width: 100%;
-    
-}
-body{
-    width: 100% !important; 
-    background-color: black;
-    /* background-image: url(/assets/imges/Body.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center; */
-    padding: 5px;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

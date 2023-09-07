@@ -1,6 +1,7 @@
-import { Carrusel } from "./Carrusel"
+
 import { DivCategoria } from "./DivCategoria"
-import "./Home.css"
+import { CarruselFlow } from "./CarruselFlow"
+
 
 const categorias =[
   {
@@ -37,9 +38,9 @@ export const Home = () => {
     </div>
 <div className="Home">
     <h1 className="titulo">Velas literarias</h1>
-    <p className="parrafo">"Haciendo luz, iluminando tus ideas"</p>
+    <p className="parrafo">Haciendo luz, iluminando tus ideas</p>
     </div>
-    <Carrusel/>
+    <CarruselFlow/>
     
     <div className="container">
 

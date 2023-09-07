@@ -1,4 +1,4 @@
-import './Carrusel.css'; // Importa los estilos CSS para el carrusel
+
 
 export const Carrusel = () => {
   return (
@@ -66,4 +66,6 @@ export const Carrusel = () => {
     </div>
   );
 };
+
+
 

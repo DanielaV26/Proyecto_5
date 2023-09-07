@@ -1,4 +1,4 @@
-import "./DivCategoria.css"
+
 
 export const DivCategoria = ({categoria, imagen}) => {
   return (
