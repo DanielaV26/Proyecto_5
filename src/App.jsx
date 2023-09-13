@@ -6,7 +6,9 @@ const App = () => {
   return (
     <>
       <Navbar/>
+      <div className='p-48'>
       <MainRouter />
+      </div>
       
       <Footer />
     </>
