@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import axios from "axios"
 
-export const ProductoPage = (props) => {
+export const ProductoPage = () => {
     const param = useParams()
     const id = param.id
     const [producto, setProducto] = useState({})
@@ -52,20 +52,20 @@ export const ProductoPage = (props) => {
     {/* <!-- Image gallery --> */}
     <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
       <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
-        <img src={producto.imagenes.principal} alt={producto.nombre} className="h-full w-full object-cover object-center"/>
+        <img src={producto?.imagenes?.principal} alt={producto?.nombre} className="h-full w-full object-cover object-center"/>
       </div>
     </div>
 
     {/* <!-- Product info --> */}
     <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
       <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-        <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{producto.nombre}</h1>
+        <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{producto?.nombre}</h1>
       </div>
 
       {/* <!-- Options --> */}
       <div className="mt-4 lg:row-span-3 lg:mt-0">
         <h2 className="sr-only">Product information</h2>
-        <p className="text-3xl tracking-tight text-gray-900">${producto.valor}</p>
+        <p className="text-3xl tracking-tight text-gray-900">${producto?.valor}</p>
 
         {/* <!-- Reviews --> */}
         <div className="mt-6">
@@ -108,7 +108,7 @@ export const ProductoPage = (props) => {
           <h3 className="sr-only">Description</h3>
 
           <div className="space-y-6">
-            <p className="text-base text-gray-900">{producto.descripcion}</p>
+            <p className="text-base text-gray-900">{producto?.descripcion}</p>
           </div>
         </div>
 
