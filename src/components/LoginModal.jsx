@@ -16,45 +16,54 @@ export  function LoginModal({isOpen, onOpenChange}) {
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">Log in</ModalHeader>
+              <ModalHeader className="flex flex-col gap-1">Iniciar sesión</ModalHeader>
               <ModalBody>
                 <Input
-                  autoFocus
                   endContent={
                     <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
                   }
                   label="Email"
-                  placeholder="Enter your email"
+                  placeholder="Ingresa tu email"
                   variant="bordered"
+                  style={{
+                    outline: 'none',
+                    border: 'none'
+                  }}
                 />
                 <Input
                   endContent={
                     <LockIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
                   }
-                  label="Password"
-                  placeholder="Enter your password"
+                  label="Contraseña"
+                  placeholder="Ingresa tu contraseña"
                   type="password"
                   variant="bordered"
+                  className="outline-none focus:border-none focus:outline-none"
+                  style={{
+                    outline: 'none',
+                    border: 'none'
+                  }}
                 />
                 <div className="flex py-2 px-1 justify-between">
                   <Checkbox
                     classNames={{
-                      label: "text-small",
+                      label: "text-small" ,
+                      checkbox:"bg-purple-600"
                     }}
                   >
-                    Remember me
+                    Recuérdame
                   </Checkbox>
-                  <Link color="primary" href="#" size="sm">
-                    Forgot password?
+                  <Link color="secondary" href="#" size="sm">
+                    ¿Olvidaste tu contraseña?
                   </Link>
                 </div>
               </ModalBody>
               <ModalFooter>
-                <Button color="danger" variant="flat" onPress={onClose}>
-                  Close
+                <Button className="" variant="flat" onPress={onClose}>
+                  Cerrar
                 </Button>
-                <Button color="primary" onPress={onClose}>
-                  Sign in
+                <Button className="text-white font-bold bg-purple-600" onPress={onClose}>
+                  Iniciar sesión
                 </Button>
               </ModalFooter>
             </>
