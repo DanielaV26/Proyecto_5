@@ -5,6 +5,7 @@ import { useState } from "react"
 import { Home } from "../components/Home"
 import { Nosotros } from "../Pages/Nosotros"
 import { Productos } from "../Pages/Productos"
+import { ProductoPage } from "../Pages/ProductoPage"
 
 
 
@@ -18,6 +19,7 @@ export const MainRouter = () => {
                 <Route path="/" element={<Home/>}/>
                 <Route path="/nosotros" element={<Nosotros/>}/>
                 <Route path="/productos" element={<Productos/>}/>
+                <Route path="/producto/:id" element={<ProductoPage/>}/>
                 
 
 

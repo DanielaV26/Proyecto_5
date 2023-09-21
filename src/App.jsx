@@ -6,7 +6,7 @@ const App = () => {
   return (
     <>
       <Navbar/>
-      <div className='p-48'>
+      <div className='md:p-48'>
       <MainRouter />
       </div>
       

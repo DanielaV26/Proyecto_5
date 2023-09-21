@@ -5,7 +5,7 @@ import { ProductCard } from "./ProductCard"
 
 export const Filtrocategorias = () => {
 const [filtro, setFiltro] = useState("")
-//Use statepara los productos filtrados por categoria
+//Usestate para los productos filtrados por categoria
 const [filteredProducts, setfilteredProducts] = useState([])
 
 const onFilterChange = (filtroEvento) =>{
@@ -15,8 +15,13 @@ setFiltro(filtroEvento)
 
 const getProductsByCategory = async () => {
 
-  const url = `https://brightbooks.onrender.com/products/category/${filtro}`
-  const {data} = await axios.get(url)
+  const url = `https://proyecto5-backend-e5u3-dev.fl0.io/products/category/${filtro}`
+  const {data} = await axios.get(url, {
+    
+headers:{
+  "Access-Control-Allow-Origin": "*"
+}
+  })
   console.log(data)
   //El arreglo de productos que llega desde la base de datos se lo pasamos al use State
   setfilteredProducts (data.producto)
@@ -86,7 +91,7 @@ return
   filteredProducts.map((producto) => (
 
     // Este es el componente  que creamos (tarjeta producto) le pasamos las props que vienen desde la base de datos.
-    <ProductCard key={producto._id} precio={producto.valor} imagen={producto.imagenes.principal} titulo={producto.nombre}/>
+    <ProductCard key={producto._id} precio={producto.valor} imagen={producto.imagenes.principal} titulo={producto.nombre} id={producto._id}/>
   ))
  }
 </div>
