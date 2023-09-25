@@ -11,6 +11,11 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily:{
+      'gorditas': ['Gorditas', 'sans-serif'],
+      'sevillana': ['Sevillana', 'sans-serif'],
+      
+    }
   },
   darkMode: "class",
   plugins: [nextui(), flowbite]

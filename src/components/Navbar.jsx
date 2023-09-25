@@ -12,7 +12,7 @@ export const Navbar = () => {
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link to="https://flowbite.com/" className="flex items-center">
             <img src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1694101705/candle_kawkae.png" className="h-8 mr-3" alt="Flowbite Logo" />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">BrightBooks</span>
+            <span className="font-sevillana self-center text-2xl font-semibold whitespace-nowrap dark:text-white">BrightBooks</span>
           </Link>
           <div className="flex md:order-2 items-center justify-center gap-5">
             <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search" aria-expanded="false" className="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-1" >

@@ -11,7 +11,7 @@ export const ProductCard = ({ titulo, precio, imagen, id }) => {
           <Card as={Link} isFooterBlurred to={`/producto/${id}`} className="w-full h-[300px] md:w-3/12 ">
     <CardHeader 
     className="absolute z-10 top-0 flex-col items-start bg-gradient-to-b from-slate-900 to-transparent">
-      <p className="text-white/90 uppercase font-bold ">{titulo}</p>
+      <p className="text-white/90 uppercasefont-bold">{titulo}</p>
     
     </CardHeader>
     <Image
