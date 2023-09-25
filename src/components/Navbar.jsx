@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { UserSvg } from "./UserSvg"
 import { LoginModal } from "./LoginModal"
 import { useDisclosure } from "@nextui-org/react"
+import { CarritoBadge } from "./CarritoBadge"
 
 export const Navbar = () => {
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
@@ -37,7 +38,9 @@ export const Navbar = () => {
             </button>
             <button>
             <UserSvg  onClick={onOpen}/></button>
+            <CarritoBadge/>
             <LoginModal isOpen={isOpen} onOpenChange={onOpenChange}/>
+
           </div>
           <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-search">
             <div className="relative mt-3 md:hidden">

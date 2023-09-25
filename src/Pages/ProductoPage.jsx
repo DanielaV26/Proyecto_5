@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import axios from "axios"
+import { ProductGallery } from "../components/ProductGallery"
 
 export const ProductoPage = () => {
   const param = useParams()
@@ -21,6 +22,11 @@ export const ProductoPage = () => {
     getProducto()
 
   }, [])
+
+  const saltoDeLinea = (texto) => {
+const  nuevoTexto = texto?.replace ('\n', '<br/>')
+return nuevoTexto
+  }
 
   return (
     <>
@@ -109,7 +115,7 @@ export const ProductoPage = () => {
                 <h3 className="sr-only">Description</h3>
 
                 <div className="space-y-6">
-                  <p className=" text-gray-900 text-xl">{producto?.descripcion}</p>
+                  <p className=" text-gray-900 text-xl whitespace-pre-wrap">{(producto?.descripcion)}</p>
                 </div>
               </div>
 
@@ -120,7 +126,7 @@ export const ProductoPage = () => {
           </div>
         </div>
       </div>
-
+<ProductGallery/>
     </>
 
   )
