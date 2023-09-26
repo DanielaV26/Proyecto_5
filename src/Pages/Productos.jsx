@@ -1,5 +1,7 @@
+import { Filtrocategorias } from "../components/Filtrocategorias"
+
 export const Productos = () => {
   return (
-    <div>Productos</div>
+    <Filtrocategorias/>
   )
 }

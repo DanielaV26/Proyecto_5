@@ -66,7 +66,7 @@ event.preventDefault()
   ```
 --> */}
       <div className="w-full">
-        <div className="pt-6 w-full flex flex-col lg:flex-row">
+        <div className="pt- w-full flex flex-col lg:flex-row">
 
 
           {/* <!-- Image gallery --> */}

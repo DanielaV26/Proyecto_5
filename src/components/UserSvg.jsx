@@ -1,18 +1,6 @@
 export const UserSvg = (props) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24" className="w-10 h-10"
-    {...props}
-  >
-    <g stroke="#865a96" strokeWidth={1.5}>
-      <circle cx={12} cy={9} r={3} />
-      <circle cx={12} cy={12} r={10} />
-      <path
-        strokeLinecap="round"
-        d="M17.97 20c-.16-2.892-1.045-5-5.97-5s-5.81 2.108-5.97 5"
-      />
-    </g>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="w-7 h-7" {...props}>
+    <title>{"user"}</title>
+    <path d="M4 28q0 .832.576 1.44t1.44.576h20q.8 0 1.408-.576T28 28q0-1.44-.672-2.912t-1.76-2.624-2.496-2.144-2.88-1.504q1.76-1.088 2.784-2.912T24 12v-1.984q0-3.328-2.336-5.664T16 2.016t-5.664 2.336T8 10.016V12q0 2.112 1.024 3.904t2.784 2.912q-1.504.544-2.88 1.504t-2.496 2.144-1.76 2.624T4 28z" />
   </svg>
 )
-

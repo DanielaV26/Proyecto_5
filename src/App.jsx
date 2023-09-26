@@ -8,7 +8,7 @@ const App = () => {
     <>
       <Navbar/>
       <Header/>
-      <div className='md:p-48'>
+      <div className='md:p-24'>
       <MainRouter />
       </div>
       

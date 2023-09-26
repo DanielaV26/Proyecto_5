@@ -29,7 +29,8 @@ export default {
     fontFamily:{
       'gorditas': ['Gorditas', 'sans-serif'],
       'sevillana': ['Sevillana', 'sans-serif'],
-      
+      'biorhyme': ['BioRhyme', 'sans-serif'],
+      'lilitaone': ['Lilita One', 'sans-serif'],
     }
   },
   darkMode: "class",
