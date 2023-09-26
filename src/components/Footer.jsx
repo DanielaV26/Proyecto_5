@@ -40,7 +40,7 @@ export const Footer = () => {
                                 <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Contacto</h2>
                                 <ul className="text-gray-500 dark:text-gray-400 font-medium">
                                     <li className="mb-4">
-                                        <a href="#" className="hover:underline">+56965678219</a>
+                                        <a href="#" className="hover:underline">+569 6567 8219</a>
                                     </li>
                                     <li>
                                         <a href="#" className="hover:underline">contacto@brightbooks.cl</a>
@@ -51,7 +51,7 @@ export const Footer = () => {
                     </div>
                     <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
                     <div className="sm:flex sm:items-center sm:justify-between">
-                        <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" className="hover:underline">Flowbite™</a>. All Rights Reserved.
+                        <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" className="hover:underline">Brightbooks™</a>. Todos los derechos reservados.
                         </span>
                         <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
                             <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">

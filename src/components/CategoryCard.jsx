@@ -4,10 +4,7 @@ import { Button } from "flowbite-react"
 export const CategoryCard = ({urlImage, categoryName}) => {
   return (
     <Card isFooterBlurred className="w-full h-[300px] md:w-3/12">
-    <CardHeader className="absolute z-10 top-1 flex-col items-start">
-      <p className="text-tiny text-white/60 uppercase font-bold">Your day your way</p>
-      <h4 className="text-white/90 font-medium text-xl">Your checklist for better sleep</h4>
-    </CardHeader>
+    
     <Image
       removeWrapper
       alt={categoryName}
@@ -18,7 +15,7 @@ export const CategoryCard = ({urlImage, categoryName}) => {
       <div className="flex flex-grow gap-2 items-center">
         
         <div className="flex flex-col">
-          <p className="text-tiny text-white/60">{categoryName}</p>
+          <p className="text-lg text-white/80">{categoryName}</p>
           
         </div>
       </div>
