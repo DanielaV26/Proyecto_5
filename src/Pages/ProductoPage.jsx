@@ -2,6 +2,9 @@ import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import axios from "axios"
 import { ProductGallery } from "../components/ProductGallery"
+import {useContext} from 'react'
+import { CartContext } from "../context/cart/cartContext"
+
 
 export const ProductoPage = () => {
   const param = useParams()
@@ -23,10 +26,21 @@ export const ProductoPage = () => {
 
   }, [])
 
-  const saltoDeLinea = (texto) => {
-const  nuevoTexto = texto?.replace ('\n', '<br/>')
-return nuevoTexto
+  const [state,dispatch] = useContext(CartContext)
+  const addCart = (event) =>{
+event.preventDefault()
+    dispatch({
+      type: 'ADD',
+      payload: producto
+    })
+   
   }
+  useEffect(() => {
+    localStorage.setItem('carrito' , JSON.stringify(state.cartItems))
+  
+  }, [state])
+  
+
 
   return (
     <>
@@ -104,7 +118,7 @@ return nuevoTexto
 
 
 
-                <button type="submit" className="flex w-full items-center justify-center rounded-md border border-indigo-700  px-8 py-3 text-base font-medium text-indigo-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Agregar al carrito</button>
+                <button onClick={addCart}  className="flex w-full items-center justify-center rounded-md border border-indigo-700  px-8 py-3 text-base font-medium text-indigo-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Agregar al carrito</button>
                 <button type="submit" className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Comprar ahora</button>
               </form>
             </div>
@@ -127,6 +141,7 @@ return nuevoTexto
         </div>
       </div>
 <ProductGallery/>
+
     </>
 
   )
