@@ -3,7 +3,7 @@ export const ProductGallery = () => {
   return (
     <>
 
-   <h2 className="text-4xl">Productos recomendados</h2>
+   <h2 className="font-lilitaone text-4xl">Productos que te podrían interesar</h2>
     
 <div className="grid grid-cols-2 relative whitespace-nowrap overflow-hidden h-52 grid-rows-2 gap-80">
     <div className="grid grid-cols-5 gap-56 animate-marquee row-span-2 ">

@@ -15,11 +15,11 @@ export const CategoryCard = ({urlImage, categoryName}) => {
       <div className="flex flex-grow gap-2 items-center">
         
         <div className="flex flex-col">
-          <p className="text-lg text-white/80">{categoryName}</p>
+          <p className="font-biorhyme font-semibold capitalize text-lg text-white/80">{categoryName}</p>
           
         </div>
       </div>
-      <Button className="bg-violet-400"  radius="full" size="sm">Get App</Button>
+      <Button className="bg-violet-400"  radius="full" size="sm">Ver más</Button>
     </CardFooter>
   </Card>
   )
