@@ -7,6 +7,7 @@ import { CartContext } from "../context/cart/cartContext"
 export const CarritoBadge = () => {
 const [state, dispatch] = useContext(CartContext)
 const cantidadDeProductos = state.cartItems.length
+console.log(cantidadDeProductos)
 
   return (
     <>

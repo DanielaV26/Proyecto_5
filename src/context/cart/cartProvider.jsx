@@ -9,6 +9,11 @@ const initialState = {
 
 const initializeCart = () => {
     const carritoLS = localStorage.getItem("carrito")
+    if (!carritoLS) {
+        return {
+            cartItems:[]
+        }
+    }
     const cartItems = JSON.parse(carritoLS)
     return {cartItems}
 }
