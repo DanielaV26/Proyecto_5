@@ -64,7 +64,7 @@ export const CartModal = () => {
 
 {
     state.cartItems.map((item, index)=>(
-<CartItem imagen={item.imagenes.principal} nombre={item.nombre} valor={item.valor} categoria={item.categoria} key={index}/>
+<CartItem imagen={item.imagenes.principal} nombre={item.nombre} valor={item.valor} categoria={item.categoria} id={item._id} key={index}/>
     ))
 }
 

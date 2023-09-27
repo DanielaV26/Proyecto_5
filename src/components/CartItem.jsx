@@ -1,5 +1,14 @@
+import { useContext } from "react"
+import { CartContext } from "../context/cart/cartContext"
+
 /* eslint-disable react/prop-types */
-export const CartItem= ({imagen, valor, nombre,  categoria, id} => {
+export const CartItem= ({imagen, valor, nombre,  categoria, id}) => {
+    const [state, dispatch] = useContext(CartContext)
+    const remove =() =>{
+        dispatch({type:'REMOVE', payload: id})
+        console.log('eliminar producto')
+        console.log(id)
+    }
     return (
         <li className="flex py-6">
             <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
@@ -20,7 +29,7 @@ export const CartItem= ({imagen, valor, nombre,  categoria, id} => {
                     <p className="text-gray-500">Cantidad 1</p>
 
                     <div className="flex">
-                        <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500">Eliminar</button>
+                        <button onClick={remove} type="button" className="font-medium text-indigo-600 hover:text-indigo-500"> Eliminar </button>
                     </div>
                 </div>
             </div>
