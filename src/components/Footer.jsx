@@ -9,41 +9,41 @@ export const Footer = () => {
                     <div className="md:flex md:justify-between">
                         <div className="mb-6 md:mb-0">
                             <a href="https://flowbite.com/" className="flex items-center">
-                                <img src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1694101705/candle_kawkae.png" className="h-8 mr-3" alt="FlowBite Logo" />
-                                <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">BrightBooks</span>
+                                <img  src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1695736550/Captura_de_pantalla_2023-09-26_105427_-_copia_bm8mli.png" className="h-20 mr-3" alt="FlowBite Logo" />
+                                <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
                             </a>
                         </div>
                         <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                             <div>
-                                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Nosotros</h2>
+                                <h2 className="mb-6 text-xl font-semibold text-gray-900  uppercase dark:text-white">Nosotros</h2>
                                 <ul className="text-gray-500 dark:text-gray-400 font-medium">
                                     <li className="mb-4">
-                                        <a href="https://flowbite.com/" className="hover:underline">Nuestra historia</a>
+                                        <a href="https://flowbite.com/" className="hover:text-violet-500">Nuestra historia</a>
                                     </li>
                                     <li>
-                                        <a href="https://tailwindcss.com/" className="hover:underline">Tailwind CSS</a>
+                                        <a href="https://tailwindcss.com/" className="hover:text-violet-500">Tailwind CSS</a>
                                     </li>
                                 </ul>
                             </div>
                             <div>
-                                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
+                                <h2 className="mb-6 text-xl font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
                                 <ul className="text-gray-500 dark:text-gray-400 font-medium">
                                     <li className="mb-4">
-                                        <a href="https://github.com/themesberg/flowbite" className="hover:underline ">Terminos y condiciones</a>
+                                        <a href="https://github.com/themesberg/flowbite" className="hover:text-violet-500 ">Terminos y condiciones</a>
                                     </li>
                                     <li>
-                                        <a href="https://discord.gg/4eeurUVvTy" className="hover:underline">Politicas de privacidad</a>
+                                        <a href="https://discord.gg/4eeurUVvTy" className="hover:text-violet-500">Politicas de privacidad</a>
                                     </li>
                                 </ul>
                             </div>
                             <div>
-                                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Contacto</h2>
+                                <h2 className="mb-6 text-xl font-semibold text-gray-900 uppercase dark:text-white">Contacto</h2>
                                 <ul className="text-gray-500 dark:text-gray-400 font-medium">
                                     <li className="mb-4">
-                                        <a href="#" className="hover:underline">+569 6567 8219</a>
+                                        <a href="#" className="hover:text-violet-500">+569 6567 8219</a>
                                     </li>
                                     <li>
-                                        <a href="#" className="hover:underline">contacto@brightbooks.cl</a>
+                                        <a href="#" className="hover:text-violet-500">contacto@brightbooks.cl</a>
                                     </li>
                                 </ul>
                             </div>
