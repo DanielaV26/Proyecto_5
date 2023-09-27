@@ -4,18 +4,21 @@ import { CartContext } from "./cartContext"
 import cartReducer from "./cartReducer"
 
 const initialState = {
-    cartItems: []
+    cartItems: [],
+    openCart: true
+
 }
 
 const initializeCart = () => {
     const carritoLS = localStorage.getItem("carrito")
     if (!carritoLS) {
         return {
-            cartItems:[]
+            cartItems:[],
+            openCart:false
         }
     }
     const cartItems = JSON.parse(carritoLS)
-    return {cartItems}
+    return {cartItems, openCart:false}
 }
 
 export const CartProvider = ({children}) => {
