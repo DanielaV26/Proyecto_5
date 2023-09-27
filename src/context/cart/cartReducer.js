@@ -18,6 +18,18 @@ const cartReducer = (state, action) => {
                 ...state,
                 cartItems: []
             }
+        case 'OPEN':   
+            return {
+                ...state,
+                openCart: true
+            }
+        case 'CLOSE':   
+            return {
+                ...state,
+                openCart: false
+            }
+
+
 
         default:
             return state
