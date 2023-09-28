@@ -31,6 +31,8 @@ export default {
       'sevillana': ['Sevillana', 'sans-serif'],
       'biorhyme': ['BioRhyme', 'sans-serif'],
       'lilitaone': ['Lilita One', 'sans-serif'],
+      'montserrat': ['Montserrat', 'sans-serif'],
+      
     }
   },
   darkMode: "class",

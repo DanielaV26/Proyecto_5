@@ -69,13 +69,19 @@ return
   return (
       <>
       <div id="productosId"  className="flex items-center justify-center py-4 md:py-8 flex-wrap">
-    <button type="button" onClick={() =>onFilterChange('')} className="text-violet-700 hover:text-white border border-violet-600 bg-white hover:bg-violet-700 focus:ring-4 focus:outline-none focus:ring-violet-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:border-violet-500 dark:text-violet-500 dark:hover:text-white dark:hover:bg-violet-500 dark:bg-gray-900 dark:focus:ring-violet-800">Categorías</button>
-    <button type="button" onClick={() =>onFilterChange("Velas")}  className="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">Velas</button>
-    <button type="button" onClick={() =>onFilterChange("Libros")}  className="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">Libros</button>
-    <button type="button" onClick={() =>onFilterChange("Marcadores")} className="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">Marcadores</button>
-    <button type="button" onClick={() =>onFilterChange("3d book")} className="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">3D Book</button>
-    <button type="button" onClick={() =>onFilterChange("Tazas")} className="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">Tazas</button>
-    <button type="button" onClick={() =>onFilterChange("Varios")} className="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">Varios</button>
+    <button type="button" onClick={() =>onFilterChange('')} className="text-violet-700 hover:text-white border border-violet-600 bg-white hover:bg-gradient-to-r from-violet-500 to-fuchsia-500 focus:ring-4 focus:outline-none focus:ring-violet-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:border-violet-500 dark:text-violet-500 dark:hover:text-white dark:hover:bg-violet-500 dark:bg-gray-900 dark:focus:ring-violet-800">Categorías</button>
+
+    <button type="button" onClick={() =>onFilterChange("Velas")}  className="text-gray-900 hover:text-neutral-50 border border-white hover:bg-gradient-to-r from-violet-500 to-fuchsia-500  dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">Velas</button>
+
+    <button type="button" onClick={() =>onFilterChange("Libros")}  className="text-gray-900 hover:text-neutral-50 border border-white hover:bg-gradient-to-r from-violet-500 to-fuchsia-500  dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">Libros</button>
+
+    <button type="button" onClick={() =>onFilterChange("Marcadores")} className="text-gray-900 hover:text-neutral-50 border border-white hover:bg-gradient-to-r from-violet-500 to-fuchsia-500  dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">Marcadores</button>
+
+    <button type="button" onClick={() =>onFilterChange("3d book")} className="text-gray-900 hover:text-neutral-50 border border-white hover:bg-gradient-to-r from-violet-500 to-fuchsia-500  dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">3D Book</button>
+
+    <button type="button" onClick={() =>onFilterChange("Tazas")} className="text-gray-900 hover:text-neutral-50 border border-white hover:bg-gradient-to-r from-violet-500 to-fuchsia-500  dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">Tazas</button>
+    
+    <button type="button" onClick={() =>onFilterChange("Varios")} className="text-gray-900 hover:text-neutral-50 border border-white hover:bg-gradient-to-r from-violet-500 to-fuchsia-500  dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">Varios</button>
 </div>
 <div  className="flex flex-wrap w-full gap-5 justify-center items-center ">
     { 
@@ -84,14 +90,14 @@ return
     (filtro === '') && //Condicional para que se muestren las categorias solo si el filtro esta vacio
     
     categorias.map((categoria, index) =>(
-<CategoryCard urlImage={categoria.urlImage} categoryName={categoria.categoryName} key={index}/> 
+<CategoryCard urlImage={categoria.urlImage} categoryName={categoria.categoryName} setFiltro={setFiltro} key={index}/> 
  ))}
  {
   (filtro !== '') && // condicional para que se muestren los productos solo si el filtro no esta vacio
   filteredProducts.map((producto) => (
 
     // Este es el componente  que creamos (tarjeta producto) le pasamos las props que vienen desde la base de datos.
-    <ProductCard key={producto._id} precio={producto.valor} imagen={producto.imagenes.principal} titulo={producto.nombre} id={producto._id}/>
+    <ProductCard key={producto._id} producto={producto}/>
   ))
  }
 </div>

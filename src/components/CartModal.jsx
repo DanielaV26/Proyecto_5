@@ -87,13 +87,13 @@ export const CartModal = () => {
                                         </div>
                                         <p className="mt-0.5 text-sm text-gray-500">Envío e impuestos calculados al finalizar la compra.</p>
                                         <div className="mt-6">
-                                            <a href="#" className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Ir a comprar</a>
+                                            <a href="#" className="flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-violet-500 to-fuchsia-500 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Continuar con mi compra</a>
                                         </div>
                                         <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                                             <p>
-                                                o
+                                                o {" "}
                                                 <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500">
-                                                    Seguir comprando
+                                                    Seguir mirando
                                                     <span aria-hidden="true"> &rarr;</span>
                                                 </button>
                                             </p>
