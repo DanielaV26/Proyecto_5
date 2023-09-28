@@ -11,6 +11,11 @@ export const CartModal = () => {
     const closeModal = () => {
         dispatch({ type: 'CLOSE' })
     }
+
+    const subtotal = state.cartItems.reduce ((acumulador, valorActual)=> {
+        return acumulador + (valorActual.valor*valorActual.cantidad)
+    },0)
+
     return (
         <>
             <div className="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
@@ -64,7 +69,7 @@ export const CartModal = () => {
 
 {
     state.cartItems.map((item, index)=>(
-<CartItem imagen={item.imagenes.principal} nombre={item.nombre} valor={item.valor} categoria={item.categoria} id={item._id} key={index}/>
+<CartItem imagen={item.imagenes.principal} nombre={item.nombre} valor={item.valor} categoria={item.categoria} id={item._id} qty={item.cantidad} key={index} />
     ))
 }
 
@@ -78,7 +83,7 @@ export const CartModal = () => {
                                     <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                                         <div className="flex justify-between text-base font-medium text-gray-900">
                                             <p>Subtotal</p>
-                                            <p>$262.00</p>
+                                            <p>${subtotal}</p>
                                         </div>
                                         <p className="mt-0.5 text-sm text-gray-500">Envío e impuestos calculados al finalizar la compra.</p>
                                         <div className="mt-6">
