@@ -7,31 +7,84 @@ import { CartContext } from "../context/cart/cartContext"
 
 
 export const ProductoPage = () => {
-  const param = useParams()
-  const id = param.id
+  const {id} = useParams() //destructuración de id. useParams lee los parámetros de la URL(todo lo que viene después del (/) )
   const [producto, setProducto] = useState({})
+  
   const getProducto = async () => {
     const url = `https://proyecto5-backend-e5u3-dev.fl0.io/products/product/${id}`
     const { data } = await axios.get(url, {
-
       headers: {
         "Access-Control-Allow-Origin": "*"
       }
     })
     setProducto(data.producto)
   }
+
+//se utiliza para ejecutar el código dentro del él según las dependencias.
   useEffect(() => {
-
     getProducto()
+  }, []) /* ([]) es el arreglo de dependencias del useEffect */
 
-  }, [])
+const incrementar = () => {
+  const newQty = state.cartItems.map( (item) => { /* Estamos creando un nuevo arreglo con el metodo (map) */
+    if(item._id === producto._id){ /* Evaluamos si es que coninciden el item que estamos iterando con el producto de esta pagina */
+     item.cantidad = item.cantidad + 1  /* Si es que cinciden se le suma uno */
+     return item /* retornamos el item con la cantidad sumada */
+    } else { /* Si no coincide lo deja igual */
+      return item
+    }
+  })
+  dispatch({ /* Burrito */
+    type: 'ADD QTY', /* instrucción  de sumar 1*/
+    payload: newQty /* el paquete */
+  })
+}
+
+const decrementar = () => {
+  if (thisItem.cantidad <= 1){
+    dispatch({
+      type: 'REMOVE', /*instruccion de quitar un producto del carrito*/
+      payload: id
+    })
+    return
+  }
+    const newQty = state.cartItems.map( (item) => {
+      if(item._id === producto._id){
+       item.cantidad = item.cantidad - 1
+       return item
+      } else {
+        return item
+      }
+    })
+    dispatch({
+    type: 'SUBTRACT QTY',
+    payload: newQty
+    })
+}
+
+const buyNow = (event) => {
+  event.preventDefault()
+    if (thisItem.cantidad < 1 ){
+      dispatch({
+        type: 'ADD',
+        payload: {...producto, cantidad:1}
+      })
+    }
+   
+    dispatch({
+      type: 'OPEN',
+    })
+}
 
   const [state,dispatch] = useContext(CartContext)
+//  constante thisItem  toma el valor que tiene  el item que tiene esta pag dentro del carrito, esto lo hace con el metodo (find) que compara los id y nos retorna el item.
+  const thisItem = state.cartItems.find((item) => item._id === producto._id)
+  
   const addCart = (event) =>{
-event.preventDefault()
+    event.preventDefault()
     dispatch({
       type: 'ADD',
-      payload: producto
+      payload: {...producto, cantidad:1}
     })
    
   }
@@ -40,7 +93,8 @@ event.preventDefault()
   
   }, [state])
   
-
+// constante evalua con un metodo (some) de array si el producto esta o no en el carrito
+  const isInCart = state.cartItems.some((item) => item._id===producto._id)
 
   return (
     <>
@@ -114,14 +168,17 @@ event.preventDefault()
                 </div>
               </div>
 
-              <form className="mt-10 flex flex-col lg:flex-row gap-5">
+              
 
+              <div className="mt-10 flex flex-col lg:flex-row gap-5">
+{
+  (isInCart)
+  ?<div className="bg-slate-100 rounded-3xl mt-8 flex justify-between w-full sm:w-36 items-center"><button onClick={decrementar} className="bg-slate-100 hover:bg-indigo-600 hover:text-white hover:font-bold rounded-full p-1 w-12 text-2xl text-center align-middle pb-2">-</button><span className="p-2 font-bold">{thisItem.cantidad}</span><button onClick={incrementar} className="bg-slate-100 hover:bg-indigo-600 hover:text-white hover:font-bold  rounded-full p-1 w-12 text-2xl text-center align-middle pb-2">+</button></div>
+  :<button onClick={addCart }  className="flex w-full items-center justify-center rounded-md border border-indigo-700  px-8 py-3 text-base font-medium text-indigo-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Agregar al carrito</button>
+}
 
-
-                <button onClick={addCart}  className="flex w-full items-center justify-center rounded-md border border-indigo-700  px-8 py-3 text-base font-medium text-indigo-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Agregar al carrito</button>
-                <button type="submit" className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Comprar ahora</button>
-              </form>
-            </div>
+                <button onClick={buyNow} className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Comprar ahora</button>
+              </div> </div>
 
             <div className="py-10 lg:col-span-2 lg:col-start-1 lg:pb-16 lg:pr-8 lg:pt-6">
               {/* <!-- Description and details --> */}

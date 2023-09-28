@@ -7,6 +7,18 @@ const cartReducer = (state, action) => {
                 cartItems: [...state.cartItems, action.payload]
             }
 
+        case 'ADD QTY':
+            return {
+                ...state,
+                cartItems: action.payload
+            }
+
+        case 'SUBTRACT QTY':
+            return {
+                ...state,
+                cartItems: action.payload
+            }
+
         case 'REMOVE':
             return {
                 ...state,
