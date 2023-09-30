@@ -11,7 +11,7 @@ export const Navbar = () => {
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link to="/" className="flex items-center">
-            <img  src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1695736550/Captura_de_pantalla_2023-09-26_105427_eqm5as.png" className=" w-44 mr-3" alt="Brightbooks Logo" />
+            <img  src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1696003582/2_pnos13.png" className=" w-48 mr-3" alt="Brightbooks Logo" />
             <span className="font-sevillana self-center text-2xl whitespace-nowrap dark:text-white"></span>
           </Link>
           <div className="flex md:order-2 items-center justify-center gap-5">

@@ -16,7 +16,9 @@ export const CartModal = () => {
         return acumulador + (valorActual.valor*valorActual.cantidad)
     },0)
 
+
     return (
+        
         <>
             <div className="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
                 {/* <!--
