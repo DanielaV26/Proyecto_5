@@ -6,10 +6,13 @@ export const CartItem = ({ imagen, valor, nombre, categoria, id, qty }) => {
   const [state, dispatch] = useContext(CartContext);
   const remove = () => {
     dispatch({ type: "REMOVE", payload: id });
+    
     console.log("eliminar producto");
     console.log(id);
+
+
     
-  };
+  }
 
 
   const [cantidad, setCantidad] = useState(qty);
@@ -38,8 +41,10 @@ export const CartItem = ({ imagen, valor, nombre, categoria, id, qty }) => {
       dispatch({
         type: "REMOVE" /*instruccion de quitar un producto del carrito*/,
         payload: id,
+        
       });
       return;
+      
     }
     const newQty = state.cartItems.map((item) => {
       if (item._id === id) {
