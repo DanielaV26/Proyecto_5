@@ -8,7 +8,9 @@ export const CartItem = ({ imagen, valor, nombre, categoria, id, qty }) => {
     dispatch({ type: "REMOVE", payload: id });
     console.log("eliminar producto");
     console.log(id);
+    
   };
+
 
   const [cantidad, setCantidad] = useState(qty);
 
@@ -52,6 +54,8 @@ export const CartItem = ({ imagen, valor, nombre, categoria, id, qty }) => {
       payload: newQty,
     });
   }; 
+
+
 
 
 

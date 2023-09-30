@@ -5,14 +5,15 @@ import { CartItem } from "./CartItem"
 
 
 export const CartModal = () => {
-    const [state, dispatch] = useContext(CartContext)
-    console.log(state)
+    const [state, dispatch] = useContext(CartContext) /* Obtiene el estado del carrito y la función lanzadora (burrito)*/
+    console.log(state) /* imprime en consola el estado actual del carrito */
 
-    const closeModal = () => {
-        dispatch({ type: 'CLOSE' })
+    const closeModal = () => { /* Constante que usaremos para cerrar el modal */
+        dispatch({ type: 'CLOSE' }) /*  Envía la acción de tipo 'CLOSE' al contexto para cerrar el modal */
     }
 
-    const subtotal = state.cartItems.reduce ((acumulador, valorActual)=> {
+// cartItem que es el que contiene los productos del carrito es el arreglo sobre el que iteramos
+    const subtotal = state.cartItems.reduce ((acumulador, valorActual)=> { /* la funcion reduce toma dos argumentos (acumulador y valor actual) acuculador es la funcion que reduce y valor actual la que da el valor inical. En cada iteracion el acumulador  va tomando el valor que acumula */
         return acumulador + (valorActual.valor*valorActual.cantidad)
     },0)
 

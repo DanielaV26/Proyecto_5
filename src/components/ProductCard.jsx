@@ -3,6 +3,7 @@
 import { useContext } from "react"
 
 import { CartContext } from "../context/cart/cartContext"
+import { Link } from "react-router-dom"
 
 
 export const ProductCard = ({producto }) => {
@@ -94,6 +95,7 @@ export const ProductCard = ({producto }) => {
               ?<div className="bg-slate-100 rounded-3xl mt-8 flex justify-between w-full sm:w-36 items-center"><button onClick={decrementar} className="bg-slate-100 hover:bg-indigo-600 hover:text-white hover:font-bold rounded-full p-1 w-12 text-2xl text-center align-middle pb-2">-</button><span className="p-2 font-bold">{thisItem.cantidad}</span><button onClick={incrementar} className="bg-slate-100 hover:bg-indigo-600 hover:text-white hover:font-bold  rounded-full p-1 w-12 text-2xl text-center align-middle pb-2">+</button></div>
                : <button onClick={addCart} className="text-white bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Agregar</button>
                }
+               <Link to={`/producto/${producto._id}`}  className="text-white bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ver mas</Link>
                
             
         </div>
