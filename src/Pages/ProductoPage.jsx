@@ -4,6 +4,7 @@ import axios from "axios"
 import { ProductGallery } from "../components/ProductGallery"
 import {useContext} from 'react'
 import { CartContext } from "../context/cart/cartContext"
+import { CartSvg } from "../components/CartSvg"
 
 
 export const ProductoPage = () => {
@@ -179,9 +180,7 @@ const buyNow = (event) => {
 
                 <button onClick={buyNow} className="flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-violet-500 to-fuchsia-500 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                   
-                <svg className="w-4 h-4 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 21">
-    <path d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z"/>
-  </svg>Comprar ahora</button>
+                <CartSvg/> Comprar ahora</button>
               </div> </div>
 
             <div className="py-10 lg:col-span-2 lg:col-start-1 lg:pb-16 lg:pr-8 lg:pt-6">

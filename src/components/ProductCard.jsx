@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 
 import { CartContext } from "../context/cart/cartContext"
 import { Link } from "react-router-dom"
@@ -55,8 +55,12 @@ export const ProductCard = ({ producto }) => {
       type: 'ADD',
       payload: { ...producto, cantidad: 1 }
     })
-
+  
   }
+  useEffect(() => {
+    localStorage.setItem('carrito' , JSON.stringify(state.cartItems))
+  
+  }, [state])
 
   return (
     <>
