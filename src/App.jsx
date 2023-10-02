@@ -11,9 +11,9 @@ const App = () => {
   console.log(state)
   return (
     <>
-    <div >
-      <Navbar/>
+    <div className='text-montserrat'>
       <Header/>
+      <Navbar/>
       <div className='md:p-24'>
       <MainRouter />
       </div>

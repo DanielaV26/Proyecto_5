@@ -25,4 +25,4 @@ const cantidadDeProductos = state.cartItems.reduce ((acumulador, valorActual)=> 
           <CartIcon className="cursor-pointer" onClick={openModal} size={30} />
         </Badge></>
   )
-}
+} 

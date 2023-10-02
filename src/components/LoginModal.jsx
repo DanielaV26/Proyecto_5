@@ -46,9 +46,11 @@ export  function LoginModal({isOpen, onOpenChange}) {
                 />
                 <div className="flex py-2 px-1 justify-between">
                   <Checkbox
+                  color="secondary"
                     classNames={{
                       label: "text-small" ,
                       checkbox:"bg-purple-600"
+                      
                     }}
                   >
                     Recuérdame
@@ -62,10 +64,11 @@ export  function LoginModal({isOpen, onOpenChange}) {
                 <Button className="" variant="flat" onPress={onClose}>
                   Cerrar
                 </Button>
-                <Button className="text-white font-bold bg-purple-600" onPress={onClose}>
+                <Button className="text-white font-bold bg-gradient-to-r from-violet-500 to-fuchsia-500" onPress={onClose}>
                   Iniciar sesión
                 </Button>
-              </ModalFooter>
+          
+              </ModalFooter> 
             </>
           )}
         </ModalContent>
