@@ -10,7 +10,7 @@ export const CartModal = () => {
         dispatch({ type: 'CLOSE' });/* Constante que usaremos para cerrar el modal */
     }
     // cartItem que es el que contiene los productos del carrito es el arreglo sobre el que iteramos
-    const subtotal = state.cartItems.reduce((acumulador, valorActual) => { /* la funcion reduce toma dos argumentos (acumulador y valor actual) acuculador es la funcion que reduce y valor actual la que da el valor inical. En cada iteracion el acumulador  va tomando el valor que acumula */
+    const subtotal = state.cartItems.reduce((acumulador, valorActual) => { /* la funcion reduce toma dos argumentos (acumulador y valor actual) acumulador es la funcion que reduce y valor actual la que da el valor inical. En cada iteracion el acumulador  va tomando el valor que acumula */
         return acumulador + (valorActual.valor * valorActual.cantidad);
     }, 0);
 
@@ -84,7 +84,7 @@ export const CartModal = () => {
                                         </div>
                                         <p className="mt-0.5 text-sm text-gray-500">Envío e impuestos calculados al finalizar la compra.</p>
                                         <div className="mt-6">
-                                            <a href="#" className="flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-violet-500 to-fuchsia-500 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Continuar con mi compra</a>
+                                            <a href="/checkout" className="flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-violet-500 to-fuchsia-500 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Continuar con mi compra</a>
                                         </div>
                                         <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                                             <p> o {" "}
