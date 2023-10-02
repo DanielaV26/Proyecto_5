@@ -14,7 +14,7 @@ const App = () => {
     <div className='text-montserrat'>
       <Header/>
       <Navbar/>
-      <div className='md:p-24'>
+      <div className='md:px-24'>
       <MainRouter />
       </div>
       {
