@@ -5,7 +5,7 @@ import { paymentReducer } from "./paymentReducer";
 const initialState = {
     personalData:{},
     delivery: false,
-    step:1
+    step:3
 }
 
 export const PaymentProvider =({children}) => {
@@ -15,7 +15,7 @@ return(
     <PaymentContext.Provider 
     value={[state, dispatch]}>
         {children}
-</PaymentContext.Provider>
+    </PaymentContext.Provider>
 )
 
 }

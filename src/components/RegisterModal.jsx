@@ -5,20 +5,11 @@ import {MailIcon} from './MailIcon.jsx';
 import {LockIcon} from './LockIcon.jsx';
 import { GoogleSvg } from './GoogleSvg.jsx';
 import { FacebookSvg } from "./FacebookSvg.jsx";
-import { auth, googleProvider } from "../firebase/firebase.js";
-import { signInWithPopup } from "firebase/auth";
 
+//Nombre, correo, contraseña, dirección, telefono
 
-export  function LoginModal({isOpen, onOpenChange}) {
-  const onLoginGoogle = () => {
-    signInWithPopup(auth, googleProvider).then(({user})=>{
-      console.log(user)
-      alert("Inicio de sesión exitoso")
-    }).catch((error)=>{
-      console.log(error)
-    alert("No se pudo iniciar sesión")
-  })
-  }
+export  function RegisterModal({isOpen, onOpenChange}) {
+
   return (
     <>
       <Modal 
@@ -29,8 +20,22 @@ export  function LoginModal({isOpen, onOpenChange}) {
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">Iniciar sesión</ModalHeader>
+              <ModalHeader className="flex flex-col gap-1">Regístrate</ModalHeader>
               <ModalBody>
+                {/* Nombre */}
+                <Input
+                  endContent={
+                    <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+                  }
+                  label="Nombre"
+                  placeholder="Ingresa tu nombre"
+                  variant="bordered"
+                  style={{
+                    outline: 'none',
+                    border: 'none'
+                  }}
+                />
+                {/* Correo */}
                 <Input
                   endContent={
                     <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
@@ -43,6 +48,7 @@ export  function LoginModal({isOpen, onOpenChange}) {
                     border: 'none'
                   }}
                 />
+                {/* Contraseña */}
                 <Input
                   endContent={
                     <LockIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
@@ -57,21 +63,7 @@ export  function LoginModal({isOpen, onOpenChange}) {
                     border: 'none'
                   }}
                 />
-                <div className="flex py-2 px-1 justify-between">
-                  <Checkbox
-                  color="secondary"
-                    classNames={{
-                      label: "text-small" ,
-                      checkbox:"bg-purple-600"
-                      
-                    }}
-                  >
-                    Recuérdame
-                  </Checkbox>
-                  <Link color="secondary" href="#" size="sm">
-                    ¿Olvidaste tu contraseña?
-                  </Link>
-                </div>
+                
               </ModalBody>
               <ModalFooter>
                 <Button className="text-slate-600 hover:text-violet-600 font-semibold border border-violet-500 hover:scale-110" variant="flat" onPress={onClose}>
@@ -81,13 +73,9 @@ export  function LoginModal({isOpen, onOpenChange}) {
                   Ingresar
                 </Button>
               </ModalFooter>
-              <div className="inline-flex items-center justify-center w-full">
-              <hr className="w-64 my-8 bg-gray-400 rounded dark:bg-gray-700"/>
-              <div className="absolute px-4 -translate-x-1/2 bg-white left-1/2 ">
-                <p className="text-slate-500">o</p>
-                </div>
-              </div>
-              <Button onClick={onLoginGoogle} className="mx-16 mb-6 bg-default/40 text-slate-600 hover:text-violet-600 font-semibold border border-violet-500"> <GoogleSvg/>Inicia sesión con Google</Button>
+              <hr />
+              <span className="mx-auto my-2 mb-6 text-slate-600 text-sm">O bien inicia con:</span>
+              <Button className="mx-16 mb-6 bg-default/40 text-slate-600 hover:text-violet-600 font-semibold border border-violet-500"> <GoogleSvg/>Inicia sesión con Google</Button>
               <Button className="mx-16 mb-6 bg-default/40 text-slate-600 hover:text-violet-600 font-semibold border border-violet-500"> <FacebookSvg/>Inicia sesión con Facebook</Button>
             </>
           )}
