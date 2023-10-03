@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import axios from "axios"
-import { ProductGallery } from "../components/ProductGallery"
+// import { ProductGallery } from "../components/ProductGallery"
 import {useContext} from 'react'
 import { CartContext } from "../context/cart/cartContext"
 import { CartSvg } from "../components/CartSvg"
-
+import { FeaturedProducts } from "../components/FeaturedProducts"
 
 export const ProductoPage = () => {
   const {id} = useParams() //destructuración de id. useParams lee los parámetros de la URL(todo lo que viene después del (/) )
@@ -200,7 +200,7 @@ const buyNow = (event) => {
           </div>
         </div>
       </div>
-<ProductGallery/>
+<FeaturedProducts categoria={producto.categoria}/>
 
     </>
 

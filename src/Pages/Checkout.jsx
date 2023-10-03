@@ -1,13 +1,16 @@
 import { CartSvg } from "../components/CartSvg"
+import { ProgressCheckout } from "../components/ProgressCheckout"
 import { useContext } from "react"
 import { CartContext } from "../context/cart/cartContext"
-import {} from "../"
+import { PaymentProvider } from "../context/payment/PaymentProvider"
 import { CartItem } from "../components/CartItem"
 import { Outlet } from "react-router-dom"
 
+// TE ODIO LIVESHARE
+// PD: NO FUI YO
 
 export const Checkout = () => {
-  const [paymentState] = useContext(PaymentContext)
+
   const [state, /* dispatch */] = useContext(CartContext);
   const subtotal = state.cartItems.reduce((acumulador, valorActual) => { /* la funcion reduce toma dos argumentos (acumulador y valor actual) acuculador es la funcion que reduce y valor actual la que da el valor inical. En cada iteracion el acumulador  va tomando el valor que acumula */
     return acumulador + (valorActual.valor * valorActual.cantidad);
@@ -20,23 +23,11 @@ export const Checkout = () => {
 
   return (
 
-    <>
-      <header className="flex justify-around w-full">
-        <div className="flex flex-col justify-center items-center">
-          <span className="bg-fuchsia-500 p-2 rounded-full w-10 text-center font-bold text-white">1
-          </span>
-          <p className="font-semibold font-montserrat">Datos Personales</p></div>
-
-        <div className="flex flex-col justify-center items-center">
-          <span className="bg-gray-400 p-2 rounded-full w-10 text-center font-bold text-white">2</span>
-          <p className="font-semibold font-montserrat">Tipo de Entrega</p></div>
-
-        <div className="flex flex-col justify-center items-center">
-          <span className="bg-gray-400 p-2 rounded-full w-10 text-center font-bold text-white">3</span>
-          <p className="font-semibold font-montserrat">Pago</p></div>
-      </header>
+    <PaymentProvider>
+     <ProgressCheckout/>
 
       <main className="mt-5 flex lg:flex-row  flex-col justify-center gap-5 items-start">
+
         <div className="md:min-w-3/4 w-full ">
           <Outlet />
         </div>
@@ -79,7 +70,7 @@ export const Checkout = () => {
 
       </main>
       <hr className="my-8" />
-    </>
+    </PaymentProvider>
   )
 }
 
