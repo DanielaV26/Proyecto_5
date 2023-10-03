@@ -87,8 +87,8 @@ export const CartModal = () => {
                                             <a href="/checkout" className="flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-violet-500 to-fuchsia-500 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Continuar con mi compra</a>
                                         </div>
                                         <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
-                                            <p> o {" "}
-                                                <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500">Seguir mirando
+                                            <p>
+                                                <button onClick={closeModal} type="button" className="font-medium text-indigo-600 hover:text-indigo-500">Seguir mirando
                                                     <span aria-hidden="true"> &rarr;</span></button>
                                             </p>
                                         </div>
