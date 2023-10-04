@@ -32,7 +32,8 @@ export default {
       'biorhyme': ['BioRhyme', 'sans-serif'],
       'lilitaone': ['Lilita One', 'sans-serif'],
       'montserrat': ['Montserrat', 'sans-serif'],
-      
+      'englebert': ['Englebert', 'sans-serif'],
+      'cookie': ['Cookie', 'sans-serif'],
     }
   },
   darkMode: "class",

@@ -60,6 +60,7 @@ export function RegisterModal({closeLogin}) {
       const {data} = axios.post(rutaBackend+'user/create', {...registerForm, username}, {
         headers: {
           "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json"
         },
       })
       console.log(data)
