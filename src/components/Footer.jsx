@@ -4,15 +4,11 @@ import { WhatsappSvg } from "./WhatsappSvg"
 export const Footer = () => {
     return (
         <>
-
             <footer id="footerId" className="bg-white dark:bg-gray-900">
                 <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                     <div className="md:flex md:justify-between">
                         <div className="mb-6 md:mb-0">
-                            <a href="https://flowbite.com/" className="flex items-center">
                                 <img  src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1696003715/Pink_Feminine_Scented_Candle_Product_Round_Sticker_6_ls7z84.png" className="h-32 mr-3" alt="FlowBite Logo" />
-                                
-                            </a>
                         </div>
                         <div className="grid w-full justify-around sm:flex md:flex md:grid-cols-1">
                             <div>
@@ -22,7 +18,7 @@ export const Footer = () => {
                                         <a href="https://maps.app.goo.gl/Bu2oRYe7iPPEK8Hx9" target="_blank" className="hover:text-pink-400 text-sm">5 Norte 1500, Viña del Mar, Valparaíso.</a>
                                     </li>
                                     <li>
-                                        <span className="text-sm"> Lunes a Sábado 10:30h - 19:30h</span>
+                                        <span className="text-sm">Lunes a Sábado 10:30h - 19:30h</span>
                                     </li>
                                 </ul>
                             </div>

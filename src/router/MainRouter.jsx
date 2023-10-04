@@ -8,6 +8,7 @@ import { ProductoPage } from "../Pages/ProductoPage"
 import { Checkout } from "../Pages/Checkout"
 import { CheckoutUserForm } from "../Pages/CheckoutUserForm"
 import { Delivery } from "../Pages/Delivery"
+import { Favorites } from "../Pages/Favorites"
 
 
 
@@ -22,6 +23,7 @@ export const MainRouter = () => {
             <Route path="/nosotros" element={<Nosotros />} />
             <Route path="/productos" element={<Productos />} />
             <Route path="/producto/:id" element={<ProductoPage />} />
+            <Route path="/favorites" element={<Favorites />}/>
             <Route path="/checkout" element={<Checkout />} >
                 <Route path="" element={<CheckoutUserForm />} />
                 <Route path="delivery" element={<Delivery/>} />
