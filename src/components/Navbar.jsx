@@ -18,7 +18,7 @@ export const Navbar = () => {
       <nav className="bg- border-gray-200 dark:bg-gray-900">
         <div className="max-w-screen-xl flex  items-center justify-between mx-auto p-4 ">
           <Link to="/" className="flex items-center">
-            <img  src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1696003582/2_pnos13.png" className=" w-48 mr-3" alt="Brightbooks Logo" />
+            <img  src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1696438687/BrightBooks_1_w6on5i.png" className=" w-48 mr-3" alt="Brightbooks Logo" />
             <span className="font-sevillana self-center text-2xl whitespace-nowrap dark:text-white"></span>
           </Link>
           <div className="flex md:order-2 items-center justify-center gap-5 ">
@@ -72,23 +72,24 @@ export const Navbar = () => {
           </div>
         </div>
         { (openBurger)
-           ?<div className=" bg-gradient-to-b from-zinc-800 to-transparent w-full h-screen absolute z-50 ">
+           ?<div className="bg-gradient-to-r from-violet-500 w-full h-screen absolute z-50 backdrop-blur-md">
            <ul className="flex flex-col justify-center items-center gap-5 mt-5">
-             <li className="text-3xl font-bold text-white font-montserrat "  as={Link}>Inicio</li>
+             <Link onClick={onToggleBurgerMenu} className="text-xl font-bold text-white font-montserrat" to="/">Inicio</Link>
              <hr className="w-full"/>
-             <li className="text-3xl font-bold text-white font-montserrat "  as={Link}>Nosotros</li>
+             <Link onClick={onToggleBurgerMenu} className="text-xl font-bold text-white font-montserrat" to="/nosotros">Nosotros</Link>
              <hr className="w-full"/>
-             <li className="text-3xl font-bold text-white font-montserrat "  as={Link}>Productos</li>
+             <Link onClick={onToggleBurgerMenu} className="text-xl font-bold text-white font-montserrat" to="/productos">Productos</Link>
              <hr className="w-full"/>
-             <li className="text-3xl font-bold cursor-pointer text-white font-montserrat "  onClick={onToggleBurgerMenu}>X</li>
-           
+             <a href="#footerId" onClick={onToggleBurgerMenu} className="text-xl font-bold text-white font-montserrat">Tienda física y horarios</a>
+             <hr className="w-full"/>
+             <a href="#footerId" onClick={onToggleBurgerMenu} className="text-xl font-bold text-white font-montserrat" >Contacto</a>
+             <hr className="w-full"/>
+             <Link onClick={onToggleBurgerMenu} className="text-xl font-bold cursor-pointer text-white font-montserrat ">Cerrar</Link>
            </ul>
                  </div>
                  :<></>
         }
-     
       </nav>
       </>
   )
-
 }

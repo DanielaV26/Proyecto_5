@@ -5,13 +5,23 @@ import {MailIcon} from './MailIcon.jsx';
 import {LockIcon} from './LockIcon.jsx';
 import { GoogleSvg } from './GoogleSvg.jsx';
 import { FacebookSvg } from "./FacebookSvg.jsx";
-import { auth, googleProvider } from "../firebase/firebase.js";
+import { RegisterModal } from "./RegisterModal.jsx";
+import { auth, googleProvider, facebookProvider} from "../firebase/firebase.js";
 import { signInWithPopup } from "firebase/auth";
 
 
 export  function LoginModal({isOpen, onOpenChange}) {
   const onLoginGoogle = () => {
     signInWithPopup(auth, googleProvider).then(({user})=>{
+      console.log(user)
+      alert("Inicio de sesión exitoso")
+    }).catch((error)=>{
+      console.log(error)
+    alert("No se pudo iniciar sesión")
+  })
+  }
+  const onLoginFacebook = () => {
+    signInWithPopup(auth, facebookProvider).then(({user})=>{
       console.log(user)
       alert("Inicio de sesión exitoso")
     }).catch((error)=>{
@@ -74,9 +84,12 @@ export  function LoginModal({isOpen, onOpenChange}) {
                 </div>
               </ModalBody>
               <ModalFooter>
-                <Button className="text-slate-600 hover:text-violet-600 font-semibold border border-violet-500 hover:scale-110" variant="flat" onPress={onClose}>
+                {/* <Button className="text-slate-600 hover:text-violet-600 font-semibold border border-violet-500 hover:scale-110" variant="flat" onPress={onClose}>
                   Registrarme
-                </Button>
+                </Button> */}
+                
+                <RegisterModal closeLogin={onClose} />
+               
                 <Button className="text-white font-bold bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:scale-110" onPress={onClose}>
                   Ingresar
                 </Button>
@@ -88,7 +101,7 @@ export  function LoginModal({isOpen, onOpenChange}) {
                 </div>
               </div>
               <Button onClick={onLoginGoogle} className="mx-16 mb-6 bg-default/40 text-slate-600 hover:text-violet-600 font-semibold border border-violet-500"> <GoogleSvg/>Inicia sesión con Google</Button>
-              <Button className="mx-16 mb-6 bg-default/40 text-slate-600 hover:text-violet-600 font-semibold border border-violet-500"> <FacebookSvg/>Inicia sesión con Facebook</Button>
+              {/* <Button onClick={onLoginFacebook} className="mx-16 mb-6 bg-default/40 text-slate-600 hover:text-violet-600 font-semibold border border-violet-500"> <FacebookSvg/>Inicia sesión con Facebook</Button> */}
             </>
           )}
         </ModalContent>
