@@ -6,10 +6,13 @@ import { useContext } from "react";
 import { CartContext } from "../context/cart/cartContext";
 import { CartSvg } from "../components/CartSvg";
 import { FeaturedProducts } from "../components/FeaturedProducts";
+import { agregarPuntoAlPrecio } from "../helpers/precioConPunto"
+
 
 export const ProductoPage = () => {
   const { id } = useParams(); //destructuración de id. useParams lee los parámetros de la URL(todo lo que viene después del (/) )
   const [producto, setProducto] = useState({});
+  
   
   const getProducto = async () => {
     const url = `https://proyecto5-backend-e5u3-dev.fl0.io/products/product/${id}`;
@@ -19,7 +22,10 @@ export const ProductoPage = () => {
       },
     });
     setProducto(data.producto);
+    console.log(data.producto)
   };
+
+  const precioFormateado = agregarPuntoAlPrecio(producto?.valor)
 
   //se utiliza para ejecutar el código dentro del él según las dependencias.
   useEffect(() => {
@@ -115,9 +121,9 @@ export const ProductoPage = () => {
           </div>
 
           {/* <!-- Product info --> */}
-          <div className="mx-auto max-w-2xl px-4 pb-16 pt-5 sm:px-6 lg:max-w-7xl   lg:gap-x-8 lg:px-8 lg:pb-24 flex flex-col lg:w-1/2 gap-5">
+          <div className="mx-auto max-w-2xl px-4 pb-16 pt-5 sm:px-6 lg:max-w-7xl lg:gap-x-8 lg:px-8 lg:pb-24 flex flex-col lg:w-1/2 gap-5">
             <div className=" w-full lg:pr-8">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-3xl uppercase">
+              <h1 className="text-4xl font-bold  font-mooli text-gray-900 sm:text-3xl ">
                 {producto?.nombre}
               </h1>
             </div>
@@ -125,8 +131,8 @@ export const ProductoPage = () => {
             {/* <!-- Options --> */}
             <div className="mt-4 lg:row-span-3 lg:mt-0">
               <h2 className="sr-only">Product information</h2>
-              <p className="text-4xl tracking-tight text-gray-900">
-                ${producto?.valor}
+              <p className="text-4xl text-gray-900 font-mooli">
+                ${precioFormateado}
               </p>
               {/* <!-- Reviews --> */}
               <div className="mt-6">
@@ -204,7 +210,7 @@ export const ProductoPage = () => {
                   </Link>
                 </div>
               </div>
-              <div className="mt-10 flex flex-col lg:flex-row gap-5">
+              <div className="mt-10 flex flex-col lg:flex-row gap-5 font-mooli">
                 {isInCart ? (
                   <div className="bg-slate-100 rounded-3xl mt-8 flex justify-between w-full sm:w-36 items-center">
                     <button
@@ -239,14 +245,18 @@ export const ProductoPage = () => {
               </div>{" "}
             </div>
 
-            <div className="py-10 lg:col-span-2 lg:col-start-1 lg:pb-16 lg:pr-8 lg:pt-6">
+            <div className="py-10 lg:col-span-2 lg:col-start-1 lg:pb-16 lg:pr-8 lg:pt-6 font-mooli">
               {/* <!-- Description and details --> */}
               <div>
                 <h3 className="sr-only">Description</h3>
 
                 <div className="space-y-6">
                   <p className=" text-gray-900 text-xl whitespace-pre-wrap">
-                    {producto?.descripcion}
+                    {
+                      (producto?.descripcion !== "" )
+                      ?producto.descripcion 
+                      :producto.sinopsis
+                    }
                   </p>
                 </div>
               </div>

@@ -1,16 +1,26 @@
 /* eslint-disable react/prop-types */
-
-import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, Checkbox, Input, Link} from "@nextui-org/react";
-import {MailIcon} from './MailIcon.jsx';
-import {LockIcon} from './LockIcon.jsx';
+import { useState } from 'react'
+import axios from 'axios'
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, Checkbox, Input, Link } from "@nextui-org/react";
+import { MailIcon } from './MailIcon.jsx';
+import { LockIcon } from './LockIcon.jsx';
 import { GoogleSvg } from './GoogleSvg.jsx';
-import { FacebookSvg } from "./FacebookSvg.jsx";
+// import { FacebookSvg } from "./FacebookSvg.jsx";
 import { RegisterModal } from "./RegisterModal.jsx";
-import { auth, googleProvider, facebookProvider} from "../firebase/firebase.js";
+import { auth, googleProvider } from "../firebase/firebase.js";
 import { signInWithPopup } from "firebase/auth";
+import { saveToLS } from '../helpers/LS.js'
 
 
 export  function LoginModal({isOpen, onOpenChange}) {
+
+  const initialLoginForm = {
+    email: '',
+    password: ''
+  }
+  
+  const [loginForm, setLoginForm] = useState(initialLoginForm)
+
   const onLoginGoogle = () => {
     signInWithPopup(auth, googleProvider).then(({user})=>{
       console.log(user)
@@ -20,15 +30,43 @@ export  function LoginModal({isOpen, onOpenChange}) {
     alert("No se pudo iniciar sesión")
   })
   }
-  const onLoginFacebook = () => {
-    signInWithPopup(auth, facebookProvider).then(({user})=>{
-      console.log(user)
-      alert("Inicio de sesión exitoso")
-    }).catch((error)=>{
+
+  const onSubmitLoginForm = async (e, onClose) => {
+    e.preventDefault()
+    const rutaBackend = 'https://proyecto5-backend-e5u3-dev.fl0.io/'
+
+    try {
+      const {data} = await axios.post(rutaBackend+'user/login', loginForm, {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json"
+        },
+      })
+      console.log(data)
+      saveToLS('token', data.token)
+      setLoginForm(initialLoginForm)
+      onClose()
+    } catch (error) {
       console.log(error)
-    alert("No se pudo iniciar sesión")
-  })
+    }
   }
+
+  const onChangeLoginForm = (e) => {
+    setLoginForm({
+      ...loginForm,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  // const onLoginFacebook = () => {
+  //   signInWithPopup(auth, facebookProvider).then(({user})=>{
+  //     console.log(user)
+  //     alert("Inicio de sesión exitoso")
+  //   }).catch((error)=>{
+  //     console.log(error)
+  //   alert("No se pudo iniciar sesión")
+  // })
+  // }
   return (
     <>
       <Modal 
@@ -45,6 +83,9 @@ export  function LoginModal({isOpen, onOpenChange}) {
                   endContent={
                     <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
                   }
+                  onChange={onChangeLoginForm}
+                  name='email'
+                  value={loginForm.email}
                   label="Email"
                   placeholder="Ingresa tu email"
                   variant="bordered"
@@ -57,6 +98,9 @@ export  function LoginModal({isOpen, onOpenChange}) {
                   endContent={
                     <LockIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
                   }
+                  onChange={onChangeLoginForm}
+                  name='password'
+                  value={loginForm.password}
                   label="Contraseña"
                   placeholder="Ingresa tu contraseña"
                   type="password"
@@ -90,7 +134,7 @@ export  function LoginModal({isOpen, onOpenChange}) {
                 
                 <RegisterModal closeLogin={onClose} />
                
-                <Button className="text-white font-bold bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:scale-110" onPress={onClose}>
+                <Button onClick={(e) => onSubmitLoginForm(e, onClose)} className="text-white font-bold bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:scale-110">
                   Ingresar
                 </Button>
               </ModalFooter>

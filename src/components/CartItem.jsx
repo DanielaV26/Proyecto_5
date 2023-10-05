@@ -1,21 +1,13 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { CartContext } from "../context/cart/cartContext";
+import { agregarPuntoAlPrecio } from "../helpers/precioConPunto"
 
 /* eslint-disable react/prop-types */
 export const CartItem = ({ imagen, valor, nombre, categoria, id, qty }) => {
   const [state, dispatch] = useContext(CartContext);
   const remove = () => {
-    dispatch({ type: "REMOVE", payload: id });
-    
-    console.log("eliminar producto");
-    console.log(id);
-
-
-    
+    dispatch({ type: "REMOVE", payload: id });    
   }
-
-
-  const [cantidad, setCantidad] = useState(qty);
 
   const incrementar = () => {
     const newQty = state.cartItems.map((item) => {
@@ -30,6 +22,7 @@ export const CartItem = ({ imagen, valor, nombre, categoria, id, qty }) => {
         return item;
       }
     });
+
     dispatch({
       /* Burrito */ type: "ADD QTY" /* instrucción  de sumar 1*/,
       payload: newQty /* el paquete */,
@@ -60,6 +53,7 @@ export const CartItem = ({ imagen, valor, nombre, categoria, id, qty }) => {
     });
   }; 
 
+  const precioFormateado = agregarPuntoAlPrecio(valor)
 
 
 
@@ -81,7 +75,7 @@ export const CartItem = ({ imagen, valor, nombre, categoria, id, qty }) => {
             <h3>
               <a href="#">{nombre}</a>
             </h3>
-            <p className="ml-4">${valor}</p>
+            <p className="ml-4">${precioFormateado}</p>
           </div>
           <p className="capitalize mt-1 text-sm text-gray-500">{categoria}</p>
         </div>

@@ -5,13 +5,13 @@ import { WhatsappSvg } from "./WhatsappSvg"
 export const Footer = () => {
     return (
         <>
-            <footer id="footerId" className="bg-white dark:bg-gray-90 mt-4">
+            <footer id="footerId" className="bg-white dark:bg-gray-90 mt-4  ">
                 <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8 font-mooli">
-                    <div className="md:flex md:justify-between">
-                        <div className="mb-6 md:mb-0">
-                                <img  src="" className="h-32 mr-3" alt="FlowBite Logo" />
+                    <div className="md:flex flex-col md:justify-between">
+                        <div className="mb-6 md:mb-0  flex justify-center ">
+                                <img  src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1696514359/Pink_Feminine_Scented_Candle_Product_Round_Sticker_7_mpzihu.png" className="h-44 mr-3" alt="Brightbooks Logo" />
                         </div>
-                        <div className="grid w-full justify-around sm:flex md:flex md:grid-cols-1 font-mooli">
+                        <div className="grid w-full  justify-around sm:flex md:flex md:grid-cols-1 font-mooli">
                             <div>
                                 <h2 className="mb-3 font-semibold text-violet-500  uppercase dark:text-white">Tienda física</h2>
                                 <ul className="text-gray-500 dark:text-gray-400 font-medium">
@@ -47,7 +47,7 @@ export const Footer = () => {
                             </div>
                         </div>
                     </div>
-                    <hr className="mb-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:mb-8" />
+                    <hr className="mb-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:mb-8 mt-6" />
                     <div className="w-full flex flex-col sm:flex-row sm:items-center sm:justify-between justify-center">
                         <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 Brightbooks™. Todos los derechos reservados.
                         </span>
@@ -58,7 +58,7 @@ export const Footer = () => {
                                 </svg>
                                 <span className="sr-only">Facebook page</span>
                             </a>
-                            <a href="#" className="w-6 text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                            <a href="https://instagram.com/brightbookss?igshid=MWZjMTM2ODFkZg==" target="_blank" className="w-6 text-gray-500 hover:text-gray-900 dark:hover:text-white">
                                 <InstagramSvg/>
                                 <span className="sr-only">Instagram</span>
                             </a>

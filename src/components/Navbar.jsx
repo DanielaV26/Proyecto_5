@@ -18,7 +18,7 @@ export const Navbar = () => {
       <nav className="bg- border-gray-200 dark:bg-gray-900">
         <div className="max-w-screen-xl flex  items-center justify-between mx-auto p-4 ">
           <Link to="/" className="flex items-center">
-            <img  src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1696438687/BrightBooks_1_w6on5i.png" className=" w-64 mr-3" alt="Brightbooks Logo" />
+            <img  src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1696514359/Pink_Feminine_Scented_Candle_Product_Round_Sticker_7_mpzihu.png" className=" h-32 mr-3" alt="Brightbooks Logo" />
             <span className="font-sevillana self-center text-2xl whitespace-nowrap dark:text-white"></span>
           </Link>
           <div className="flex md:order-2 items-center justify-center gap-5 ">
@@ -35,7 +35,7 @@ export const Navbar = () => {
                 </svg>
                 <span className="sr-only">Search icon</span>
               </div>
-              <input type="text" id="search-navbar" className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Buscar..." /> 
+              <input type="text" id="search-navbar" className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-mooli" placeholder="Buscar..." /> 
             </div>
             <button onClick={onToggleBurgerMenu}  data-collapse-toggle="navbar-search" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-search" aria-expanded="false">
               <span className="sr-only">Open main menu</span>
@@ -44,7 +44,8 @@ export const Navbar = () => {
               </svg>
             </button>
             <button>
-            <UserSvg  onClick={onOpen}/></button>
+              <UserSvg  onClick={onOpen}/>
+            </button>
             <CarritoBadge/>
             <LoginModal isOpen={isOpen} onOpenChange={onOpenChange}/>
 

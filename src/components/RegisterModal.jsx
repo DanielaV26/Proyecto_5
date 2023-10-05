@@ -12,19 +12,18 @@ import {
   Select,
   SelectItem,
   useDisclosure,
+  Spinner
 } from "@nextui-org/react";
 import { MailIcon } from "./MailIcon.jsx";
 import { LockIcon } from "./LockIcon.jsx";
 import { GoogleSvg } from "./GoogleSvg.jsx";
 import { FacebookSvg } from "./FacebookSvg.jsx";
 import { regionesData } from "../helpers/regiones";
-
-//Nombre, email, contraseña, dirección, phone
+import { toast } from 'react-toastify';
 
 export function RegisterModal({closeLogin}) {
 
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
-//name, lastname,email,password,identification, country, age, gender, region, commune, address, phone
+  //name, lastname,email,password,identification, country, age, gender, region, commune, address, phone
   const initialRegisterForm = {
     name: "",
     lastname: "",
@@ -39,13 +38,20 @@ export function RegisterModal({closeLogin}) {
     address: "",
     phone: "",
   };
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [registerForm, setRegisterForm] = useState(initialRegisterForm);
   const [comunas, setComunas] = useState([]);
   const [regiones, setRegiones] = useState([]);
   const [contrasena2, setContrasena2] = useState("");
+  const [isValidForm, setIsValidForm] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
-  const onSubmitRegister = async(e) => {
+  const onSubmitRegister = async(e, onClose) => {
     e.preventDefault();
+    if(!isValidForm){
+      toast('Debes llenar todos los campos antes de registrarte')
+      return
+    }
     const rutaBackend = 'https://proyecto5-backend-e5u3-dev.fl0.io/'
     const first = registerForm.name.slice(0,4)
     const second = registerForm.lastname.slice(0,4)
@@ -53,7 +59,7 @@ export function RegisterModal({closeLogin}) {
     const third = fecha.slice(8,13)
     const username = first+second+third
     if (registerForm.password !== contrasena2) {
-      alert("tus contraseñas no son iguales");
+      toast("tus contraseñas no son iguales");
       return;
     }
     const finalForm = {
@@ -63,6 +69,7 @@ export function RegisterModal({closeLogin}) {
 
     }
     try {
+      setIsLoading(true)
       const {data} = await axios.post(rutaBackend+'user/create', finalForm, {
         headers: {
           "Access-Control-Allow-Origin": "*",
@@ -71,9 +78,14 @@ export function RegisterModal({closeLogin}) {
       })
       console.log(data)
       setRegisterForm(initialRegisterForm)
+      setIsLoading(false)
       closeLogin()
+      onClose()
+      toast('Usuario registrado con éxito')
     } catch (error) {
       console.log(error)
+      toast('Algo salió mal, inténtalo nuevamente')
+      setIsLoading(false)
     }
   };
 
@@ -102,6 +114,13 @@ export function RegisterModal({closeLogin}) {
     });
   };
 
+  const validateForm = () => {
+    const valores = Object.values(registerForm)
+    const response = valores.some((x) => x === '')
+    setIsValidForm(!response)
+    return !response
+  }
+
   useEffect(() => {
     setRegiones(
       regionesData.map((region) => {
@@ -109,6 +128,10 @@ export function RegisterModal({closeLogin}) {
       })
     );
   }, []);
+
+  useEffect(() => {
+    validateForm()
+  }, [registerForm])
 
   return (
     <>
@@ -319,12 +342,16 @@ export function RegisterModal({closeLogin}) {
               </ModalBody>
               <ModalFooter>
                 <Button
-                  onClick={onSubmitRegister}
-                  className="text-slate-600 hover:text-violet-600 font-semibold border border-violet-500 hover:scale-110"
+                  isDisabled={!isValidForm}
+                  onClick={(e) => onSubmitRegister(e, onClose)}
+                  className="text-slate-600 hover:text-violet-600 font-semibold border border-violet-500 hover:scale-110 disabled:bg-gray-300 disabled:border-gray-700"
                   variant="flat"
-                  onPress={onClose}
                 >
-                  Registrarme
+                  {
+                    (isLoading)
+                    ? <Spinner color='secondary'/>
+                    : 'Registrarme'
+                  } 
                 </Button>
                 <Button
                   onClick={onSubmitRegister}

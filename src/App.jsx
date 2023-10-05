@@ -5,6 +5,7 @@ import { Header } from './components/Header';
 import { CartModal } from './components/CartModal';
 import { useContext } from 'react';
 import { CartContext } from './context/cart/cartContext';
+import { ToastContainer, toast } from 'react-toastify';
 
 const App = () => {
   const [state, dispatch] = useContext(CartContext)
@@ -22,6 +23,7 @@ const App = () => {
       }
       
       <Footer />
+      <ToastContainer/>
       </div>
     </>
   );
