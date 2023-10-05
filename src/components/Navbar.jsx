@@ -49,7 +49,7 @@ export const Navbar = () => {
             <LoginModal isOpen={isOpen} onOpenChange={onOpenChange}/>
 
           </div>
-          <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-search">
+          <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 font-mooli" id="navbar-search">
             <div className="relative mt-3 md:hidden">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -72,19 +72,19 @@ export const Navbar = () => {
           </div>
         </div>
         { (openBurger)
-           ?<div className="bg-gradient-to-r from-violet-500 w-full h-screen absolute z-50 backdrop-blur-md">
+           ?<div className="bg-gradient-to-r from-violet-500 w-full h-screen absolute z-50 backdrop-blur-md font-cookie">
            <ul className="flex flex-col justify-center items-center gap-5 mt-5">
-             <Link onClick={onToggleBurgerMenu} className="text-xl font-bold text-white font-montserrat" to="/">Inicio</Link>
+             <Link onClick={onToggleBurgerMenu} className="text-2xl text-white" to="/">Inicio</Link>
              <hr className="w-full"/>
-             <Link onClick={onToggleBurgerMenu} className="text-xl font-bold text-white font-montserrat" to="/nosotros">Nosotros</Link>
+             <Link onClick={onToggleBurgerMenu} className="text-2xl text-white" to="/nosotros">Nosotros</Link>
              <hr className="w-full"/>
-             <Link onClick={onToggleBurgerMenu} className="text-xl font-bold text-white font-montserrat" to="/productos">Productos</Link>
+             <Link onClick={onToggleBurgerMenu} className="text-2xl text-white" to="/productos">Productos</Link>
              <hr className="w-full"/>
-             <a href="#footerId" onClick={onToggleBurgerMenu} className="text-xl font-bold text-white font-montserrat">Tienda física y horarios</a>
+             <a href="#footerId" onClick={onToggleBurgerMenu} className="text-2xl text-white">Tienda física y horarios</a>
              <hr className="w-full"/>
-             <a href="#footerId" onClick={onToggleBurgerMenu} className="text-xl font-bold text-white font-montserrat" >Contacto</a>
+             <a href="#footerId" onClick={onToggleBurgerMenu} className="text-2xl text-white" >Contacto</a>
              <hr className="w-full"/>
-             <Link onClick={onToggleBurgerMenu} className="text-xl font-bold cursor-pointer text-white font-montserrat ">Cerrar</Link>
+             <Link onClick={onToggleBurgerMenu} className="text-2xl font-bold cursor-pointer text-violet-600">Cerrar</Link>
            </ul>
                  </div>
                  :<></>

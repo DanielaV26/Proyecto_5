@@ -56,10 +56,17 @@ export function RegisterModal({closeLogin}) {
       alert("tus contraseñas no son iguales");
       return;
     }
+    const finalForm = {
+      ...registerForm,
+      username,
+      phone:'+569'+ registerForm.phone,
+
+    }
     try {
-      const {data} = axios.post(rutaBackend+'user/create', {...registerForm, username}, {
+      const {data} = await axios.post(rutaBackend+'user/create', finalForm, {
         headers: {
           "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json"
         },
       })
       console.log(data)
