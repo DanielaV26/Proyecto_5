@@ -34,6 +34,7 @@ export default {
       'montserrat': ['Montserrat', 'sans-serif'],
       'englebert': ['Englebert', 'sans-serif'],
       'cookie': ['Cookie', 'sans-serif'],
+      'mooli': ['Mooli', 'sans-serif'],
     }
   },
   darkMode: "class",
