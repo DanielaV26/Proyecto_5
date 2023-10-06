@@ -15,7 +15,7 @@ export const ProductoPage = () => {
   
   
   const getProducto = async () => {
-    const url = `https://proyecto5-backend-e5u3-dev.fl0.io/products/product/${id}`;
+    const url = `https://proyecto5-backend-17i4e1gbz-ninalizbeth.vercel.app/products/product/${id}`;
     const { data } = await axios.get(url, {
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -115,7 +115,7 @@ export const ProductoPage = () => {
               <img
                 src={producto?.imagenes?.principal}
                 alt={producto?.nombre}
-                className="w-full h-auto rounded-xl object-cover object-center "
+                className="w-full rounded-xl object-cover object-center "
               />
             </div>
           </div>

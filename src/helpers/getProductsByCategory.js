@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const getProductsByCategory = async (categoria) => {
   
-  const url = `https://proyecto5-backend-e5u3-dev.fl0.io/products/category/${categoria}`
+  const url = `https://proyecto5-backend-17i4e1gbz-ninalizbeth.vercel.app/products/category/${categoria}`
   const {data} = await axios.get(url, {
     
 headers:{
