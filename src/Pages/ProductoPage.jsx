@@ -115,7 +115,7 @@ export const ProductoPage = () => {
               <img
                 src={producto?.imagenes?.principal}
                 alt={producto?.nombre}
-                className="w-full rounded-xl object-cover object-center "
+                className="w-full h-auto rounded-xl object-cover object-center "
               />
             </div>
           </div>

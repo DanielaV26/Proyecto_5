@@ -18,7 +18,7 @@ export const Navbar = () => {
       <nav className="bg- border-gray-200 dark:bg-gray-900">
         <div className="max-w-screen-xl flex  items-center justify-between mx-auto p-4 ">
           <Link to="/" className="flex items-center">
-            <img  src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1696514359/Pink_Feminine_Scented_Candle_Product_Round_Sticker_7_mpzihu.png" className=" h-32 mr-3" alt="Brightbooks Logo" />
+            <img  src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1696551338/brigthbook_titulo_png_bmkxc1_b8guto.png" className=" h-10 mr-3" alt="Brightbooks Logo" />
             <span className="font-sevillana self-center text-2xl whitespace-nowrap dark:text-white"></span>
           </Link>
           <div className="flex md:order-2 items-center justify-center gap-5 ">

@@ -66,7 +66,7 @@ export const ProductCard = ({ producto }) => {
     <>
 
 
-      <div className="w-full max-w-sm bg-white border mt-10 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div className=" w-full max-w-sm bg-white border mt-10 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
           <img className="h-60 w-full object-cover  rounded-t-lg" src={producto.imagenes.principal} alt="product image" />
         </a>

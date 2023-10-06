@@ -22,6 +22,11 @@ export const CartModal = () => {
 
     const precioFormateado = agregarPuntoAlPrecio(subtotal)
 
+    const removeAllCart = () => {
+        dispatch({ type: 'EMPTY' });
+    }
+    
+
 
 
     return (
@@ -87,7 +92,7 @@ export const CartModal = () => {
                                             )}
                                         </div>
                                     </div>
-                                    <div className="font-mooli ml-auto flex items-end text-violet-500 cursor-pointer pb-3 pr-3">
+                                    <div onClick={removeAllCart} className="font-mooli ml-auto flex items-end text-violet-500 cursor-pointer pb-3 pr-3">
                                         <span className="text-sm text-gray-500">Vaciar carrito</span>
                                     <DeleteSvg className="ml-auto w-8" />
                                     </div>

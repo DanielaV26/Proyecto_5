@@ -8,10 +8,10 @@ export const Footer = () => {
             <footer id="footerId" className="bg-white dark:bg-gray-90 mt-4  ">
                 <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8 font-mooli">
                     <div className="md:flex flex-col md:justify-between">
-                        <div className="mb-6 md:mb-0  flex justify-center ">
-                                <img  src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1696514359/Pink_Feminine_Scented_Candle_Product_Round_Sticker_7_mpzihu.png" className="h-44 mr-3" alt="Brightbooks Logo" />
+                        <div className="mb-6 md:mb-0  flex justify-center mt-10 ">
+                                <img  src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1696551338/brigthbook_titulo_png_bmkxc1_b8guto.png" className="h-20 mr-3" alt="Brightbooks Logo" />
                         </div>
-                        <div className="grid w-full  justify-around sm:flex md:flex md:grid-cols-1 font-mooli">
+                        <div className="grid w-full  justify-around sm:flex md:flex md:grid-cols-1 font-mooli mt-10">
                             <div>
                                 <h2 className="mb-3 font-semibold text-violet-500  uppercase dark:text-white">Tienda física</h2>
                                 <ul className="text-gray-500 dark:text-gray-400 font-medium">
