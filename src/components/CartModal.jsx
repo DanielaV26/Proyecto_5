@@ -4,10 +4,11 @@ import { CartContext } from "../context/cart/cartContext"
 import { CartItem } from "./CartItem"
 import { agregarPuntoAlPrecio } from "../helpers/precioConPunto"
 import { DeleteSvg } from "./DeleteSvg"
-
+import {useNavigate} from "react-router-dom"
 
 
 export const CartModal = () => {
+    const navegar = useNavigate()
     const [state, dispatch] = useContext(CartContext);/* Obtiene el estado del carrito y la función lanzadora (burrito)*/
     console.log(state)/* imprime en consola el estado actual del carrito */
     const closeModal = () => {
@@ -23,9 +24,17 @@ export const CartModal = () => {
     const precioFormateado = agregarPuntoAlPrecio(subtotal)
 
     const removeAllCart = () => {
-        dispatch({ type: 'EMPTY' });
+        dispatch({
+            type: 'EMPTY'
+        });
     }
     
+     const checkout = () => {
+         navegar("/checkout")
+         dispatch ({
+            type: 'CLOSE'
+         })
+         }
 
 
 
@@ -102,8 +111,8 @@ export const CartModal = () => {
                                             <p>${precioFormateado}</p>
                                         </div>
                                         <p className="mt-0.5 text-sm text-gray-500">Envío e impuestos calculados al finalizar la compra.</p>
-                                        <div className="mt-6">
-                                            <a href="/checkout" className="flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-violet-500 to-fuchsia-500 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Continuar con mi compra</a>
+                                        <div  className="mt-6">
+                                            <button onClick={checkout} disabled={state.cartItems.length<= 0} className="flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-violet-500 to-fuchsia-500 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 disabled:from-gray-500 disabled:to-gray-600 mx-auto">Continuar con mi compra</button>
                                         </div>
                                         <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                                             <p>
