@@ -17,9 +17,10 @@ import {
 import { MailIcon } from "./MailIcon.jsx";
 import { LockIcon } from "./LockIcon.jsx";
 import { GoogleSvg } from "./GoogleSvg.jsx";
-import { FacebookSvg } from "./FacebookSvg.jsx";
 import { regionesData } from "../helpers/regiones";
 import { toast } from 'react-toastify';
+import { UserLoginSvg } from "./UserLoginSvg.jsx";
+import { IdentificationSvg } from "./IdentificationSvg.jsx";
 
 export function RegisterModal({closeLogin}) {
 
@@ -154,7 +155,7 @@ export function RegisterModal({closeLogin}) {
                 {/* Nombre */}
                 <Input
                   endContent={
-                    <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+                    <UserLoginSvg className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
                   }
                   label="Nombre"
                   name="name"
@@ -170,7 +171,7 @@ export function RegisterModal({closeLogin}) {
                 {/* Apellido */}
                 <Input
                   endContent={
-                    <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+                    <UserLoginSvg className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
                   }
                   label="Apellidos"
                   name="lastname"
@@ -186,7 +187,7 @@ export function RegisterModal({closeLogin}) {
                 {/* RUT */}
                 <Input
                   endContent={
-                    <MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+                    <IdentificationSvg className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
                   }
                   label="RUT"
                   name="identification"
@@ -361,19 +362,16 @@ export function RegisterModal({closeLogin}) {
                   Ingresar
                 </Button>
               </ModalFooter>
-              <hr />
-              <span className="mx-auto my-2 mb-6 text-slate-600 text-sm">
-                O bien inicia con:
-              </span>
+              <div className="inline-flex items-center justify-center w-full">
+              <hr className="w-64 my-6 bg-gray-400 rounded dark:bg-gray-700"/>
+              <div className="absolute px-4 -translate-x-1/2 bg-white left-1/2 ">
+                <p className="text-slate-500">o</p>
+                </div>
+              </div>
               <Button className="mx-16 mb-6 bg-default/40 text-slate-600 hover:text-violet-600 font-semibold border border-violet-500">
                 {" "}
                 <GoogleSvg />
                 Inicia sesión con Google
-              </Button>
-              <Button className="mx-16 mb-6 bg-default/40 text-slate-600 hover:text-violet-600 font-semibold border border-violet-500">
-                {" "}
-                <FacebookSvg />
-                Inicia sesión con Facebook
               </Button>
             </>
           )}
