@@ -26,7 +26,7 @@ export const Checkout = () => {
     <PaymentProvider>
      <ProgressCheckout/>
 
-      <main className="mt-5 flex lg:flex-row  flex-col justify-center gap-5 items-start">
+      <main className="mt-20 flex lg:flex-row  flex-col justify-center gap-5 items-start">
 
         <div className="md:min-w-3/4 w-full ">
           <Outlet />

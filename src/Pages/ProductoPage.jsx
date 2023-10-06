@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 // import { ProductGallery } from "../components/ProductGallery"
 import { useContext } from "react";
@@ -7,13 +7,14 @@ import { CartContext } from "../context/cart/cartContext";
 import { CartSvg } from "../components/CartSvg";
 import { FeaturedProducts } from "../components/FeaturedProducts";
 import { agregarPuntoAlPrecio } from "../helpers/precioConPunto"
+import { HeartSvg } from "../components/HeartSvg";
 
 
 export const ProductoPage = () => {
   const { id } = useParams(); //destructuración de id. useParams lee los parámetros de la URL(todo lo que viene después del (/) )
   const [producto, setProducto] = useState({});
-  
-  
+
+
   const getProducto = async () => {
     const url = `https://proyecto5-backend-17i4e1gbz-ninalizbeth.vercel.app/products/product/${id}`;
     const { data } = await axios.get(url, {
@@ -105,6 +106,11 @@ export const ProductoPage = () => {
   // constante evalua con un metodo (some) de array si el producto esta o no en el carrito
   const isInCart = state.cartItems.some((item) => item._id === producto._id);
 
+  const [addFavorites, setAddFavorites] = useState(true)
+  const  cambiaFavorites =() => {
+    setAddFavorites(!addFavorites)
+  }
+
   return (
     <>
       <div className="w-full">
@@ -122,97 +128,27 @@ export const ProductoPage = () => {
 
           {/* <!-- Product info --> */}
           <div className="mx-auto max-w-2xl px-4 pb-16 pt-5 sm:px-6 lg:max-w-7xl lg:gap-x-8 lg:px-8 lg:pb-24 flex flex-col lg:w-1/2 gap-5">
-            <div className=" w-full lg:pr-8">
+            <div className=" flex flex-col justify-start w-full lg:pr-8 ">
               <h1 className="text-4xl font-bold  font-mooli text-gray-900 sm:text-3xl ">
                 {producto?.nombre}
               </h1>
+              <button onClick={cambiaFavorites} className="flex items-center mt-3 ">
+                    <HeartSvg addFavorites={addFavorites} />
+                  </button>
             </div>
 
             {/* <!-- Options --> */}
             <div className="mt-4 lg:row-span-3 lg:mt-0">
               <h2 className="sr-only">Product information</h2>
-              <p className="text-4xl text-gray-900 font-mooli">
+              <p className="text-4xl mb-4 text-gray-900 font-mooli">
                 ${precioFormateado}
               </p>
               {/* <!-- Reviews --> */}
-              <div className="mt-6">
-                <h3 className="sr-only">Reviews</h3>
-                <div className="flex items-center">
-                  <div className="flex items-center">
-                    {/* <!-- Active: "text-gray-900", Default: "text-gray-200" --> */}
-                    <svg
-                      className="text-gray-900 h-5 w-5 flex-shrink-0"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <svg
-                      className="text-gray-900 h-5 w-5 flex-shrink-0"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <svg
-                      className="text-gray-900 h-5 w-5 flex-shrink-0"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <svg
-                      className="text-gray-900 h-5 w-5 flex-shrink-0"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <svg
-                      className="text-gray-200 h-5 w-5 flex-shrink-0"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                  <p className="sr-only">4 out of 5 stars</p>
-                  <Link
-                    href="#"
-                    className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                  >
-                    117 reseñas
-                  </Link>
-                </div>
-              </div>
-              <div className="mt-10 flex flex-col lg:flex-row gap-5 font-mooli">
+              
+               
+                <div className=" flex flex-col lg:flex-row gap-5 font-mooli  ">
                 {isInCart ? (
-                  <div className="bg-slate-100 rounded-3xl mt-8 flex justify-between w-full sm:w-36 items-center">
+                  <div className="bg-slate-100 rounded-3xl  flex justify-between w-full sm:w-36 items-center">
                     <button
                       onClick={decrementar}
                       className="bg-slate-100 hover:bg-indigo-600 hover:text-white hover:font-bold rounded-full p-1 w-12 text-2xl text-center align-middle pb-2"
@@ -253,9 +189,9 @@ export const ProductoPage = () => {
                 <div className="space-y-6">
                   <p className=" text-gray-900 text-xl whitespace-pre-wrap">
                     {
-                      (producto?.descripcion !== "" )
-                      ?producto.descripcion 
-                      :producto.sinopsis
+                      (producto?.descripcion !== "")
+                        ? producto.descripcion
+                        : producto.sinopsis
                     }
                   </p>
                 </div>
