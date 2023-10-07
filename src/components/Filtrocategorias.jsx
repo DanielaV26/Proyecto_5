@@ -62,7 +62,7 @@ export const Filtrocategorias = () => {
     <>
       <div
         id="productosId"
-        className="flex items-center justify-center py-4 md:py-8 flex-wrap font-mooli bg-red-400"
+        className="flex items-center justify-center py-4 md:py-8 flex-wrap font-mooli"
       >
         <button
           type="button"

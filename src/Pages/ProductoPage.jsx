@@ -106,10 +106,16 @@ export const ProductoPage = () => {
   // constante evalua con un metodo (some) de array si el producto esta o no en el carrito
   const isInCart = state.cartItems.some((item) => item._id === producto._id);
 
-  const [addFavorites, setAddFavorites] = useState(true)
+  const [addFavorites, setAddFavorites] = useState(false)
   const  cambiaFavorites =() => {
     setAddFavorites(!addFavorites)
   }
+ 
+  useEffect(() => {
+    localStorage.setItem("fav", JSON.stringify(state.addFavorites))
+  }, [state.addFavorites])
+  
+  
 
   return (
     <>
