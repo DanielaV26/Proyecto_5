@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 export const HeartSvg = ({addFavorites}) => (
-    <svg className={`w-10 ${(addFavorites)? "animate-pulse" : ""}`}
+    <svg className={`w-10 ${(addFavorites)? "" : ""}`}
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"

@@ -112,9 +112,18 @@ export const ProductoPage = () => {
   }
  
   useEffect(() => {
-    localStorage.setItem("fav", JSON.stringify(state.addFavorites))
-  }, [state.addFavorites])
-  
+    localStorage.setItem("fav", JSON.stringify(addFavorites))
+  }, [addFavorites])
+
+  const addTofavorites = () => {
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    if (!favorites.includes(producto._id)){
+      favorites.push(producto._id)
+    }
+    localStorage.setItem("favorites", JSON.stringify(favorites))
+    setAddFavorites(true)
+  }
+
   
 
   return (
