@@ -4,6 +4,7 @@ import { LoginModal } from "./LoginModal"
 import { useDisclosure } from "@nextui-org/react"
 import { CarritoBadge } from "./CarritoBadge"
 import { useState } from "react"
+import { HeartNavbarSvg } from "./HeartNavbarSvg"
 
 export const Navbar = () => {
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
@@ -46,6 +47,9 @@ export const Navbar = () => {
             <button>
               <UserSvg  onClick={onOpen}/>
             </button>
+            <Link to="/favorites">
+              <HeartNavbarSvg/>
+            </Link>
             <CarritoBadge/>
             <LoginModal isOpen={isOpen} onOpenChange={onOpenChange}/>
 

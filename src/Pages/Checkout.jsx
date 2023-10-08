@@ -33,10 +33,10 @@ export const Checkout = () => {
         </div>
 
         <section className="flex flex-col gap-4 w-full md:w-auto">
-          <article className="font-montserrat bg-white rounded-xl border drop-shadow-sm p-4 flex flex-col gap-2">
+          <article className="bg-white rounded-xl border drop-shadow-sm p-4 flex flex-col gap-2">
             <div className="flex items-center">
               <CartSvg />
-              <h3 className="font-montserrat text-lg font-semibold">Tu carro ({cantidadDeProductos}) <a className=" underline cursor-pointer text-violet-500 font-normal">Editar</a></h3>
+              <h3 className="text-lg font-semibold">Tu carro ({cantidadDeProductos}) <a className=" underline cursor-pointer text-violet-500 font-normal">Editar</a></h3>
             </div>
             <hr />
             {state.cartItems.map((item, index) => (
@@ -45,7 +45,7 @@ export const Checkout = () => {
           </article>
 
 
-          <article className="font-montserrat rounded-xl border drop-shadow-sm p-4 flex flex-col gap-2">
+          <article className="rounded-xl border drop-shadow-sm p-4 flex flex-col gap-2">
             <div>
               <h3 className="text-lg font-semibold">Resumen de tu compra</h3>
             </div>
