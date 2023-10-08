@@ -21,8 +21,8 @@ export const CarritoBadge = () => {
 //939CA5
   return (
     <>
-      <Badge color="warning" content={cantidadDeProductos} shape="circle" size='lg'>
-        <div className=' text-[#713ABE]'>
+      <Badge color="danger" content={cantidadDeProductos} shape="circle" size='lg'>
+        <div className=' text-[#000000]'>
         <CartIcon className="cursor-pointer" onClick={openModal} size={35}  />
         </div>
       </Badge>
