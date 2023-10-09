@@ -56,7 +56,7 @@ export function RegisterModal({closeLogin}) {
       toast('Debes llenar todos los campos antes de registrarte')
       return
     }
-    const rutaBackend = 'https://proyecto5-backend-e5u3-dev.fl0.io/'
+    const rutaBackend = 'https://proyecto5-backend-ten.vercel.app/'
     const first = registerForm.name.slice(0,4)
     const second = registerForm.lastname.slice(0,4)
     const fecha = JSON.stringify(Date.now())

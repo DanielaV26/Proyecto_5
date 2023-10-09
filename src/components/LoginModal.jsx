@@ -35,7 +35,7 @@ export  function LoginModal({isOpen, onOpenChange}) {
 
   const onSubmitLoginForm = async (e, onClose) => {
     e.preventDefault()
-    const rutaBackend = 'https://proyecto5-backend-e5u3-dev.fl0.io/'
+    const rutaBackend = 'https://proyecto5-backend-ten.vercel.app/'
 
     try {
       const {data} = await axios.post(rutaBackend+'user/login', loginForm, {
