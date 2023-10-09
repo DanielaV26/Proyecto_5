@@ -2,7 +2,7 @@
 
 Aplicación web de una tienda de velas literarias y accesorios.
 
-Tienda [Brightbooks](https://elegant-bubblegum-83ca7d.netlify.app/)  :pizza:  
+Tienda [Brightbooks](https://elegant-bubblegum-83ca7d.netlify.app/)  :books:  
 
 ![Pizzería](https://res.cloudinary.com/dhijxrbsk/image/upload/v1695941939/CapturaProyecto_qi4aaf.png)  
 
@@ -13,7 +13,7 @@ Este proyecto está enfocado en construir una aplicación web de ecommerce. En �
 - _Página principal con un carrusel de fotos sobre el enfoque de la tienda._  :sparkles:  
 - _Catálogo de productos.
 - _Carrito de compras.
-- _Pasarela de pago (PayPal)
+- _Pasarela de pago (PayPal)  :credit_card:  
 - _Sección "Nosotros" en donde se entrega información sobre la tienda._  :man_cook:  :woman_cook:      
 - _Registro de usuario para el inicio de sesión._  :bust_in_silhouette:  
 - _

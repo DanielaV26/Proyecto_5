@@ -1,28 +1,35 @@
 import { RadioGroup, useRadio, VisuallyHidden, cn } from "@nextui-org/react";
+import { PayPalButton } from "../components/PayPalButton";
+import { useState } from "react";
+import { MercadoPagoButton } from "../components/MercadoPagoButton";
+import { TransferenciaButton } from "../components/TransferenciaButton";
 
 export const Payment = () => {
-
+const [paymentMethod, setPaymentMethod] = useState("")
   return (
     <section className="flex gap-4 flex-col w-full md:w-auto">
       <form className="flex flex-col p-4 bg-white border drop-shadow-sm w-full gap-4 rounded-xl">
         <h3 className="font-semibold font-montserrat text-lg">Método de pago</h3>
-        <RadioGroup label="Elige tu método de pago">
-          <CustomRadio description="" value="delivery" isSelected>
+        <RadioGroup onValueChange={setPaymentMethod} label="Elige tu método de pago">
+          <CustomRadio  description="" value="PayPal">
             <div className="flex items-center gap-2">
             <span>PayPal</span> <img className="w-8 h-8" src="https://res.cloudinary.com/dhijxrbsk/image/upload/v1696869287/paypal-logo_kflbua.png" alt="logo PayPal" />
             </div>
           </CustomRadio>
-          <CustomRadio description="" value="pickup">
+          <CustomRadio description="" value="MercadoPago">
             <div className="flex items-center gap-2">
-            <span>Mercado Pago</span> <img className="w-8 h-8" src="https://res.cloudinary.com/dhijxrbsk/image/upload/v1696869120/MERCADOPAGO_jbqkom.png" alt="" />
+            <span>Mercado Pago</span> <img className="w-8 h-8" src="https://res.cloudinary.com/dhijxrbsk/image/upload/v1696869120/MERCADOPAGO_jbqkom.png" alt="logo mercadoPago" />
             </div>
           </CustomRadio>
-          <CustomRadio description="" value="pickup">
+          <CustomRadio description="" value="Transferencia">
             <div className="flex items-center gap-2">
-            <span>Transferencia Bancaria</span> <img className="w-7 h-7" src="https://res.cloudinary.com/dhijxrbsk/image/upload/v1696870258/tranferencia_emxuvd.png" alt="" />
+            <span>Transferencia Bancaria</span> <img className="w-7 h-7" src="https://res.cloudinary.com/dhijxrbsk/image/upload/v1696870258/tranferencia_emxuvd.png" alt="logo transferencia" />
             </div>
           </CustomRadio>
         </RadioGroup>
+        {(paymentMethod==="PayPal") && <PayPalButton/>}
+        {(paymentMethod==="MercadoPago") && <MercadoPagoButton/>}
+        {(paymentMethod==="Transferencia") && <TransferenciaButton/>}
       </form>
       <div className="flex justify-between p-5 mt-3 gap-5">
         <p className="cursor-pointer text-violet-500 underline">&larr;Volver atrás</p>
