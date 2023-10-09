@@ -1,6 +1,4 @@
 import { Route, Routes } from "react-router-dom"
-import { ProtectedRoutes } from "./ProtectedRoutes"
-import { useState } from "react"
 import { Home } from "../components/Home"
 import { Nosotros } from "../Pages/Nosotros"
 import { Productos } from "../Pages/Productos"
@@ -10,11 +8,11 @@ import { CheckoutUserForm } from "../Pages/CheckoutUserForm"
 import { Delivery } from "../Pages/Delivery"
 import { Favorites } from "../Pages/Favorites"
 import { UserProfile } from "../Pages/UserProfile"
+import { Payment } from "../Pages/Payment"
 
 
 
 export const MainRouter = () => {
-    const [user, setUser] = useState(null)
 
     return (
 
@@ -28,15 +26,14 @@ export const MainRouter = () => {
             <Route path="/checkout" element={<Checkout />} >
                 <Route path="" element={<CheckoutUserForm />} />
                 <Route path="delivery" element={<Delivery/>} />
-                <Route path="payment" element={<h1>Payment</h1>} />
+                <Route path="payment" element={<Payment/>} />
             </Route>
             <Route path="/profile" element={<UserProfile />} />
 
 
             {/* ruta protegida */}
-            <Route element={<ProtectedRoutes isAllowed={user} />}>
-                {/* <Route path="/admin" element={<AdminPages/>}/> */}
-            </Route>
+            {/* <Route element={<ProtectedRoutes isAllowed={user} />}>
+            </Route> */}
 
 
         </Routes>

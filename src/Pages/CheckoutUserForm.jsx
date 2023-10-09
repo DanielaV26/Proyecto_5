@@ -4,11 +4,60 @@ import { MailIcon } from "../components/MailIcon"
 import { ShippingBoxSvg } from "../components/ShippingBoxSvg"
 import { ShoppingBagSvg } from "../components/ShoppingBagSvg"
 import { ReceiptSvg } from "../components/ReceiptSvg"
+import { useContext, useState } from "react"
+import { saveToLS } from "../helpers/LS"
+import { UserContext } from "../context/user/userContext"
+import axios from "axios"
+import {useNavigate} from "react-router-dom"
 
 export const CheckoutUserForm = () => {
+    const navegar = useNavigate()
+
+
+    const initialLoginForm = {
+        email: "",
+        password: ""
+    }
+    const [loginFormData, setLoginFormData] = useState(initialLoginForm)
+    const [state, dispatch] = useContext(UserContext)
+
+    const onSubmitLoginForm = async (e) => {
+        e.preventDefault()
+        const rutaBackend = 'https://proyecto5-backend-17i4e1gbz-ninalizbeth.vercel.app/'
+
+    try {
+      const {data} = await axios.post(rutaBackend+'user/login', loginFormData, {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json"
+        },
+      })
+      console.log(data)
+      saveToLS('token', data.token)
+      dispatch({
+        type: 'LOGIN',
+        payload: data.token
+      })
+      alert("inicio de sesión exitoso")
+      navegar("/checkout/delivery")
+      setLoginFormData(initialLoginForm)
+    } catch (error) {
+      console.log(error)
+      alert("Usuario o contraseña incorrectos")
+    }
+    }
+
+    const onChangeLoginForm = (e) => {
+        setLoginFormData({
+            ...loginFormData,
+            [e.target.name]: e.target.value
+        })
+    }
+
+
     return (
         <section className="flex gap-4 flex-col md:flex-row w-full md:w-auto">
-            <form className="flex flex-col p-4 bg-white border drop-shadow-sm w-full gap-4 rounded-xl">
+            <form onSubmit={onSubmitLoginForm} className="flex flex-col p-4 bg-white border drop-shadow-sm w-full gap-4 rounded-xl">
                 <h3 className="font-semibold text-lg">Inicia sesión</h3>
                 <Input
                     endContent={
@@ -21,6 +70,9 @@ export const CheckoutUserForm = () => {
                         outline: 'none',
                         border: 'none'
                     }}
+                    name='email'
+                    value={loginFormData.email}
+                    onChange={onChangeLoginForm}
                 />
                 <Input
                     endContent={
@@ -35,6 +87,9 @@ export const CheckoutUserForm = () => {
                         outline: 'none',
                         border: 'none'
                     }}
+                    name='password'
+                    value={loginFormData.password}
+                    onChange={onChangeLoginForm}
                 />
                 <a className="cursor-pointer underline ml-auto text-violet-500">Olvidé mi contraseña</a>
                 <button className="bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white rounded-full p-2 font-semibold cursor-pointer" type="submit">
