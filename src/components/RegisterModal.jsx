@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from 'axios'
 import {
   Modal,
@@ -21,6 +21,8 @@ import { regionesData } from "../helpers/regiones";
 import { toast } from 'react-toastify';
 import { UserLoginSvg } from "./UserLoginSvg.jsx";
 import { IdentificationSvg } from "./IdentificationSvg.jsx";
+import { UserContext } from "../context/user/userContext.js"
+
 
 export function RegisterModal({closeLogin}) {
 
@@ -41,6 +43,7 @@ export function RegisterModal({closeLogin}) {
   };
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [registerForm, setRegisterForm] = useState(initialRegisterForm);
+  const [state, dispatch] = useContext(UserContext)
   const [comunas, setComunas] = useState([]);
   const [regiones, setRegiones] = useState([]);
   const [contrasena2, setContrasena2] = useState("");
@@ -77,12 +80,15 @@ export function RegisterModal({closeLogin}) {
           "Content-Type": "application/json"
         },
       })
-      console.log(data)
+      dispatch({
+        type: 'LOGIN',
+        payload: data.token
+      })
       setRegisterForm(initialRegisterForm)
       setIsLoading(false)
+      toast('Usuario registrado con éxito')
       closeLogin()
       onClose()
-      toast('Usuario registrado con éxito')
     } catch (error) {
       console.log(error)
       toast('Algo salió mal, inténtalo nuevamente')
