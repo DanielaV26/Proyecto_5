@@ -1,4 +1,4 @@
-import { RadioGroup, Radio, useRadio, VisuallyHidden, cn } from "@nextui-org/react";
+import { RadioGroup, useRadio, VisuallyHidden, cn } from "@nextui-org/react";
 import { CartContext } from "../context/cart/cartContext";
 import { useContext } from "react";
 import {useNavigate} from "react-router-dom"
