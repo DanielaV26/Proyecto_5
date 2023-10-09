@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import axios from 'axios'
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, Checkbox, Input, Link } from "@nextui-org/react";
 import { MailIcon } from './MailIcon.jsx';
@@ -10,6 +10,7 @@ import { RegisterModal } from "./RegisterModal.jsx";
 import { auth, googleProvider } from "../firebase/firebase.js";
 import { signInWithPopup } from "firebase/auth";
 import { saveToLS } from '../helpers/LS.js'
+import { UserContext } from "../context/user/userContext.js"
 
 
 export  function LoginModal({isOpen, onOpenChange}) {
@@ -20,6 +21,7 @@ export  function LoginModal({isOpen, onOpenChange}) {
   }
   
   const [loginForm, setLoginForm] = useState(initialLoginForm)
+  const [, dispatch] = useContext(UserContext)
 
   const onLoginGoogle = () => {
     signInWithPopup(auth, googleProvider).then(({user})=>{
@@ -44,6 +46,10 @@ export  function LoginModal({isOpen, onOpenChange}) {
       })
       console.log(data)
       saveToLS('token', data.token)
+      dispatch({
+        type: 'LOGIN',
+        payload: data.token
+      })
       setLoginForm(initialLoginForm)
       onClose()
     } catch (error) {

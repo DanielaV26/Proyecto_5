@@ -9,6 +9,7 @@ import { Checkout } from "../Pages/Checkout"
 import { CheckoutUserForm } from "../Pages/CheckoutUserForm"
 import { Delivery } from "../Pages/Delivery"
 import { Favorites } from "../Pages/Favorites"
+import { UserProfile } from "../Pages/UserProfile"
 
 
 
@@ -29,6 +30,7 @@ export const MainRouter = () => {
                 <Route path="delivery" element={<Delivery/>} />
                 <Route path="payment" element={<h1>Payment</h1>} />
             </Route>
+            <Route path="/profile" element={<UserProfile />} />
 
 
             {/* ruta protegida */}
