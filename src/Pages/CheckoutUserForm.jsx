@@ -4,18 +4,47 @@ import { MailIcon } from "../components/MailIcon"
 import { ShippingBoxSvg } from "../components/ShippingBoxSvg"
 import { ShoppingBagSvg } from "../components/ShoppingBagSvg"
 import { ReceiptSvg } from "../components/ReceiptSvg"
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { saveToLS } from "../helpers/LS"
+import { UserContext } from "../context/user/userContext"
+import axios from "axios"
+import {useNavigate} from "react-router-dom"
 
 export const CheckoutUserForm = () => {
+    const navegar = useNavigate()
+
+
     const initialLoginForm = {
         email: "",
         password: ""
     }
     const [loginFormData, setLoginFormData] = useState(initialLoginForm)
-    
+    const [state, dispatch] = useContext(UserContext)
+
     const onSubmitLoginForm = async (e) => {
         e.preventDefault()
-        console.log(loginFormData)
+        const rutaBackend = 'https://proyecto5-backend-17i4e1gbz-ninalizbeth.vercel.app/'
+
+    try {
+      const {data} = await axios.post(rutaBackend+'user/login', loginFormData, {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json"
+        },
+      })
+      console.log(data)
+      saveToLS('token', data.token)
+      dispatch({
+        type: 'LOGIN',
+        payload: data.token
+      })
+      alert("inicio de sesión exitoso")
+      navegar("/checkout/delivery")
+      setLoginFormData(initialLoginForm)
+    } catch (error) {
+      console.log(error)
+      alert("Usuario o contraseña incorrectos")
+    }
     }
 
     const onChangeLoginForm = (e) => {

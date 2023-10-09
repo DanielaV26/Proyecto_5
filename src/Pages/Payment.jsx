@@ -1,32 +1,31 @@
-import { RadioGroup, Radio, useRadio, VisuallyHidden, cn } from "@nextui-org/react";
-import { CartContext } from "../context/cart/cartContext";
-import { useContext } from "react";
-import {useNavigate} from "react-router-dom"
+import { RadioGroup, useRadio, VisuallyHidden, cn } from "@nextui-org/react";
 
-export const Delivery = () => {
-  const [state, dispatch] = useContext(CartContext)
-  const navigate=useNavigate()
-  const goToPay = (e) => {
-    e.preventDefault()
-    navigate("/checkout/payment")
-  }
+export const Payment = () => {
 
   return (
     <section className="flex gap-4 flex-col w-full md:w-auto">
       <form className="flex flex-col p-4 bg-white border drop-shadow-sm w-full gap-4 rounded-xl">
-        <h3 className="font-semibold font-montserrat text-lg">Entrega</h3>
-        <RadioGroup label="Elige tu método de entrega">
-          <CustomRadio description="Recibe en la comodidad de tu hogar" value="delivery" isSelected>
-            Recibe mañana (fecha)
+        <h3 className="font-semibold font-montserrat text-lg">Método de pago</h3>
+        <RadioGroup label="Elige tu método de pago">
+          <CustomRadio description="" value="delivery" isSelected>
+            <div className="flex items-center gap-2">
+            <span>PayPal</span> <img className="w-8 h-8" src="https://res.cloudinary.com/dhijxrbsk/image/upload/v1696869287/paypal-logo_kflbua.png" alt="logo PayPal" />
+            </div>
           </CustomRadio>
-          <CustomRadio description="Retíralo desde el (fecha)" value="pickup">
-            Retira en tienda
+          <CustomRadio description="" value="pickup">
+            <div className="flex items-center gap-2">
+            <span>Mercado Pago</span> <img className="w-8 h-8" src="https://res.cloudinary.com/dhijxrbsk/image/upload/v1696869120/MERCADOPAGO_jbqkom.png" alt="" />
+            </div>
+          </CustomRadio>
+          <CustomRadio description="" value="pickup">
+            <div className="flex items-center gap-2">
+            <span>Transferencia Bancaria</span> <img className="w-7 h-7" src="https://res.cloudinary.com/dhijxrbsk/image/upload/v1696870258/tranferencia_emxuvd.png" alt="" />
+            </div>
           </CustomRadio>
         </RadioGroup>
       </form>
       <div className="flex justify-between p-5 mt-3 gap-5">
         <p className="cursor-pointer text-violet-500 underline">&larr;Volver atrás</p>
-        <button  onClick={goToPay} className="cursor-pointer font-semibold rounded-xl text-white bg-gradient-to-r from-violet-500 to-fuchsia-500 grow max-w-[300px]  p-2 hover:scale-110" type="submit">Continuar con el pago</button>
       </div>
     </section>
   )
@@ -36,7 +35,7 @@ export const CustomRadio = (props) => {
   const {
     Component,
     children,
-    isSelected,
+    // isSelected,
     description,
     getBaseProps,
     getWrapperProps,
