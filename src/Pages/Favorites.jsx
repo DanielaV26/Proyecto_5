@@ -7,7 +7,7 @@ export const Favorites = () => {
     const [show2, setshow2] = useState(false);
     const [show3, setshow3] = useState(false);
 
-    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    
 
     return (
         <div className="mx-auto container px-4 md:px-6 2xl:px-0 py-12 flex justify-center items-center">

@@ -1,14 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 // import { ProductGallery } from "../components/ProductGallery"
-import { useContext } from "react";
 import { CartContext } from "../context/cart/cartContext";
 import { CartSvg } from "../components/CartSvg";
-import { FeaturedProducts } from "../components/FeaturedProducts";
+// import { FeaturedProducts } from "../components/FeaturedProducts";
 import { agregarPuntoAlPrecio } from "../helpers/precioConPunto"
 import { HeartSvg } from "../components/HeartSvg";
-
 
 export const ProductoPage = () => {
   const { id } = useParams(); //destructuración de id. useParams lee los parámetros de la URL(todo lo que viene después del (/) )
@@ -23,7 +21,7 @@ export const ProductoPage = () => {
       },
     });
     setProducto(data.producto);
-    console.log(data.producto)
+    
   };
 
   const precioFormateado = agregarPuntoAlPrecio(producto?.valor)
@@ -32,6 +30,10 @@ export const ProductoPage = () => {
   useEffect(() => {
     getProducto();
   }, []); /* ([]) es el arreglo de dependencias del useEffect */
+
+  useEffect(() => {
+    isInFavs();
+  }, [producto])
 
   const incrementar = () => {
     const newQty = state.cartItems.map((item) => {
@@ -106,25 +108,41 @@ export const ProductoPage = () => {
   // constante evalua con un metodo (some) de array si el producto esta o no en el carrito
   const isInCart = state.cartItems.some((item) => item._id === producto._id);
 
-  const [addFavorites, setAddFavorites] = useState(false)
-  const  cambiaFavorites =() => {
-    setAddFavorites(!addFavorites)
+  const [addFavorites, setAddFavorites] = useState(false)  /* uso addFavorites para ver si un producto está  favoritos o no. */
+  const cambiaFavorites = () => {  /* Esto define una función llamada cambiaFavorites. Cuando se llama a esta función... */
+    setAddFavorites(!addFavorites) /* se utiliza setAddFavorites para cambiar el valor de addFavorites al valor opuesto (si era false, se convierte en true, y viceversa) */
   }
- 
-  useEffect(() => {
-    localStorage.setItem("fav", JSON.stringify(addFavorites))
+
+  useEffect(() => { /* Se ejecutacada vez que el estado de addFavorites cambia y dentro de guarda el valor de adFavorites en el LS */
+   handleFavorites()
   }, [addFavorites])
 
-  const addTofavorites = () => {
-    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    if (!favorites.includes(producto._id)){
-      favorites.push(producto._id)
+  const handleFavorites = () => {  /* funcion para agregar productos a fav */
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || /* obtengo la lista de fav guardada en el LS y se guarda en favorites */[]; /* Y si no hay favoritos llega como arreglo vacio */
+    if (addFavorites) {
+      if (!favorites.includes(producto._id)) { /* verifico que el producto NO este en la llista de favoritos */
+        favorites.push(producto._id)  /* Aqui se empuja al LS la nueva info con  el nuevo producto agregado */
+        localStorage.setItem("favorites", JSON.stringify(favorites))
+      }
+    } else {
+      const index = favorites.indexOf(producto._id)
+      console.log({index})
+      if(index>=0){
+        console.log('hay index')
+        favorites.splice(index, 1)
+        localStorage.setItem("favorites", JSON.stringify(favorites))
+      }
     }
-    localStorage.setItem("favorites", JSON.stringify(favorites))
-    setAddFavorites(true)
   }
 
-  
+  const isInFavs = () => {
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || []
+    if (favorites.includes(producto._id)) {
+      setAddFavorites(true)
+    }
+  }
+
+
 
   return (
     <>
@@ -148,8 +166,8 @@ export const ProductoPage = () => {
                 {producto?.nombre}
               </h1>
               <button onClick={cambiaFavorites} className="flex items-center mt-3 ">
-                    <HeartSvg addFavorites={addFavorites} />
-                  </button>
+                <HeartSvg addFavorites={addFavorites} />
+              </button>
             </div>
 
             {/* <!-- Options --> */}
@@ -159,9 +177,9 @@ export const ProductoPage = () => {
                 ${precioFormateado}
               </p>
               {/* <!-- Reviews --> */}
-              
-               
-                <div className=" flex flex-col lg:flex-row gap-5 font-mooli  ">
+
+
+              <div className=" flex flex-col lg:flex-row gap-5 font-mooli  ">
                 {isInCart ? (
                   <div className="bg-slate-100 rounded-3xl  flex justify-between w-full sm:w-36 items-center">
                     <button
@@ -215,7 +233,7 @@ export const ProductoPage = () => {
           </div>
         </div>
       </div>
-      <FeaturedProducts categoria={producto.categoria} />
+      {/* <FeaturedProducts categoria={producto.categoria} /> */}
     </>
   );
 };
