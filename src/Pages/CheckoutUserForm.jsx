@@ -10,6 +10,7 @@ import { UserContext } from "../context/user/userContext"
 import axios from "axios"
 import {useNavigate} from "react-router-dom"
 import { PaymentContext } from "../context/payment/paymentContext"
+import { toast } from "react-toastify"
 
 export const CheckoutUserForm = () => {
     const navegar = useNavigate()
@@ -46,12 +47,12 @@ export const CheckoutUserForm = () => {
         type: 'LOGIN',
         payload: data.token
       })
-      alert("inicio de sesión exitoso")
+      toast("inicio de sesión exitoso")
       navegar("/checkout/delivery")
       setLoginFormData(initialLoginForm)
     } catch (error) {
       console.log(error)
-      alert("Usuario o contraseña incorrectos")
+      toast("Usuario o contraseña incorrectos")
     }
     }
 
