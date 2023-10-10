@@ -32,7 +32,7 @@ useEffect(() => {
               color="secondary"
               name="Jason Hughes"
               size="sm"
-              src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+              src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1696872936/Captura_de_pantalla_2023-10-09_143340_qknmyk.png"
             />
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">
