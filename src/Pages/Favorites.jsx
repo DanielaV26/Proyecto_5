@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { ProductCard } from "../components/ProductCard";
 
 export const Favorites = () => {
 
@@ -10,13 +11,14 @@ export const Favorites = () => {
         try {
             const favoritos = JSON.parse(localStorage.getItem("favorites")) || []
             console.log(favoritos)
-            const { data } = await axios.get(urlBackend, favoritos, {
-    
-                headers:{
-                  "Access-Control-Allow-Origin": "*"
+            const { data } = await axios.post(urlBackend, favoritos, {
+    headers:{
+                  "Access-Control-Allow-Origin": "*", 
+                  "Content-Type": "application/json"
                 }
                   })
-            setObtenerFavoritos(data)
+                  console.log(data)
+            setObtenerFavoritos(data.favoritos)
 } catch (error) {
 console.log(error)
 }   
@@ -27,17 +29,15 @@ console.log(error)
     
     }, [])
     
-
-
-
-
-
 return (
-    <>
-{
-    JSON.stringify(obtenerFavoritos)
-}
-    </>
+    <div >
+      <h2>Mis favoritos</h2>
+      <div >
+        {obtenerFavoritos?.map((producto) => (
+    <ProductCard key={producto._id} producto={producto} />
+        ))}
+      </div>
+    </div>
 
 )
 }
