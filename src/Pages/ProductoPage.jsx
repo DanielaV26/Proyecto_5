@@ -112,7 +112,13 @@ export const ProductoPage = () => {
 
   const [addFavorites, setAddFavorites] = useState(false)  /* uso addFavorites para ver si un producto está  favoritos o no. */
   const cambiaFavorites = () => {  /* Esto define una función llamada cambiaFavorites. Cuando se llama a esta función... */
-    setAddFavorites(!addFavorites) /* se utiliza setAddFavorites para cambiar el valor de addFavorites al valor opuesto (si era false, se convierte en true, y viceversa) */
+  setAddFavorites(!addFavorites) /* se utiliza setAddFavorites para cambiar el valor de addFavorites al valor opuesto (si era false, se convierte en true, y viceversa) */
+  if(!addFavorites) {
+    toast("Producto agregado a tus favoritos")
+  }
+  else{
+    toast("Producto eliminado de tus favoritos")
+  }
   }
 
   useEffect(() => { /* Se ejecutacada vez que el estado de addFavorites cambia y dentro de guarda el valor de adFavorites en el LS */

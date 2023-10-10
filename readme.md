@@ -11,7 +11,7 @@ Tienda [Brightbooks](https://elegant-bubblegum-83ca7d.netlify.app/)  :candle:  :
 Este proyecto está enfocado en construir una aplicación web de ecommerce. En él se incluye:
 
 - _Página principal con un carrusel de fotos sobre el enfoque de la tienda._  :sparkles:  
-- _Catálogo de productos en general e individuales._
+- _Catálogo de productos en general e individuales._  :label:  
 - _Carrito de compras._  :shopping_cart:  :shopping:  
 - _Página de productos favoritos._  :heart:  
 - _Pasarela checkout._  :package:  
@@ -64,11 +64,11 @@ Este proyecto está enfocado en construir una aplicación web de ecommerce. En �
 
 [Brightbooks Backend](https://github.com/NinaLizbeth/proyecto5-Backend)
 
-## Método de trabajo  :memo: :pencil:  :handshake:  
+## Método de trabajo  :memo:  :handshake:  
 
 - Metodología ágil SCRUM [Notion.so](https://www.notion.so/c4dd399304c34b8680df71b79a2b94f8?v=9cb3939ee9284bd2b6388db68b649516)
 
 ## Autores  :black_nib:  
 
-- Carolina Hernández A. - @NinaLizbeth
-- Daniela Vargas G. - @DanielaV26
+- Carolina Hernández A. - [NinaLizbeth](https://github.com/NinaLizbeth)
+- Daniela Vargas G. - [DanielaV26](https://github.com/DanielaV26)

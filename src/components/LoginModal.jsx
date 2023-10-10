@@ -58,6 +58,7 @@ export  function LoginModal({isOpen, onOpenChange}) {
       console.log(error)
     }
   }
+    localStorage.setItem("sesión", JSON.stringify(initialLoginForm));
 
   const onChangeLoginForm = (e) => {
     setLoginForm({
