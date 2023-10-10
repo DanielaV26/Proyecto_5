@@ -1,11 +1,23 @@
 import { RadioGroup, useRadio, VisuallyHidden, cn } from "@nextui-org/react";
 import { PayPalButton } from "../components/PayPalButton";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MercadoPagoButton } from "../components/MercadoPagoButton";
 import { TransferenciaButton } from "../components/TransferenciaButton";
+import { PaymentContext } from "../context/payment/paymentContext";
+import { Link } from "react-router-dom";
 
 export const Payment = () => {
 const [paymentMethod, setPaymentMethod] = useState("")
+const [paymentState, paymentDispatch] = useContext(PaymentContext)
+
+useEffect(() => {
+  paymentDispatch({
+    type: 'CHANGE STEP',
+    payload: 3
+  })
+  
+}, [])
+
   return (
     <section className="flex gap-4 flex-col w-full md:w-auto">
       <form className="flex flex-col p-4 bg-white border drop-shadow-sm w-full gap-4 rounded-xl">
@@ -32,7 +44,7 @@ const [paymentMethod, setPaymentMethod] = useState("")
         {(paymentMethod==="Transferencia") && <TransferenciaButton/>}
       </form>
       <div className="flex justify-between p-5 mt-3 gap-5">
-        <p className="cursor-pointer text-violet-500 underline">&larr;Volver atrás</p>
+        <Link to="/checkout/delivery" className="cursor-pointer text-violet-500 underline">&larr;Volver atrás</Link>
       </div>
     </section>
   )

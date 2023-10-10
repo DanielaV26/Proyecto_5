@@ -5,14 +5,6 @@ export const ShoppingBagSvg = (props) => (
       viewBox="0 0 505 505" className="w-8 h-8"
       {...props}
     >
-      <circle
-        cx={252.5}
-        cy={252.5}
-        r={252.5}
-        style={{
-          fill: "#84dbff",
-        }}
-      />
       <path
         d="M138.4 112.7h228.2v96H138.4z"
         style={{

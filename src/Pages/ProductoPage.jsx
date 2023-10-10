@@ -7,6 +7,7 @@ import { CartSvg } from "../components/CartSvg";
 // import { FeaturedProducts } from "../components/FeaturedProducts";
 import { agregarPuntoAlPrecio } from "../helpers/precioConPunto"
 import { HeartSvg } from "../components/HeartSvg";
+import { toast } from "react-toastify";
 
 export const ProductoPage = () => {
   const { id } = useParams(); //destructuración de id. useParams lee los parámetros de la URL(todo lo que viene después del (/) )
@@ -100,6 +101,7 @@ export const ProductoPage = () => {
       type: "ADD",
       payload: { ...producto, cantidad: 1 },
     });
+    toast("Producto agregado con éxito")
   };
   useEffect(() => {
     localStorage.setItem("carrito", JSON.stringify(state.cartItems));

@@ -7,6 +7,7 @@ import { useState, useContext, useEffect } from "react"
 import { HeartNavbarSvg } from "./HeartNavbarSvg"
 import { UserContext } from "../context/user/userContext.js"
 import jwt_decode from "jwt-decode";
+import { AvatarNavbar } from "./AvatarNavbar"
 
 
 
@@ -70,7 +71,7 @@ export const Navbar = () => {
             <button>
               {
                 (userData)
-                ? <Link to='/profile'>Hola</Link>
+                ? <AvatarNavbar/>
                 : <UserSvg onClick={onOpen} />
               }
              

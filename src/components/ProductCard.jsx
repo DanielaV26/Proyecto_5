@@ -4,6 +4,7 @@ import { useContext, useEffect } from "react"
 
 import { CartContext } from "../context/cart/cartContext"
 import { Link } from "react-router-dom"
+import { toast } from "react-toastify"
 
 
 export const ProductCard = ({ producto }) => {
@@ -55,6 +56,7 @@ export const ProductCard = ({ producto }) => {
       type: 'ADD',
       payload: { ...producto, cantidad: 1 }
     })
+    toast("Producto agregado con éxito")
   
   }
   useEffect(() => {

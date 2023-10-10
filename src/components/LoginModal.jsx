@@ -11,6 +11,7 @@ import { auth, googleProvider } from "../firebase/firebase.js";
 import { signInWithPopup } from "firebase/auth";
 import { saveToLS } from '../helpers/LS.js'
 import { UserContext } from "../context/user/userContext.js"
+import { toast } from 'react-toastify';
 
 
 export  function LoginModal({isOpen, onOpenChange}) {
@@ -50,6 +51,7 @@ export  function LoginModal({isOpen, onOpenChange}) {
         type: 'LOGIN',
         payload: data.token
       })
+      toast("Sesión iniciada con éxito")
       setLoginForm(initialLoginForm)
       onClose()
     } catch (error) {
