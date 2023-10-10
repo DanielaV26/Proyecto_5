@@ -6,6 +6,7 @@ import { CartModal } from './components/CartModal';
 import { useContext } from 'react';
 import { CartContext } from './context/cart/cartContext';
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const [state, dispatch] = useContext(CartContext)

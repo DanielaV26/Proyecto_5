@@ -4,15 +4,16 @@ import { MailIcon } from "../components/MailIcon"
 import { ShippingBoxSvg } from "../components/ShippingBoxSvg"
 import { ShoppingBagSvg } from "../components/ShoppingBagSvg"
 import { ReceiptSvg } from "../components/ReceiptSvg"
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { saveToLS } from "../helpers/LS"
 import { UserContext } from "../context/user/userContext"
 import axios from "axios"
 import {useNavigate} from "react-router-dom"
+import { PaymentContext } from "../context/payment/paymentContext"
 
 export const CheckoutUserForm = () => {
     const navegar = useNavigate()
-
+ 
 
     const initialLoginForm = {
         email: "",
@@ -20,6 +21,13 @@ export const CheckoutUserForm = () => {
     }
     const [loginFormData, setLoginFormData] = useState(initialLoginForm)
     const [state, dispatch] = useContext(UserContext)
+    const [paymentState, paymentDispatch] = useContext(PaymentContext)
+
+    const isLogged = () => {
+        if(state.token) {
+            navegar("/checkout/delivery")
+        }
+    }
 
     const onSubmitLoginForm = async (e) => {
         e.preventDefault()
@@ -54,6 +62,14 @@ export const CheckoutUserForm = () => {
         })
     }
 
+    useEffect(() => {
+      paymentDispatch({
+        type: 'CHANGE STEP',
+        payload: 1
+      })
+      isLogged()
+    }, [])
+    
 
     return (
         <section className="flex gap-4 flex-col md:flex-row w-full md:w-auto">
@@ -100,10 +116,10 @@ export const CheckoutUserForm = () => {
             <form className="flex flex-col p-4 bg-white w-full gap-4 rounded-xl border drop-shadow-sm">
                 <h3 className="font-semibold text-lg">Crea tu cuenta</h3>
                 <p>Con tu registro, accedes a la información de tus compras y obtienes múltiples beneficios.</p>
-                <ul className="italic">
-                    <li className="flex"><ShippingBoxSvg/> Conoce el estado de todas tus compras</li>
-                    <li className="flex"><ShoppingBagSvg/> Pide cambios, devoluciones y reembolsos.</li>
-                    <li className="flex"><ReceiptSvg/> Descarga tus boletas y mucho más.</li>
+                <ul className="italic flex flex-col">
+                    <li className="flex gap-2"><ShippingBoxSvg/> Conoce el estado de todas tus compras</li>
+                    <li className="flex gap-2"><ShoppingBagSvg/> Pide cambios, devoluciones y reembolsos.</li>
+                    <li className="flex gap-2"><ReceiptSvg/> Descarga tus boletas y mucho más.</li>
                 </ul>
                 <button className="bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white rounded-full p-2 font-semibold cursor-pointer" type="submit">Crear mi cuenta </button>
                 <hr />

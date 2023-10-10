@@ -1,15 +1,25 @@
 import { RadioGroup, useRadio, VisuallyHidden, cn } from "@nextui-org/react";
 import { CartContext } from "../context/cart/cartContext";
-import { useContext } from "react";
-import {useNavigate} from "react-router-dom"
+import { useContext, useEffect } from "react";
+import {Link, useNavigate} from "react-router-dom"
+import { PaymentContext } from "../context/payment/paymentContext";
 
 export const Delivery = () => {
   const [state, dispatch] = useContext(CartContext)
+  const [paymentState, paymentDispatch] = useContext(PaymentContext)
   const navigate=useNavigate()
   const goToPay = (e) => {
     e.preventDefault()
     navigate("/checkout/payment")
   }
+
+  useEffect(() => {
+    paymentDispatch({
+      type: 'CHANGE STEP',
+      payload: 2
+    })
+    
+  }, [])
 
   return (
     <section className="flex gap-4 flex-col w-full md:w-auto">
@@ -25,7 +35,7 @@ export const Delivery = () => {
         </RadioGroup>
       </form>
       <div className="flex justify-between p-5 mt-3 gap-5">
-        <p className="cursor-pointer text-violet-500 underline">&larr;Volver atrás</p>
+        <Link to="/checkout" className="cursor-pointer text-violet-500 underline">&larr;Volver atrás</Link>
         <button  onClick={goToPay} className="cursor-pointer font-semibold rounded-xl text-white bg-gradient-to-r from-violet-500 to-fuchsia-500 grow max-w-[300px]  p-2 hover:scale-110" type="submit">Continuar con el pago</button>
       </div>
     </section>

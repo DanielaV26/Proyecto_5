@@ -7,14 +7,6 @@ export const ShippingBoxSvg = (props) => (
       viewBox="0 0 505 505" className="w-8 h-8"
       {...props}
     >
-      <circle
-        cx={252.5}
-        cy={252.5}
-        r={252.5}
-        style={{
-          fill: "#84dbff",
-        }}
-      />
       <path
         d="M306.8 107.3 427.3 156l-54.2 45.8-120.6-48.6zM198.2 107.3 77.7 156l54.2 45.8 120.6-48.6z"
         style={{
