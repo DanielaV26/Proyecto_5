@@ -63,7 +63,7 @@ export const Filtrocategorias = () => {
     <div className=" -mt-40 lg:-mt-10 ">
       <div
 id="productosId"
-        className="flex items-center justify-center  flex-wrap font-mooli " 
+        className="flex  items-center justify-center  flex-wrap font-mooli " 
       >
         <button
           type="button"
