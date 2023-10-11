@@ -19,7 +19,7 @@ useEffect(() => {
 }, [])
 
   return (
-    <section className="flex gap-4 flex-col w-full md:w-auto">
+    <section className="flex gap-4 flex-col w-full md:w-auto p-6">
       <form className="flex flex-col p-4 bg-white border drop-shadow-sm w-full gap-4 rounded-xl">
         <h3 className="font-semibold font-montserrat text-lg">Método de pago</h3>
         <RadioGroup onValueChange={setPaymentMethod} label="Elige tu método de pago">
@@ -35,7 +35,7 @@ useEffect(() => {
           </CustomRadio>
           <CustomRadio description="" value="Transferencia">
             <div className="flex items-center gap-2">
-            <span>Transferencia Bancaria</span> <img className="w-7 h-7" src="https://res.cloudinary.com/dhijxrbsk/image/upload/v1696870258/tranferencia_emxuvd.png" alt="logo transferencia" />
+            <span>Transferencia</span> <img className="w-7 h-7" src="https://res.cloudinary.com/dhijxrbsk/image/upload/v1696870258/tranferencia_emxuvd.png" alt="logo transferencia" />
             </div>
           </CustomRadio>
         </RadioGroup>
@@ -69,7 +69,7 @@ export const CustomRadio = (props) => {
       {...getBaseProps()}
       className={cn(
         "group inline-flex items-center hover:opacity-70 active:opacity-50 justify-between flex-row-reverse tap-highlight-transparent",
-        "min-w-[300px] mx-auto cursor-pointer border-2 border-default rounded-lg gap-4 p-4",
+        "min-w-[250px] mx-auto cursor-pointer border-2 border-default rounded-lg gap-4 p-4",
         "data-[selected=true]:border-primary",
       )}
     >

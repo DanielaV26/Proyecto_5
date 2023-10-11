@@ -15,7 +15,7 @@ export const ProgressCheckout = () => {
         >
           {paymentState.step === 1 ? <>1</> : <>&#10003;</>}
         </span>
-        <p className="font-semibold font-montserrat transition">
+        <p className="font-semibold transition">
           Datos Personales
         </p>
       </div>
@@ -32,7 +32,7 @@ export const ProgressCheckout = () => {
         >
           {paymentState.step <= 2 ? <>2</> : <>&#10003;</>}
         </span>
-        <p className="font-semibold font-montserrat transition">
+        <p className="font-semibold transition">
           Tipo de Entrega
         </p>
       </div>
@@ -45,7 +45,7 @@ export const ProgressCheckout = () => {
         >
           {paymentState.step <= 3 ? <>3</> : <>4</>}
         </span>
-        <p className="font-semibold font-montserrat transition">
+        <p className="font-semibold transition">
           Pago
         </p>
       </div>

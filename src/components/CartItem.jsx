@@ -83,14 +83,14 @@ export const CartItem = ({ imagen, valor, nombre, categoria, id, qty }) => {
           <div className="bg-slate-100 rounded-3xl mt-2 flex justify-between w-full sm:w-24 items-center">
             <button
               onClick={decrementar}
-              className="bg-slate-100 hover:bg-indigo-600 hover:text-white hover:font-bold rounded-full p-1 w-12 text-lg text-center align-middle pb-2"
+              className="bg-slate-100 hover:bg-violet-600 hover:text-white hover:font-bold rounded-full p-1 w-12 text-lg text-center align-middle pb-2"
             >
               -
             </button>
             <span className="p-2 font-bold text-sm">{qty}</span>
             <button
               onClick={incrementar}
-              className="bg-slate-100 hover:bg-indigo-600 hover:text-white hover:font-bold  rounded-full p-1 w-12 text-lg text-center align-middle pb-2"
+              className="bg-slate-100 hover:bg-violet-600 hover:text-white hover:font-bold  rounded-full p-1 w-12 text-lg text-center align-middle pb-2"
             >
               +
             </button>
@@ -100,7 +100,7 @@ export const CartItem = ({ imagen, valor, nombre, categoria, id, qty }) => {
             <button
               onClick={remove}
               type="button"
-              className="font-medium text-indigo-600 hover:text-indigo-500"
+              className="font-medium text-violet-600 hover:text-violet-500"
             >
               {" "}
               Eliminar{" "}

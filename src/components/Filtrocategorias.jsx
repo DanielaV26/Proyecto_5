@@ -120,7 +120,7 @@ export const Filtrocategorias = () => {
           Varios
         </button>
       </div>
-      <div className="flex flex-wrap w-full gap-5 justify-center items-center ">
+      <div className="flex flex-wrap w-full gap-10 justify-center items-center ">
         {filtro === "" && //Condicional para que se muestren las categorias solo si el filtro esta vacio
           categorias.map((categoria, index) => (
             <CategoryCard
