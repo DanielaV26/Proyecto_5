@@ -16,7 +16,7 @@ export const Navbar = () => {
 
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [openBurger, setOpenBurger] = useState(false)
-  const [state] = useContext(UserContext)
+  const [state, dispatch] = useContext(UserContext)
   const [userData, setUserData] = useState(null)
 
   const onToggleBurgerMenu = () => {
@@ -40,7 +40,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className="bg- border-gray-200 dark:bg-gray-900">
+      <nav className="bg- border-gray-200 dark:bg-gray-900 mt-10">
         <div className="max-w-screen-xl flex  items-center justify-between mx-auto p-4 ">
           <Link to="/" className="flex items-center">
             <img src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1696551338/brigthbook_titulo_png_bmkxc1_b8guto.png" className=" h-10 mr-3" alt="Brightbooks Logo" />
