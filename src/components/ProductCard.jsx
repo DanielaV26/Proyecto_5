@@ -72,7 +72,7 @@ export const ProductCard = ({ producto }) => {
     <>
 
 
-      <div className=" w-full max-w-sm bg-white border mt-10 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div className=" w-full max-w-sm bg-white border mt-10 border-gray-200 rounded-2xl shadow dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
           <Image isZoomed className="aspect-square h-96" src={producto.imagenes.principal} alt="product image" />
         </a>

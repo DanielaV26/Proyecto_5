@@ -62,10 +62,10 @@ try {
   return (
     <>
 
-      <h1 className="  h-14 mt-16  text-5xl font-cookie mx-auto bg-gradient-to-t from-violet-600 to-yellow-200 text-transparent bg-clip-text pl-16 text-center">Configuración de perfil </h1>
-      <div className="flex flex-row gap-10 mt-12">
+      <h1 className="lg:h-14 mt-16  text-5xl font-cookie mx-auto bg-gradient-to-t from-violet-600 to-yellow-200 text-transparent bg-clip-text pl-16 text-center">Configuración de perfil </h1>
+      <div className="flex flex-col gap-10 mt-12 lg:flex-row  ">
         {/* {JSON.stringify(state)} */}
-        <div className=" flex flex-col items-center justify-center ">
+        <div className="w-32 lg:w-1/4 flex flex-col items-center justify-center ">
           <img src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1696872936/Captura_de_pantalla_2023-10-09_143340_qknmyk.png" alt="" />
           <h2>{usuario?.name}</h2>
           <p>{usuario?.email}</p>

@@ -16,7 +16,7 @@ export const Navbar = () => {
 
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [openBurger, setOpenBurger] = useState(false)
-  const [state, dispatch] = useContext(UserContext)
+  const [state] = useContext(UserContext)
   const [userData, setUserData] = useState(null)
 
   const onToggleBurgerMenu = () => {

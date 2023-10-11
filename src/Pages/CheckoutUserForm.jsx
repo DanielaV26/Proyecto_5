@@ -11,6 +11,7 @@ import axios from "axios"
 import {useNavigate} from "react-router-dom"
 import { PaymentContext } from "../context/payment/paymentContext"
 import { toast } from "react-toastify"
+import { SinRegistroModal } from "../components/SinRegistroModal"
 
 export const CheckoutUserForm = () => {
     const navegar = useNavigate()
@@ -124,7 +125,7 @@ export const CheckoutUserForm = () => {
                 </ul>
                 <button className="bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white rounded-full p-2 font-semibold cursor-pointer" type="submit">Crear mi cuenta </button>
                 <hr />
-                <p>También puedes <a className="underline cursor-pointer text-violet-500">comprar sin registro</a></p>
+                <SinRegistroModal/>
             </form>
         </section>
     )
