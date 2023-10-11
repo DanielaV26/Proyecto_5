@@ -70,7 +70,7 @@ export const CartModal = () => {
                                 <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                                     <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                                         <div className="flex items-start justify-between">
-                                            <h2 className="text-lg font-mooli font-medium text-gray-900" id="slide-over-title">Carrito de compras</h2>
+                                            <h2 className="text-xl font-mooli text-gray-900" id="slide-over-title">Carrito de compras</h2>
                                             <div className="ml-3 flex h-7 items-center">
                                                 <button onClick={closeModal} type="button" className="relative -m-2 p-2 text-gray-400 hover:text-gray-500">
                                                     <span className="absolute -inset-0.5"></span>
@@ -86,7 +86,7 @@ export const CartModal = () => {
                                             {state.cartItems.length === 0 ? (
                                                 <div className="text-center p-4">
                                                     <img src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1696105765/preview-removebg-preview_uv18qk.png" alt="Carrito vacío" className="mx-auto" />
-                                                    <p className="font-mooli text-xl text-violet-900">Oh no...!!! Tu carrito se encuentra vacío. </p>
+                                                    <p className="font-mooli text-xl text-violet-600">Oh no...!!! Tu carrito se encuentra vacío. </p>
                                                 </div>
                                             ) : (
                                                 <div className="flow-root font-mooli">
@@ -106,17 +106,17 @@ export const CartModal = () => {
                                     <DeleteSvg className="ml-auto w-8" />
                                     </div>
                                     <div className="border-t border-gray-200 px-4 py-6 sm:px-6 font-mooli">
-                                        <div className="flex justify-between text-xl font-semibold text-gray-900">
+                                        <div className="flex justify-between text-lg font-semibold text-gray-900">
                                             <p>Subtotal</p>
                                             <p>${precioFormateado}</p>
                                         </div>
                                         <p className="mt-0.5 text-sm text-gray-500">Envío e impuestos calculados al finalizar la compra.</p>
                                         <div  className="mt-6">
-                                            <button onClick={checkout} disabled={state.cartItems.length<= 0} className="flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-violet-500 to-fuchsia-500 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 disabled:from-gray-500 disabled:to-gray-600 mx-auto">Continuar con mi compra</button>
+                                            <button onClick={checkout} disabled={state.cartItems.length<= 0} className="flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-violet-500 to-fuchsia-500 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 disabled:from-gray-500 disabled:to-gray-600 mx-auto hover:scale-110">Continuar con mi compra</button>
                                         </div>
                                         <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                                             <p>
-                                                <button onClick={closeModal} type="button" className="font-medium text-indigo-600 hover:text-indigo-500">Seguir mirando
+                                                <button onClick={closeModal} type="button" className="font-medium text-violet-600 hover:text-violet-500">Seguir mirando
                                                     <span aria-hidden="true"> &rarr;</span></button>
                                             </p>
                                         </div>
