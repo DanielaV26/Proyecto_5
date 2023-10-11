@@ -22,11 +22,11 @@ export const Delivery = () => {
   }, [])
 
   return (
-    <section className="flex gap-4 flex-col w-full md:w-auto">
-      <form className="flex flex-col p-4 bg-white border drop-shadow-sm w-full gap-4 rounded-xl">
-        <h3 className="font-semibold font-montserrat text-lg">Entrega</h3>
+    <section className="flex gap-4 flex-col w-full md:w-auto p-6">
+      <form className="flex flex-col p-8 bg-white border drop-shadow-sm w-full gap-4 rounded-xl">
+        <h3 className="font-semibold text-xl">Entrega 📦</h3>
         <RadioGroup label="Elige tu método de entrega">
-          <CustomRadio description="Recibe en la comodidad de tu hogar" value="delivery" isSelected>
+          <CustomRadio description="Recibe en tu dirección" value="delivery" isSelected>
             Recibe mañana (fecha)
           </CustomRadio>
           <CustomRadio description="Retíralo desde el (fecha)" value="pickup">
@@ -36,7 +36,7 @@ export const Delivery = () => {
       </form>
       <div className="flex justify-between p-5 mt-3 gap-5">
         <Link to="/checkout" className="cursor-pointer text-violet-500 underline">&larr;Volver atrás</Link>
-        <button  onClick={goToPay} className="cursor-pointer font-semibold rounded-xl text-white bg-gradient-to-r from-violet-500 to-fuchsia-500 grow max-w-[300px]  p-2 hover:scale-110" type="submit">Continuar con el pago</button>
+        <button  onClick={goToPay} className="cursor-pointer font-semibold rounded-xl text-white text-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 grow max-w-[250px]  p-2 hover:scale-110" type="submit">Continuar con el pago</button>
       </div>
     </section>
   )
@@ -61,7 +61,7 @@ export const CustomRadio = (props) => {
       {...getBaseProps()}
       className={cn(
         "group inline-flex items-center hover:opacity-70 active:opacity-50 justify-between flex-row-reverse tap-highlight-transparent",
-        "min-w-[300px] mx-auto cursor-pointer border-2 border-default rounded-lg gap-4 p-4",
+        "min-w-[200px] mx-auto cursor-pointer border-2 border-default rounded-lg gap-4 p-4",
         "data-[selected=true]:border-primary",
       )}
     >

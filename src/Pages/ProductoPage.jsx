@@ -192,14 +192,14 @@ export const ProductoPage = () => {
                   <div className="bg-slate-100 rounded-3xl  flex justify-between w-full sm:w-36 items-center">
                     <button
                       onClick={decrementar}
-                      className="bg-slate-100 hover:bg-indigo-600 hover:text-white hover:font-bold rounded-full p-1 w-12 text-2xl text-center align-middle pb-2"
+                      className="bg-slate-100 hover:bg-violet-600 hover:text-white hover:font-bold rounded-full p-1 w-12 text-2xl text-center align-middle pb-2"
                     >
                       -
                     </button>
                     <span className="p-2 font-bold">{thisItem.cantidad}</span>
                     <button
                       onClick={incrementar}
-                      className="bg-slate-100 hover:bg-indigo-600 hover:text-white hover:font-bold  rounded-full p-1 w-12 text-2xl text-center align-middle pb-2"
+                      className="bg-slate-100 hover:bg-violet-600 hover:text-white hover:font-bold  rounded-full p-1 w-12 text-2xl text-center align-middle pb-2"
                     >
                       +
                     </button>

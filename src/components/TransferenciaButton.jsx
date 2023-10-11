@@ -2,22 +2,10 @@
 
 export const TransferenciaButton = () => {
   return (
-    // <form className="p-6 bg-violet-300 border-2 rounded-lg">
-    //     <div>
-    //         <h1>Transferencia</h1>
-    //         <ul>
-    //             <li>Nombre</li>
-    //             <li>Rut empresa:</li>
-    //             <li>Banco</li>
-    //             <li>Número de cuenta</li>
-    //             <li>Enviar comprobante a:</li>
-    //         </ul>
-    //     </div>
-    // </form>
-    <div className="w-[450px] mx-auto mt-4">
+    <div className="min-w-[200px] mx-auto mt-4">
 <h3 className="font-semibold text-center text-lg">Datos de transferencia bancaria</h3>
 
-    <table className="w-full rounded-xl bg-violet-200/50">
+    <table className="w-full rounded-xl bg-violet-200/50 text-sm">
   <tbody >
     <tr >
       <td className="pl-4 ">Nombre empresa</td>
@@ -41,8 +29,8 @@ export const TransferenciaButton = () => {
       <td>123456789</td>
     </tr>
     <tr>
-      <td className="pl-4 ">Envío de comprobante</td>
-      <td>contacto@brightbooks.cl</td>
+      <td className="pl-4 pr-4">Envío de comprobante</td>
+      <td className="pr-4">contacto@brightbooks.cl</td>
     </tr>
   </tbody>
 </table>

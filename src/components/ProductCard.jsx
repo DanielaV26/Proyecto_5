@@ -5,6 +5,8 @@ import { useContext, useEffect } from "react"
 import { CartContext } from "../context/cart/cartContext"
 import { Link } from "react-router-dom"
 import { toast } from "react-toastify"
+import { Image } from "@nextui-org/react"
+import { agregarPuntoAlPrecio } from "../helpers/precioConPunto"
 
 
 export const ProductCard = ({ producto }) => {
@@ -64,44 +66,28 @@ export const ProductCard = ({ producto }) => {
   
   }, [state])
 
+  const precioFormateado = agregarPuntoAlPrecio(producto.valor)
+
   return (
     <>
 
 
       <div className=" w-full max-w-sm bg-white border mt-10 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
-          <img className="h-60 w-full object-cover  rounded-t-lg" src={producto.imagenes.principal} alt="product image" />
+          <Image isZoomed className="aspect-square h-96" src={producto.imagenes.principal} alt="product image" />
         </a>
-        <div className="px-5 pb-5">
+        <div className="px-2 pb-4">
           <a href="#">
-            <h5 className="text-3xl mt-2 font-cookie text-gray-900 dark:text-white">{producto.nombre}</h5>
+            <h5 className="text-3xl mt-2 font-cookie text-gray-900 dark:text-white ">{producto.nombre}</h5>
           </a>
-          <div className="flex items-center mt-2.5 mb-5">
-            <svg className="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-            </svg>
-            <svg className="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-            </svg>
-            <svg className="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-            </svg>
-            <svg className="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-            </svg>
-            <svg className="w-4 h-4 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-            </svg>
-
-          </div>
-          <div className="flex items-center justify-between">
-            <span className="text-3xl font-bold font-mooli text-gray-900 dark:text-white">${producto.valor}</span>
+          <div className="flex items-center justify-evenly pt-2">
+            <span className="text-xl font-mooli text-gray-900 dark:text-white">${precioFormateado}</span>
             {
               (isInCart)
-                ? <div className="bg-slate-100 rounded-3xl mt-8 flex justify-between w-full sm:w-36 items-center font-mooli"><button onClick={decrementar} className="bg-slate-100 hover:bg-indigo-600 hover:text-white hover:font-bold rounded-full p-1 w-12 text-2xl text-center align-middle pb-2">-</button><span className="p-2 font-bold">{thisItem.cantidad}</span><button onClick={incrementar} className="bg-slate-100 hover:bg-indigo-600 hover:text-white hover:font-bold  rounded-full p-1 w-12 text-2xl text-center align-middle pb-2">+</button></div>
-                : <button onClick={addCart} className="text-white font-mooli bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Agregar</button>
+                ? <div className="bg-slate-100 rounded-3xl mt-1 flex justify-between w-full sm:w-24 items-center font-mooli"><button onClick={decrementar} className="bg-slate-100 hover:bg-violet-600 hover:text-white hover:font-bold rounded-full p-1 w-12 text-xl text-center align-middle pb-2">-</button><span className="p-2 font-bold">{thisItem.cantidad}</span><button onClick={incrementar} className="bg-slate-100 hover:bg-violet-600 hover:text-white hover:font-bold  rounded-full p-1 w-12 text-xl text-center align-middle pb-2">+</button></div>
+                : <button onClick={addCart} className="text-white font-mooli bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hover:scale-110">Agregar</button>
             }
-            <Link to={`/producto/${producto._id}`} className="text-white font-mooli bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ">Ver más</Link>
+            <Link to={`/producto/${producto._id}`} className="text-white font-mooli bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hover:scale-110">Ver más</Link>
 
 
           </div>

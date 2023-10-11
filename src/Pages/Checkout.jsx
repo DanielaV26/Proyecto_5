@@ -5,6 +5,7 @@ import { CartContext } from "../context/cart/cartContext"
 import { PaymentProvider } from "../context/payment/PaymentProvider"
 import { CartItem } from "../components/CartItem"
 import { Outlet } from "react-router-dom"
+import { agregarPuntoAlPrecio } from "../helpers/precioConPunto"
 
 // TE ODIO LIVESHARE
 // PD: NO FUI YO
@@ -21,6 +22,8 @@ export const Checkout = () => {
   }, 0  /* 0 es el valor inicial que tiene el acumulador */
   )
 
+  const precioFormateado = agregarPuntoAlPrecio(subtotal)
+
   return (
 
     <PaymentProvider>
@@ -32,11 +35,11 @@ export const Checkout = () => {
           <Outlet />
         </div>
 
-        <section className="flex flex-col gap-4 w-full md:w-auto">
+        <section className="flex flex-col gap-4 w-full md:w-auto p-6">
           <article className="bg-white rounded-xl border drop-shadow-sm p-4 flex flex-col gap-2">
             <div className="flex items-center">
               <CartSvg />
-              <h3 className="text-lg font-semibold">Tu carro ({cantidadDeProductos}) <a className=" underline cursor-pointer text-violet-500 font-normal">Editar</a></h3>
+              <h3 className="text-lg font-semibold">Tu carro ({cantidadDeProductos})</h3>
             </div>
             <hr />
             {state.cartItems.map((item, index) => (
@@ -52,7 +55,7 @@ export const Checkout = () => {
             <hr />
             <div className="flex flex-row justify-between">
               <p>Costo de tus productos:</p>
-              <span>${subtotal}</span>
+              <span>${precioFormateado}</span>
             </div>
             <hr />
             <div className="flex flex-row justify-between">
@@ -62,7 +65,7 @@ export const Checkout = () => {
             <hr />
             <div className="font-semibold flex flex-row justify-between">
               <p>Total</p>
-              <span>${subtotal}</span>
+              <span>${precioFormateado}</span>
 
             </div>
           </article>
