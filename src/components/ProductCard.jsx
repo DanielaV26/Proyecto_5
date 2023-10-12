@@ -3,7 +3,7 @@
 import { useContext, useEffect } from "react"
 
 import { CartContext } from "../context/cart/cartContext"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import { Image } from "@nextui-org/react"
 import { agregarPuntoAlPrecio } from "../helpers/precioConPunto"
@@ -29,6 +29,8 @@ export const ProductCard = ({ producto }) => {
       payload: newQty /* el paquete */
     })
   }
+
+  const navigate = useNavigate()
 
   const decrementar = () => {
     if (thisItem.cantidad <= 1) {
@@ -73,9 +75,9 @@ export const ProductCard = ({ producto }) => {
 
 
       <div className=" w-full max-w-sm bg-white border mt-10 border-gray-200 rounded-2xl shadow dark:bg-gray-800 dark:border-gray-700">
-        <a href="#">
-          <Image isZoomed className="aspect-square h-96" src={producto.imagenes.principal} alt="product image" />
-        </a>
+        <div onClick={()=>navigate(`/producto/${producto._id}`)}>
+          <Image  isZoomed className="aspect-square h-96 cursor-pointer" src={producto.imagenes.principal} alt="product image" />
+        </div>
         <div className="px-2 pb-4">
           <a href="#">
             <h5 className="text-3xl mt-2 font-cookie text-gray-900 dark:text-white ">{producto.nombre}</h5>
