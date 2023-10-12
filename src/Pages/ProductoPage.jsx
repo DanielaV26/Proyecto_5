@@ -158,7 +158,7 @@ export const ProductoPage = () => {
         <div className=" w-full flex flex-col  lg:flex-row ">
           {/* <!-- Image gallery --> */}
           <div className=" mx-auto mt-6 w-full sm:px-6  lg:max-w-7xl lg:gap-x-8 lg:px-8 lg:w-1/2">
-            <div className=" bg-pink-400 w-full  rounded-lg">
+            <div className="w-full  rounded-lg p-4">
               <img
                 src={producto?.imagenes?.principal}
                 alt={producto?.nombre}
@@ -170,7 +170,7 @@ export const ProductoPage = () => {
           {/* <!-- Product info --> */}
           <div className="mx-auto max-w-2xl px-4 pb-16 pt-5 sm:px-6 lg:max-w-7xl lg:gap-x-8 lg:px-8 lg:pb-24 flex flex-col lg:w-1/2 gap-5">
             <div className=" flex flex-col justify-start w-full lg:pr-8 ">
-              <h1 className="text-4xl font-bold  font-mooli text-gray-900 sm:text-3xl ">
+              <h1 className="text-4xl font-bold  font-mooli text-gray-900 sm:text-3xl pt-6">
                 {producto?.nombre}
               </h1>
               <button onClick={cambiaFavorites} className="flex items-center mt-3 ">
@@ -181,7 +181,7 @@ export const ProductoPage = () => {
             {/* <!-- Options --> */}
             <div className="mt-4 lg:row-span-3 lg:mt-0">
               <h2 className="sr-only">Product information</h2>
-              <p className="text-4xl mb-4 text-gray-900 font-mooli">
+              <p className="text-2xl mb-4 text-gray-900 font-mooli">
                 ${precioFormateado}
               </p>
               {/* <!-- Reviews --> */}
@@ -228,7 +228,7 @@ export const ProductoPage = () => {
                 <h3 className="sr-only">Description</h3>
 
                 <div className="space-y-6">
-                  <p className=" text-gray-900 text-xl whitespace-pre-wrap">
+                  <p className=" text-gray-900 text-base whitespace-pre-wrap">
                     {
                       (producto?.descripcion !== "")
                         ? producto.descripcion
