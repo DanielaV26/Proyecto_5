@@ -26,17 +26,17 @@ export const Delivery = () => {
       <form className="flex flex-col p-8 bg-white border drop-shadow-sm w-full gap-4 rounded-xl">
         <h3 className="font-semibold text-xl">Entrega 📦</h3>
         <RadioGroup label="Elige tu método de entrega">
-          <CustomRadio description="Recibe en tu dirección" value="delivery" isSelected>
-            Recibe mañana (fecha)
+          <CustomRadio description="Por $4.990" value="delivery" isSelected>
+            Recibe mañana
           </CustomRadio>
-          <CustomRadio description="Retíralo desde el (fecha)" value="pickup">
+          <CustomRadio description="GRATIS" value="pickup">
             Retira en tienda
           </CustomRadio>
         </RadioGroup>
       </form>
       <div className="flex justify-between p-5 mt-3 gap-5">
         <Link to="/checkout" className="cursor-pointer text-violet-500 underline">&larr;Volver atrás</Link>
-        <button  onClick={goToPay} className="cursor-pointer font-semibold rounded-xl text-white text-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 grow max-w-[250px]  p-2 hover:scale-110" type="submit">Continuar con el pago</button>
+        <button  onClick={goToPay} className="cursor-pointer font-semibold rounded-xl text-white text-lg bg-gradient-to-r from-violet-500 to-fuchsia-500 grow max-w-[250px]  p-2 hover:scale-110" type="submit">Continuar con el pago</button>
       </div>
     </section>
   )
