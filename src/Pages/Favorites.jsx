@@ -32,7 +32,7 @@ console.log(error)
 return (
     <>
       <h2>Mis favoritos</h2>
-      <div className="flex flex-row justify-center gap-3 w-full ">
+      <div className="flex flex-wrap gap-8 w-full ">
         {obtenerFavoritos?.map((producto) => (
     <ProductCard key={producto._id} producto={producto} />
         ))}

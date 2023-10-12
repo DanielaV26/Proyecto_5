@@ -21,7 +21,7 @@ import { regionesData } from "../helpers/regiones";
 import { toast } from 'react-toastify';
 import { UserLoginSvg } from "./UserLoginSvg.jsx";
 
-import { PaymentContext } from "../context/payment/PaymentContext"
+import { PaymentContext } from "../context/payment/paymentContext"
 
 export const SinRegistroModal = () => {
     const initialWithoutRegisterForm = {
