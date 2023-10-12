@@ -42,7 +42,7 @@ useEffect(() => {
             </DropdownItem>
             <DropdownItem as={Link} to="/profile" key="settings">Mi perfil</DropdownItem>
             <DropdownItem as={Link} to="/favorites" key="team_settings">Mis favoritos</DropdownItem>
-            <DropdownItem onClick={logOut} key="logout" color="danger">
+            <DropdownItem onPress={logOut} key="logout" color="danger">
               Cerrar sesión
             </DropdownItem>
           </DropdownMenu>

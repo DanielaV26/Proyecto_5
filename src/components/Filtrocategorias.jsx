@@ -60,7 +60,7 @@ export const Filtrocategorias = () => {
   ];
   return (
     <>
-    <div className=" -mt-40 lg:-mt-10 ">
+
       <div
 id="productosId"
         className="flex  items-center justify-center  flex-wrap font-mooli " 
@@ -136,7 +136,6 @@ id="productosId"
             // Este es el componente  que creamos (tarjeta producto) le pasamos las props que vienen desde la base de datos.
             <ProductCard key={producto._id} producto={producto} />
           ))}
-      </div>
       </div>
     </>
   );
