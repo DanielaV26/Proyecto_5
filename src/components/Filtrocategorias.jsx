@@ -63,7 +63,7 @@ export const Filtrocategorias = () => {
 
       <div
 id="productosId"
-        className="flex  items-center justify-center  flex-wrap font-mooli " 
+        className="flex  items-center justify-center  flex-wrap font-mooli xl:mt-5" 
       >
         <button
           type="button"
