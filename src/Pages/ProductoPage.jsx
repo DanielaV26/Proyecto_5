@@ -154,15 +154,15 @@ export const ProductoPage = () => {
 
   return (
     <>
-      <div className="w-full">
-        <div className="pt- w-full flex flex-col lg:flex-row">
+      <div className="w-full flex justify-center items-center">
+        <div className=" w-full flex flex-col  lg:flex-row ">
           {/* <!-- Image gallery --> */}
-          <div className="mx-auto mt-6 w-full sm:px-6  lg:max-w-7xl lg:gap-x-8 lg:px-8 lg:w-1/2">
-            <div className="w-full rounded-lg">
+          <div className=" mx-auto mt-6 w-full sm:px-6  lg:max-w-7xl lg:gap-x-8 lg:px-8 lg:w-1/2">
+            <div className=" bg-pink-400 w-full  rounded-lg">
               <img
                 src={producto?.imagenes?.principal}
                 alt={producto?.nombre}
-                className="w-full rounded-xl object-cover object-center "
+                className="w-full h-full flex  rounded-xl object-cover object-center  "
               />
             </div>
           </div>

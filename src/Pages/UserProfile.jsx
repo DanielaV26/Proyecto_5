@@ -62,17 +62,17 @@ try {
   return (
     <>
 
-      <h1 className="lg:h-14 mt-16  text-5xl font-cookie mx-auto bg-gradient-to-t from-violet-600 to-yellow-200 text-transparent bg-clip-text pl-16 text-center">Configuración de perfil </h1>
+      <h1 className="lg:h-14 mt-16  text-4xl font-cookie mx-auto bg-gradient-to-t from-violet-600 to-yellow-200 text-transparent bg-clip-text text-center">Configuración de perfil </h1>
       <div className="flex flex-col gap-10 mt-12 lg:flex-row  ">
         {/* {JSON.stringify(state)} */}
-        <div className="w-32 lg:w-1/4 flex flex-col items-center justify-center ">
+        <div className="w-36 lg:mb-14 ml- lg:w-1/4 flex flex-col items-center justify-center ml-40">
           <img src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1696872936/Captura_de_pantalla_2023-10-09_143340_qknmyk.png" alt="" />
           <h2>{usuario?.name}</h2>
           <p>{usuario?.email}</p>
           <button className="bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full w-16 mb-4 mt-2 text-base font-medium text-white " type=""> Editar</button>
         </div>
 
-        <div className="w-full ">
+        <div className="  w-auto p-3 lg:w-full ">
 
           <form >
             <div className="relative z-0 w-full mb-6 group ">

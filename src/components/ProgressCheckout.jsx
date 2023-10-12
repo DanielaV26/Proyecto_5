@@ -7,7 +7,7 @@ export const ProgressCheckout = () => {
   return (
     <header className="flex justify-around w-full transition">
 
-      <div className="flex flex-col justify-center items-center transition">
+      <div className="flex flex-col justify-center items-center transition mt-9 lg:mt-28 ">
         <span
           className={`${
             paymentState.step === 1 ? "bg-fuchsia-500" : "bg-violet-500"
@@ -20,7 +20,7 @@ export const ProgressCheckout = () => {
         </p>
       </div>
 
-      <div className="flex flex-col justify-center items-center transition">
+      <div className="flex flex-col justify-center items-center transition mt-9 lg:mt-28">
         <span
           className={`${
             paymentState.step === 2
@@ -37,7 +37,7 @@ export const ProgressCheckout = () => {
         </p>
       </div>
 
-      <div className="flex flex-col justify-center items-center transition">
+      <div className="flex flex-col justify-center items-center transition mt-9 lg:mt-28">
         <span
           className={`${
             paymentState.step === 3 ? "bg-fuchsia-500" : "bg-gray-400"
