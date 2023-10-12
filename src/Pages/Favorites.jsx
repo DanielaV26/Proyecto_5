@@ -31,8 +31,13 @@ console.log(error)
     
 return (
     <>
+<<<<<<< HEAD
+      <h2>Mis favoritos</h2>
+      <div className="flex flex-wrap gap-8 w-full ">
+=======
       <h2 className="text-6xl h- lg:h-16 text-center font-cookie mx-auto bg-gradient-to-t from-violet-600 to-yellow-200 text-transparent bg-clip-text mt-8 ">Mis favoritos</h2>
       <div className="flex flex-wrap lg:flex-row justify-center items-center gap-3 w-full  ">
+>>>>>>> 5a99732d1acfb7dc226c0ded778acce847fa8ce6
         {obtenerFavoritos?.map((producto) => (
     <ProductCard key={producto._id} producto={producto} />
         ))}
