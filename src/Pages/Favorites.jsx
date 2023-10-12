@@ -1,6 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { ProductCard } from "../components/ProductCard";
+import { Link } from "react-router-dom";
+import { DeleteFav } from "../components/DeleteFav";
+
 
 export const Favorites = () => {
 
@@ -23,6 +26,10 @@ export const Favorites = () => {
 console.log(error)
 }   
     }
+    const removeAllFavorites = () => {
+      localStorage.removeItem("favorites")
+      setObtenerFavoritos([])
+    }
 
     useEffect(() => {
       getProduct()
@@ -35,13 +42,23 @@ return (
       <div className="flex flex-wrap lg:flex-row justify-center items-center gap-3 w-full  ">
         {obtenerFavoritos.length === 0? 
         (<div className="flex flex-col justify-center items-center">
-          <img className="lg:w-40 w-36 mt-20" src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1697129491/corazon_roto_gris_lfp6s3.png" alt="" />
-          <p className="mt-10 font-mooli text-xl p-5 lg:text-2xl text-center text-violet-400 ">Aún no tienes ningún producto en favoritos</p>
+          <img className="lg:w-auto w-48 lg:mt-12 mt-10 " src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1697145459/55364014-coraz%C3%BDn-roto-est%C3%BD-llorando-s%C3%BDmbolo-del-amor-sentado-en-un-charco-de-l%C3%BDgrimas-amor-no-correspondido-transformed-removebg-preview_mij4kh.png" alt="" />
+          <p className="font-mooli text-xl p-5 lg:text-2xl text-center text-violet-400 ">Aún no tienes ningún producto en favoritos</p>
+          <Link to="/" className="flex w-auto items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-violet-500 to-fuchsia-500 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Volver</Link>
+         
+          
           </div>):
     
         obtenerFavoritos?.map((producto) => (
     <ProductCard key={producto._id} producto={producto} />
         ))  }
+     <button onClick={removeAllFavorites}>
+     <DeleteFav className="w-20 cursor-pointer"/>
+     </button>
+    
+          
+         
+         
       </div>
     </>
 

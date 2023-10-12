@@ -3,8 +3,9 @@ import { useContext } from "react"
 import { CartContext } from "../context/cart/cartContext"
 import { CartItem } from "./CartItem"
 import { agregarPuntoAlPrecio } from "../helpers/precioConPunto"
-import { DeleteSvg } from "./DeleteSvg"
-import {useNavigate} from "react-router-dom"
+
+import { useNavigate } from "react-router-dom"
+import { DeleteFav } from "./DeleteFav"
 
 
 export const CartModal = () => {
@@ -28,13 +29,13 @@ export const CartModal = () => {
             type: 'EMPTY'
         });
     }
-    
-     const checkout = () => {
-         navegar("/checkout")
-         dispatch ({
+
+    const checkout = () => {
+        navegar("/checkout")
+        dispatch({
             type: 'CLOSE'
-         })
-         }
+        })
+    }
 
 
 
@@ -103,7 +104,7 @@ export const CartModal = () => {
                                     </div>
                                     <div onClick={removeAllCart} className="font-mooli ml-auto flex items-end text-violet-500 cursor-pointer pb-3 pr-3">
                                         <span className="text-sm text-gray-500">Vaciar carrito</span>
-                                    <DeleteSvg className="ml-auto w-8" />
+                                        <DeleteFav className="ml-auto w-8" />
                                     </div>
                                     <div className="border-t border-gray-200 px-4 py-6 sm:px-6 font-mooli">
                                         <div className="flex justify-between text-lg font-semibold text-gray-900">
@@ -111,8 +112,8 @@ export const CartModal = () => {
                                             <p>${precioFormateado}</p>
                                         </div>
                                         <p className="mt-0.5 text-sm text-gray-500">Envío e impuestos calculados al finalizar la compra.</p>
-                                        <div  className="mt-6">
-                                            <button onClick={checkout} disabled={state.cartItems.length<= 0} className="flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-violet-500 to-fuchsia-500 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 disabled:from-gray-500 disabled:to-gray-600 mx-auto hover:scale-110">Continuar con mi compra</button>
+                                        <div className="mt-6">
+                                            <button onClick={checkout} disabled={state.cartItems.length <= 0} className="flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-violet-500 to-fuchsia-500 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 disabled:from-gray-500 disabled:to-gray-600 mx-auto hover:scale-110">Continuar con mi compra</button>
                                         </div>
                                         <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                                             <p>
