@@ -5,7 +5,7 @@ import { Carousel } from 'flowbite-react';
 export const CarruselFlow = () => {
   return (
 
-    <Carousel className='lg:mt-36 ' style={{ top: '-100px' }}>
+    <Carousel className='mt-0 mb-24 relative '>
       <img
         alt="..."
         src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1696432818/Este_mes_sum%C3%A9rgete_en_un_oc%C3%A9ano_de_historias._Tu_pr%C3%B3xima_aventura_te_espera_aqu%C3%AD._kzjkfk.jpg"
