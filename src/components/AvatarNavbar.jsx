@@ -2,7 +2,7 @@ import {Avatar, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger} from "@ne
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/user/userContext";
 import jwt_decode from "jwt-decode"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export const AvatarNavbar = () => {
@@ -13,6 +13,7 @@ export const AvatarNavbar = () => {
     dispatch({type: 'LOGOUT'})
     toast("Cerraste tu sesión")
   }
+  const navigate = useNavigate()
 
 useEffect(() => {
   if(state.token) {
@@ -40,8 +41,8 @@ useEffect(() => {
               <p className="font-semibold">Sesión iniciada como</p>
               <p className="font-semibold">{usuario?.email}</p>
             </DropdownItem>
-            <DropdownItem as={Link} to="/profile" key="settings">Mi perfil</DropdownItem>
-            <DropdownItem as={Link} to="/favorites" key="team_settings">Mis favoritos</DropdownItem>
+            <DropdownItem onPress={() => navigate("/profile")} key="settings">Mi perfil</DropdownItem>
+            <DropdownItem onPress={()=>navigate("/favorites")} key="team_settings">Mis favoritos</DropdownItem>
             <DropdownItem onPress={logOut} key="logout" color="danger">
               Cerrar sesión
             </DropdownItem>
