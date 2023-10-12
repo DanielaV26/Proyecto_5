@@ -65,7 +65,7 @@ try {
       <h1 className="lg:h-14 mt-16  text-4xl font-cookie mx-auto bg-gradient-to-t from-violet-600 to-yellow-200 text-transparent bg-clip-text text-center">Configuración de perfil </h1>
       <div className="flex flex-col gap-10 mt-12 lg:flex-row  ">
         {/* {JSON.stringify(state)} */}
-        <div className="w-36 lg:mb-14 ml- lg:w-1/4 flex flex-col items-center justify-center ml-40">
+        <div className="w-36 lg:mb-14  lg:w-1/4 flex flex-col items-center justify-center ml-28">
           <img src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1696872936/Captura_de_pantalla_2023-10-09_143340_qknmyk.png" alt="" />
           <h2>{usuario?.name}</h2>
           <p>{usuario?.email}</p>
@@ -101,7 +101,7 @@ try {
             <div className="grid md:grid-cols-2 md:gap-6">
               <div className="relative z-0 w-full mb-6 group">
                 <input onChange={onChangeProfileForm}  type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" disabled={!editForm}  value={usuario?.identification} name="identification" id="floating_phone" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                <label htmlFor="floating_phone" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">N° de identification</label>
+                <label htmlFor="floating_phone" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">N° de identificación</label>
                 
 
               </div>
