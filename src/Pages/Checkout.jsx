@@ -1,11 +1,11 @@
 import { CartSvg } from "../components/CartSvg"
 import { ProgressCheckout } from "../components/ProgressCheckout"
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import { CartContext } from "../context/cart/cartContext"
-import { PaymentProvider } from "../context/payment/PaymentProvider"
 import { CartItem } from "../components/CartItem"
 import { Outlet } from "react-router-dom"
 import { agregarPuntoAlPrecio } from "../helpers/precioConPunto"
+import { PaymentContext } from "../context/payment/paymentContext"
 
 // TE ODIO LIVESHARE
 // PD: NO FUI YO
@@ -13,20 +13,49 @@ import { agregarPuntoAlPrecio } from "../helpers/precioConPunto"
 export const Checkout = () => {
 
   const [state, /* dispatch */] = useContext(CartContext);
+  const [paymentState, ] = useContext(PaymentContext)
+  const [valorEnvio, setValorEnvio] = useState(0)
+  const [precioFormateado, setPrecioFormateado] = useState(0)
+  console.log(paymentState)
+
   const subtotal = state.cartItems.reduce((acumulador, valorActual) => { /* la funcion reduce toma dos argumentos (acumulador y valor actual) acuculador es la funcion que reduce y valor actual la que da el valor inical. En cada iteracion el acumulador  va tomando el valor que acumula */
+  
     return acumulador + (valorActual.valor * valorActual.cantidad);
   }, 0);
+
+  const subtotalConPunto = agregarPuntoAlPrecio(subtotal)
 
   const cantidadDeProductos = state.cartItems.reduce((acumulador, valorActual) => { /* En cada iteracion el acumulador va acumulando el valor */
     return acumulador + valorActual.cantidad
   }, 0  /* 0 es el valor inicial que tiene el acumulador */
   )
 
-  const precioFormateado = agregarPuntoAlPrecio(subtotal)
+  const establecerValorEnvio = () =>{
+    if(paymentState.delivery === "delivery"){
+      console.log(paymentState)
+    setValorEnvio(4990)
+    }
+    else {
+    setValorEnvio(0)
+    }
+  }
+  useEffect(() => {
+const formatearPrecio  = () =>{
+  establecerValorEnvio()
+  const total = subtotal + valorEnvio
+  setPrecioFormateado(agregarPuntoAlPrecio(total))
+  console.log(precioFormateado)
+  console.log(valorEnvio)
+}
+formatearPrecio()
+  
+  }, [paymentState, state])
+
+ 
 
   return (
 
-    <PaymentProvider>
+    <>
      <ProgressCheckout/>
 
       <main className="mt-20 flex lg:flex-row  flex-col justify-center gap-5 items-start">
@@ -55,12 +84,15 @@ export const Checkout = () => {
             <hr />
             <div className="flex flex-row justify-between">
               <p>Costo de tus productos:</p>
-              <span>${precioFormateado}</span>
+              <span>${subtotalConPunto}</span>
             </div>
             <hr />
             <div className="flex flex-row justify-between">
-              <p>Costo de retiro en tienda:</p>
-              <span className=" font-semibold  rounded-xl text-sm uppercase bg-green-100 text-green-500 p-1">gratis</span>
+              {
+                (paymentState.delivery === "delivery") ? (<><p>Costo de envío:</p>
+                <span className=" font-semibold  rounded-xl text-sm uppercase bg-green-100 text-green-500 p-1">$4.990</span></>) : (<><p>Costo de retiro en tienda:</p>
+                <span className=" font-semibold  rounded-xl text-sm uppercase bg-green-100 text-green-500 p-1">gratis</span></>)
+              }
             </div>
             <hr />
             <div className="font-semibold flex flex-row justify-between">
@@ -73,7 +105,7 @@ export const Checkout = () => {
 
       </main>
       <hr className="my-8" />
-    </PaymentProvider>
+    </>
   )
 }
 
