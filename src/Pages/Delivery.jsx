@@ -38,7 +38,7 @@ export const Delivery = () => {
           label="Elige tu método de entrega"
         >
           <CustomRadio description="Por $4.990" value="delivery" isSelected>
-            Recibe mañana
+            Envío a domicilio
           </CustomRadio>
           <CustomRadio description="GRATIS" value="pickup">
             Retira en tienda

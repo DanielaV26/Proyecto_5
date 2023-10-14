@@ -90,8 +90,8 @@ formatearPrecio()
             <div className="flex flex-row justify-between">
               {
                 (paymentState.delivery === "delivery") ? (<><p>Costo de envío:</p>
-                <span className=" font-semibold  rounded-xl text-sm uppercase bg-green-100 text-green-500 p-1">$4.990</span></>) : (<><p>Costo de retiro en tienda:</p>
-                <span className=" font-semibold  rounded-xl text-sm uppercase bg-green-100 text-green-500 p-1">gratis</span></>)
+                <span className=" font-semibold  rounded-xl text-sm uppercase bg-violet-100 text-violet-500 p-1">$4.990</span></>) : (<><p>Costo de retiro en tienda:</p>
+                <span className=" font-semibold  rounded-xl text-sm uppercase bg-violet-100 text-violet-500 p-1">gratis</span></>)
               }
             </div>
             <hr />
