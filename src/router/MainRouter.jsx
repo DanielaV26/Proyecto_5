@@ -10,6 +10,7 @@ import { Favorites } from "../Pages/Favorites"
 import { UserProfile } from "../Pages/UserProfile"
 import { Payment } from "../Pages/Payment"
 import { PaymentSuccess } from "../Pages/PaymentSuccess"
+import { MainLayout } from "../Pages/MainLayout"
 
 
 
@@ -19,9 +20,10 @@ export const MainRouter = () => {
 
         <Routes>
             {/* EJEMPLO DE COMO VAN ESCRITAS LAS RUTAS */}
+            <Route element={<MainLayout/>} >
             <Route path="/" element={<Home />} />
             <Route path="/nosotros" element={<Nosotros />} />
-            <Route path="/payment-success" element={<PaymentSuccess />} />
+            
             <Route path="/productos" element={<Productos />} />
             <Route path="/producto/:id" element={<ProductoPage />} />
             <Route path="/favorites" element={<Favorites />}/>
@@ -31,7 +33,8 @@ export const MainRouter = () => {
                 <Route path="payment" element={<Payment/>} />
             </Route>
             <Route path="/profile" element={<UserProfile />} />
-
+            </Route>
+            <Route path="/payment-success" element={<PaymentSuccess />} />
 
             {/* ruta protegida */}
             {/* <Route element={<ProtectedRoutes isAllowed={user} />}>

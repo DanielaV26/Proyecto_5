@@ -24,5 +24,10 @@ export const paymentReducer = (state, action) => {
                     ...state,
                     totalvalue: action.payload
                 }
+                case 'SET ORDER':
+                    return{
+                        ...state,
+                        order: action.payload
+                    }
     }
 }

@@ -8,6 +8,7 @@ const initialState = {
     delivery: false,
     step:3,
     totalvalue:1,
+    order:null
 }
 
 export const PaymentProvider =({children}) => {

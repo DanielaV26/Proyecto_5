@@ -1,16 +1,27 @@
 
 import { PayPalButtons } from "@paypal/react-paypal-js"
+import { useContext } from "react"
+import { useNavigate } from "react-router-dom"
+import { PaymentContext } from "../context/payment/paymentContext"
 
 export const PaypalButton = ({ invoice, totalValue }) => {
-const approve = async (data, actions) => {
- try {
-const order = await actions.order?.capture()
+    const [state, dispatch] = useContext(PaymentContext)
+    const navigate = useNavigate()
+    const approve = async (data, actions) => {
+        try {
+            
+            const order = await actions.order?.capture()
+            navigate('/payment-success')
+            dispatch({
+                type: "SET ORDER",
+                payload: order
+            })
         }
-catch (error) {
-console.log(error)
+        catch (error) {
+            console.log(error)
         }
     }
-return (
+    return (
         < PayPalButtons
 
             createOrder={(data, actions) => {

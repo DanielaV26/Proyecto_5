@@ -5,7 +5,7 @@ import { MercadoPagoButton } from "../components/MercadoPagoButton";
 import { TransferenciaButton } from "../components/TransferenciaButton";
 import { PaymentContext } from "../context/payment/paymentContext";
 import { Link } from "react-router-dom";
-import { PayPalButton } from "../components/PayPalButton";
+import { PaypalButton } from "../components/PaypalButton";
 
 
 export const Payment = () => {
@@ -43,7 +43,7 @@ useEffect(() => {
             </div>
           </CustomRadio>
         </RadioGroup>
-        {(paymentMethod==="PayPal") && <PayPalButton invoice="hola" totalValue={paymentState.totalvalue} />}
+        {(paymentMethod==="PayPal") && <PaypalButton invoice="hola" totalValue={paymentState.totalvalue} />}
         {(paymentMethod==="MercadoPago") && <MercadoPagoButton/>}
         {(paymentMethod==="Transferencia") && <TransferenciaButton/>}
       </form>
