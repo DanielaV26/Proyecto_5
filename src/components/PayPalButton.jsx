@@ -22,23 +22,20 @@ export const PaypalButton = ({ invoice, totalValue }) => {
         }
     }
     return (
+        <div className="flex justify-center">
         < PayPalButtons
-
             createOrder={(data, actions) => {
                 return actions.order.create({ purchase_units: [{ description: invoice, amount: { value: totalValue } }] })
             }}
-
             onApprove={approve}
-
             onError={(error) => {
                 console.error(error)
                 alert('Error al procesar el pago')
             }}
-
             onCancel={(data) => {
                 alert('Pago cancelado por el usuario')
             }}
-
         />
+        </div>
     )
 }
