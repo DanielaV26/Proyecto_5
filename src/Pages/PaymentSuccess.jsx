@@ -10,7 +10,7 @@ export const PaymentSuccess = () => {
   return (
     <div className="flex flex-col p-8 justify-center items-center">
      
-    <div className="xl:mt-36 w-full">
+    <div className="xl:mt-36">
     <h2 className="uppercase font-bold text-center text-3xl font-mooli bg-gradient-to-t from-violet-600 to-yellow-200 text-transparent bg-clip-text">¡gracias por tu compra!</h2>
     </div>
     <div>
