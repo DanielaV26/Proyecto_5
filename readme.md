@@ -4,7 +4,7 @@ Aplicación web de una tienda de velas literarias y accesorios.
 
 Tienda [Brightbooks](https://elegant-bubblegum-83ca7d.netlify.app/)  :candle:  :books:  
 
-![Brightbooks](https://res.cloudinary.com/dhijxrbsk/image/upload/v1695941939/CapturaProyecto_qi4aaf.png)  
+![Brightbooks](https://res.cloudinary.com/dhijxrbsk/image/upload/v1697282937/Brightbooks_xqtikc.png)  
 
 ## Quinto proyecto Bootcamp UDD
 

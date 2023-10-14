@@ -27,10 +27,10 @@ export  function LoginModal({isOpen, onOpenChange}) {
   const onLoginGoogle = () => {
     signInWithPopup(auth, googleProvider).then(({user})=>{
       console.log(user)
-      alert("Inicio de sesión exitoso")
+      toast("Inicio de sesión exitoso")
     }).catch((error)=>{
       console.log(error)
-    alert("No se pudo iniciar sesión")
+    toast("No se pudo iniciar sesión")
   })
   }
 
