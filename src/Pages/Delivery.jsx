@@ -1,15 +1,14 @@
 import { RadioGroup, useRadio, VisuallyHidden, cn } from "@nextui-org/react";
-import { CartContext } from "../context/cart/cartContext";
 import { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { PaymentContext } from "../context/payment/paymentContext";
 
 export const Delivery = () => {
-  const [ ,dispatch] = useContext(CartContext);
   const [paymentState, paymentDispatch] = useContext(PaymentContext);
   const navigate = useNavigate();
   const goToPay = (e) => {
     e.preventDefault();
+  
     navigate("/checkout/payment");
   };
 
@@ -22,7 +21,14 @@ export const Delivery = () => {
     console.log(paymentState)
   };
 
+const existUser =() =>{
+  if(Object.keys(paymentState.personalData).length === 0){
+navigate('/checkout')
+  }
+}
+
   useEffect(() => {
+    existUser()
     paymentDispatch({
       type: "CHANGE STEP",
       payload: 2,
