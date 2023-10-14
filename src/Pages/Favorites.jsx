@@ -44,11 +44,12 @@ return (
         (<div className="flex flex-col justify-center items-center">
           <img className="lg:w-auto w-48 lg:mt-12 mt-10 " src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1697145459/55364014-coraz%C3%BDn-roto-est%C3%BD-llorando-s%C3%BDmbolo-del-amor-sentado-en-un-charco-de-l%C3%BDgrimas-amor-no-correspondido-transformed-removebg-preview_mij4kh.png" alt="" />
           <p className="font-mooli text-xl p-5 lg:text-2xl text-center text-violet-400 ">Aún no tienes ningún producto en favoritos</p>
+          <div className="">
           <Link to="/" className="flex w-auto items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-violet-500 to-fuchsia-500 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Volver</Link>
           <button onClick={removeAllFavorites}>
-          <DeleteFav className="w-20 cursor-pointer"/>
+          <DeleteFav className="w-14 cursor-pointer flex justify-center p-2 ml-6"/>
           </button>
-         
+         </div>
           
           </div>):
     
