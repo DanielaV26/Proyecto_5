@@ -10,11 +10,11 @@ export const PaymentSuccess = () => {
   return (
     <div className="flex flex-col p-8 justify-center items-center">
      
-    <div>
+    <div className="xl:mt-36 w-full">
     <h2 className="uppercase font-bold text-center text-3xl font-mooli bg-gradient-to-t from-violet-600 to-yellow-200 text-transparent bg-clip-text">¡gracias por tu compra!</h2>
     </div>
     <div>
-        <img className="w-96 p-4" src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1697252292/Dise%C3%B1o_sin_t%C3%ADtulo_2_xasxco.png" alt=""/>
+        <img className="w-96  p-4" src="https://res.cloudinary.com/dt7h6qci4/image/upload/v1697252292/Dise%C3%B1o_sin_t%C3%ADtulo_2_xasxco.png" alt=""/>
     </div>
          <div className="border p-2 bg-violet-200 rounded-xl min-w-[400px]">
          <h3 className="font-bold text-center font-mooli">Detalles de tu compra</h3>
