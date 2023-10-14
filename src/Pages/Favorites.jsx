@@ -46,9 +46,7 @@ return (
           <p className="font-mooli text-xl p-5 lg:text-2xl text-center text-violet-400 ">Aún no tienes ningún producto en favoritos</p>
           <div className="">
           <Link to="/" className="flex w-auto items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-violet-500 to-fuchsia-500 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Volver</Link>
-          <button onClick={removeAllFavorites}>
-          <DeleteFav className="w-14 cursor-pointer flex justify-center p-2 ml-6"/>
-          </button>
+         
          </div>
           
           </div>):
@@ -59,9 +57,12 @@ return (
      
     
           
-         
+     <button onClick={removeAllFavorites}>
+          <DeleteFav className="w-14 cursor-pointer flex justify-center p-2 ml-6"/>
+          </button>
          
       </div>
+      
     </>
 
 )
