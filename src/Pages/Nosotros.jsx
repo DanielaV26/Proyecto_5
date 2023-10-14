@@ -17,7 +17,7 @@ export const Nosotros = () => {
       </div>
 
       <div className="">
-        <h5 className="text-5xl lg:text-7xl font-cookie mx-auto bg-gradient-to-t from-violet-600 to-yellow-200 text-transparent bg-clip-text mt-8 text-center flex justify-start pl-28 mb-5 lg:pl-16">Acerca de nosotros</h5>
+        <h5 className="text-5xl lg:text-7xl font-cookie mx-auto bg-gradient-to-t from-violet-600 to-yellow-200 text-transparent bg-clip-text mt-8 text-center md:text-start md:ml-14">Acerca de nosotros</h5>
         <article className="mb-2 px-12 text-lg font-mooli text-gray-700 lg:text-left dark:text-gray-400 flex flex-col gap-2  text-center">
           <p >Creemos en los libros, nos apasionan y nos emocionan. Es por esto que nuestros productos utilizados en conjunto, crean una atmósfera cálida que brinda tranquilidad y bienestar en tus pasatiempos.</p>
           <p>Estamos convencidos de los beneficios del hábito de la lectura, y nos motiva a ser capaces de conectar cada día a nuevas lectoras y lectores con los libros que a ellos les interesan.</p>

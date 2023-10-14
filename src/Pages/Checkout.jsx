@@ -13,17 +13,21 @@ import { PaymentContext } from "../context/payment/paymentContext"
 export const Checkout = () => {
 
   const [state, /* dispatch */] = useContext(CartContext);
-  const [paymentState, ] = useContext(PaymentContext)
+  const [paymentState, paymentDispatch ] = useContext(PaymentContext)
+ 
   const [valorEnvio, setValorEnvio] = useState(0)
   const [precioFormateado, setPrecioFormateado] = useState(0)
-  console.log(paymentState)
+  const [subtotal, setSubtotal] = useState(0)
+  const [subTotalFormateado, setSubTotalFormateado] = useState(0)
 
-  const subtotal = state.cartItems.reduce((acumulador, valorActual) => { /* la funcion reduce toma dos argumentos (acumulador y valor actual) acuculador es la funcion que reduce y valor actual la que da el valor inical. En cada iteracion el acumulador  va tomando el valor que acumula */
+
+  const establecerSubTotal =() =>{
+    setSubtotal(state.cartItems.reduce((acumulador, valorActual) => { /* la funcion reduce toma dos argumentos (acumulador y valor actual) acuculador es la funcion que reduce y valor actual la que da el valor inical. En cada iteracion el acumulador  va tomando el valor que acumula */
   
     return acumulador + (valorActual.valor * valorActual.cantidad);
-  }, 0);
-
-  const subtotalConPunto = agregarPuntoAlPrecio(subtotal)
+  }, 0))
+  setSubTotalFormateado(agregarPuntoAlPrecio(subtotal))
+  }
 
   const cantidadDeProductos = state.cartItems.reduce((acumulador, valorActual) => { /* En cada iteracion el acumulador va acumulando el valor */
     return acumulador + valorActual.cantidad
@@ -33,24 +37,35 @@ export const Checkout = () => {
   const establecerValorEnvio = () =>{
     if(paymentState.delivery === "delivery"){
       console.log(paymentState)
-    setValorEnvio(4990)
+      setValorEnvio(4990)
     }
     else {
     setValorEnvio(0)
     }
   }
   useEffect(() => {
-const formatearPrecio  = () =>{
-  establecerValorEnvio()
-  const total = subtotal + valorEnvio
-  setPrecioFormateado(agregarPuntoAlPrecio(total))
-  console.log(precioFormateado)
-  console.log(valorEnvio)
-}
-formatearPrecio()
+    establecerSubTotal()
+    establecerValorEnvio()
+
   
   }, [paymentState, state])
 
+ useEffect(() => {
+  const formatearPrecio  = () =>{
+    const total = subtotal + valorEnvio
+    setPrecioFormateado(agregarPuntoAlPrecio(total))
+    paymentDispatch({
+      type:'SET CURRENCY',
+      payload: Math.floor(total/937)
+
+    })
+    console.log(precioFormateado)
+    console.log(valorEnvio)
+  }
+  formatearPrecio()
+ 
+ 
+ }, [valorEnvio, subtotal])
  
 
   return (
@@ -84,7 +99,7 @@ formatearPrecio()
             <hr />
             <div className="flex flex-row justify-between">
               <p>Costo de tus productos:</p>
-              <span>${subtotalConPunto}</span>
+              <span>${subTotalFormateado}</span>
             </div>
             <hr />
             <div className="flex flex-row justify-between">

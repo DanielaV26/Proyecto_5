@@ -9,6 +9,7 @@ import { Delivery } from "../Pages/Delivery"
 import { Favorites } from "../Pages/Favorites"
 import { UserProfile } from "../Pages/UserProfile"
 import { Payment } from "../Pages/Payment"
+import { PaymentSuccess } from "../Pages/PaymentSuccess"
 
 
 
@@ -20,6 +21,7 @@ export const MainRouter = () => {
             {/* EJEMPLO DE COMO VAN ESCRITAS LAS RUTAS */}
             <Route path="/" element={<Home />} />
             <Route path="/nosotros" element={<Nosotros />} />
+            <Route path="/payment-success" element={<PaymentSuccess />} />
             <Route path="/productos" element={<Productos />} />
             <Route path="/producto/:id" element={<ProductoPage />} />
             <Route path="/favorites" element={<Favorites />}/>

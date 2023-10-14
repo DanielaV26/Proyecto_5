@@ -18,5 +18,11 @@ export const paymentReducer = (state, action) => {
                 ...state,
                 step: action.payload
             }
+
+            case 'SET CURRENCY':
+                return{
+                    ...state,
+                    totalvalue: action.payload
+                }
     }
 }

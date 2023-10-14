@@ -1,14 +1,18 @@
 import { RadioGroup, useRadio, VisuallyHidden, cn } from "@nextui-org/react";
-import { PayPalButton } from "../components/PayPalButton";
+
 import { useContext, useEffect, useState } from "react";
 import { MercadoPagoButton } from "../components/MercadoPagoButton";
 import { TransferenciaButton } from "../components/TransferenciaButton";
 import { PaymentContext } from "../context/payment/paymentContext";
 import { Link } from "react-router-dom";
+import { PayPalButton } from "../components/PayPalButton";
+
 
 export const Payment = () => {
 const [paymentMethod, setPaymentMethod] = useState("")
 const [paymentState, paymentDispatch] = useContext(PaymentContext)
+
+
 
 useEffect(() => {
   paymentDispatch({
@@ -39,7 +43,7 @@ useEffect(() => {
             </div>
           </CustomRadio>
         </RadioGroup>
-        {(paymentMethod==="PayPal") && <PayPalButton/>}
+        {(paymentMethod==="PayPal") && <PayPalButton invoice="hola" totalValue={paymentState.totalvalue} />}
         {(paymentMethod==="MercadoPago") && <MercadoPagoButton/>}
         {(paymentMethod==="Transferencia") && <TransferenciaButton/>}
       </form>
