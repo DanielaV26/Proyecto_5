@@ -3,6 +3,7 @@ import { PayPalButtons } from "@paypal/react-paypal-js"
 import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { PaymentContext } from "../context/payment/paymentContext"
+import { toast } from "react-toastify"
 
 export const PaypalButton = ({ invoice, totalValue }) => {
     const [state, dispatch] = useContext(PaymentContext)
@@ -30,10 +31,10 @@ export const PaypalButton = ({ invoice, totalValue }) => {
             onApprove={approve}
             onError={(error) => {
                 console.error(error)
-                alert('Error al procesar el pago')
+                toast('Error al procesar el pago')
             }}
             onCancel={(data) => {
-                alert('Pago cancelado por el usuario')
+                toast('Pago cancelado por el usuario')
             }}
         />
         </div>

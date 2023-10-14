@@ -28,7 +28,7 @@ navigate('/checkout')
 }
 
   useEffect(() => {
-    existUser()
+    // existUser()
     paymentDispatch({
       type: "CHANGE STEP",
       payload: 2,
